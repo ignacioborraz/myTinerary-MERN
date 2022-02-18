@@ -1,0 +1,49 @@
+.carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    width: 100%;
+    background-color: darkcyan;
+}
+
+.cities {
+    width: 325px;
+}
+
+@media only screen and (min-width: 200px) and (max-width: 414px) {
+    .cities {
+        width: 190px;
+    }
+}
+@media only screen and (min-width: 414px) and (max-width: 514px) {
+    .cities {
+        width: 200px;
+    }
+}
+@media only screen and (min-width: 514px) and (max-width: 614px) {
+    .cities {
+        width: 250px;
+    }
+}
+@media only screen and (min-width: 614px) and (max-width: 714px) {
+    .cities {
+        width: 300px;
+    }
+}
+@media only screen and (min-width: 714px) and (max-width: 1014px) {
+    .cities {
+        width: 325px;
+    }
+    .carousel {
+        width: 710px;
+    }
+}
+@media only screen and (min-width: 1014px) {
+    .cities {
+        width: 375px;
+    }
+    .carousel {
+        width: 810px;
+    }
+}
