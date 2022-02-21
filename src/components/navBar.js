@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import {Link as LinkRouter} from "react-router-dom"
+import '../styles/home.css';
 
 const pages = ['Home', 'Cities', 'Logup', 'Login'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -36,69 +37,40 @@ const NavBar = () => {
   };
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-          >
-            LOGO
+    <AppBar position="sticky">
+      <Container maxWidth="xl" sx={{backgroundColor: 'rgb(33, 159, 148)'}}>
+        <Toolbar disableGutters sx={{display: 'flex' , justifyContent: 'center', alignContent: 'center'}}>
+          <Typography variant="h6" noWrap component="div" sx={{ mr: 2, display: { xs: 'none', md: 'flex' }}}>
+            <img src={process.env.PUBLIC_URL+'/img/whitelogo.png'} alt="whiteLogomyTinerary" className='logo' />
           </Typography>
-
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
+            <IconButton size="large" aria-label="account of current user" aria-controls="menu-appbar" aria-haspopup="true" onClick={handleOpenNavMenu} color="inherit">
               <MenuIcon />
             </IconButton>
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
+              anchorOrigin={{vertical: 'bottom',horizontal: 'left'}}
               keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
+              transformOrigin={{vertical: 'top',horizontal: 'left'}}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
+              sx={{display: { xs: 'block', md: 'none' }}}
             >
-              {pages.map((page,index) => (
-                <MenuItem key={index} onClick={handleCloseNavMenu}>
-                  <LinkRouter to={page}></LinkRouter> {/* (modificar con clase para sacar el text decoration, sx es de materialUI) */}
+              {pages.map((page) => (
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <LinkRouter to={page} key={page}>{page}</LinkRouter>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-          >
-            LOGO
+          <Typography variant="h6" noWrap component="div" className='titles' sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            MyTinerary
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <LinkRouter key={page} to={page}>
-                <Button
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: 'white', display: 'block' }}
-                >
+            {pages.map((page,index) => (
+              <LinkRouter to={page}>                
+                <Button key={index} onClick={handleCloseNavMenu} sx={{color: 'white', display: 'block'}} className='buttonIndex'>
                   {page}
                 </Button>
               </LinkRouter>
@@ -115,15 +87,9 @@ const NavBar = () => {
               sx={{ mt: '45px' }}
               id="menu-appbar"
               anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
+              anchorOrigin={{vertical: 'top',horizontal: 'right'}}
               keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
+              transformOrigin={{vertical: 'top',horizontal: 'right'}}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >

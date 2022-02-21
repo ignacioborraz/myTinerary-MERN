@@ -1,49 +1,160 @@
-.carousel {
+@import url('https://fonts.googleapis.com/css2?family=Festive&display=swap');
+
+.home {
+    width: 100%;
+    height: 100vh;
+    background-image: url('../../public/img/index.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.backHome {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(242, 245, 200, 0.3);
+}
+
+.linksHero {
+    display: flex;
+    justify-content: space-between;
+}
+
+.linksHero a {
+    margin: 10px;
+    padding: 15px;
+    border-radius: 10% 30% 50% 70%;
+    background-color: rgb(33, 159, 148) !important;
+    color: rgb(242, 245, 200) !important;
+    font-weight: 600 !important;
+}
+
+.logo {
+    height: 60px;
+    padding: 10px 0;
+}
+
+.buttonIndex {
+    text-decoration: none !important;
+}
+
+.buttons {
+    color:rgb(242, 245, 200) !important;
+    background-color: rgb(33, 159, 148) !important;
+}
+
+.titles {
+    font-family: 'Festive', cursive !important;
+    font-size: 40px !important;
+}
+
+.subtitles {
+    font-size: 20px !important;
+    font-weight: 400;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    flex-grow: 1;
-    width: 100%;
-    background-color: darkcyan;
+    margin: 0;
+    margin-top: 15px;
 }
 
-.cities {
+.carousel {
+    display: flex;
+    background-color: darkgrey;
+}
+
+.continents {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.artCities {
     width: 325px;
+    height: 182px;
+    margin: 3px;
+    background-color: rgb(193, 222, 174);
+
+}
+.artCities:hover {
+    background-color: rgb(33, 159, 148);
+    margin: 0px;
+    padding: 3px
 }
 
-@media only screen and (min-width: 200px) and (max-width: 414px) {
-    .cities {
-        width: 190px;
-    }
+.textCities {
+    position: absolute;
+    z-index: 1;
+    width: 325px;
+    height: 182px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-family: 'Festive', cursive;
+    font-size: 40px;
 }
-@media only screen and (min-width: 414px) and (max-width: 514px) {
-    .cities {
+
+.imgCities {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    opacity: 0.8;
+}
+
+.imgCities:hover {
+    opacity: 0.5;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+@media only screen and (min-width: 214px) and (max-width: 314px) {
+    .artCities , .textCities {
+        width: 190px;
+        height: 106px;
+    }
+    .carousel {
         width: 200px;
     }
 }
-@media only screen and (min-width: 514px) and (max-width: 614px) {
-    .cities {
-        width: 250px;
+@media only screen and (min-width: 314px) and (max-width: 414px) {
+    .artCities , .textCities {
+        width: 300px;
+        height: 168px;
+    }
+    .carousel {
+        width: 320px;
     }
 }
-@media only screen and (min-width: 614px) and (max-width: 714px) {
-    .cities {
-        width: 300px;
+@media only screen and (min-width: 414px) and (max-width: 714px) {
+    .artCities , .textCities {
+        width: 400px;
+        height: 225px;
+    }
+    .carousel {
+        width: 420px;
     }
 }
 @media only screen and (min-width: 714px) and (max-width: 1014px) {
-    .cities {
-        width: 325px;
+    .artCities , .textCities {
+        width: 350px;
+        height: 196px;
     }
     .carousel {
-        width: 710px;
+        width: 720px;
     }
 }
 @media only screen and (min-width: 1014px) {
-    .cities {
-        width: 375px;
+    .artCities , .textCities {
+        width: 400px;
+        height: 225px;
     }
     .carousel {
-        width: 810px;
+        width: 820px;
     }
 }

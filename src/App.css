@@ -1,11 +1,24 @@
-.allTheApp {
+/* normalizo la pagina */
+.main {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+  text-align: center;
   align-items: center;
   margin: 0;
   padding: 0;
-  width: 100%;
+  box-sizing: border-box;
   min-height: 100vh;
+  width: 100%;
+  background-color: rgb(232, 232, 166);
+}
+
+.info {
+  flex-grow: 1;
+}
+
+footer h3 {
+  margin: 0;
 }
 
 /* este parte sirve para app.test.js NO BORRAR */
