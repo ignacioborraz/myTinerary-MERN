@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import {Link as LinkRouter} from "react-router-dom"
 import '../styles/home.css';
 
-const pages = ['Home', 'Cities', 'Logup', 'Login'];
+const pages = ['home', 'cities', 'login'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const NavBar = () => {
@@ -40,8 +40,8 @@ const NavBar = () => {
     <AppBar position="sticky">
       <Container maxWidth="xl" sx={{backgroundColor: 'rgb(33, 159, 148)'}}>
         <Toolbar disableGutters sx={{display: 'flex' , justifyContent: 'center', alignContent: 'center'}}>
-          <Typography variant="h6" noWrap component="div" sx={{ mr: 2, display: { xs: 'none', md: 'flex' }}}>
-            <img src={process.env.PUBLIC_URL+'/img/whitelogo.png'} alt="whiteLogomyTinerary" className='logo' />
+          <Typography variant="h6" noWrap component="div" className='titles' sx={{display: { xs: 'none', md: 'flex' }, justifyContent:'center', alignItems:'center'}}>
+            MyTinerary
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton size="large" aria-label="account of current user" aria-controls="menu-appbar" aria-haspopup="true" onClick={handleOpenNavMenu} color="inherit">
@@ -58,8 +58,8 @@ const NavBar = () => {
               sx={{display: { xs: 'block', md: 'none' }}}
             >
               {pages.map((page) => (
-                <MenuItem onClick={handleCloseNavMenu}>
-                  <LinkRouter to={page} key={page}>{page}</LinkRouter>
+                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  <LinkRouter to={'/'+page}>{page}</LinkRouter>
                 </MenuItem>
               ))}
             </Menu>
@@ -69,8 +69,8 @@ const NavBar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page,index) => (
-              <LinkRouter to={page}>                
-                <Button key={index} onClick={handleCloseNavMenu} sx={{color: 'white', display: 'block'}} className='buttonIndex'>
+              <LinkRouter to={'/'+page} key={index} >                
+                <Button onClick={handleCloseNavMenu} sx={{color: 'white', display: 'block'}} className='buttonIndex'>
                   {page}
                 </Button>
               </LinkRouter>
@@ -78,8 +78,8 @@ const NavBar = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+            <Tooltip title="Open settings" sx={{width: '10px'}}>
+              <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>

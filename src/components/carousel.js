@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'; //importo todos los componentes necesarios de react, de otras librerias y creados en nuestra webapp
 import '../styles/home.css';
-import NavBar from './navBar' //importo el nav
-import Footer from '../Footer';
+import NavBar from './navBar'
+import Footer from './footer';
 import Carousel from 'react-material-ui-carousel'
 import {Paper} from '@mui/material'
 
-export default function MyCarousel (props) {
+export default function MyCarousel () {
     var citiesOfTheWorld = [{
         continent: "AMERICA", 
         cities: [
@@ -38,32 +38,28 @@ export default function MyCarousel (props) {
     ]
 
 return (
-    <div className='main'>
-        <NavBar/> {/* llamamos al nav */}
-        <section className='carousel info'>
-            <Carousel sx={{display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'center', alignItems: 'center' , width: '100%'}}>
-                {citiesOfTheWorld.map( (everyContinent, i) => <PrintContinents continent={everyContinent.cities} /> )}
-            </Carousel>
-        </section>
-        <Footer />
+    <div className='main'> {/* en cada pagina se rendirza el nav, la infor del cuerpo de cada pagina y el pie de pagina */}
+        <div className='colorMain'>
+            <NavBar/> {/* llamamos al nav */}
+            <div className='info'>
+                <Carousel className='carousel' sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' , width: '100%'}}>
+                    {citiesOfTheWorld.map( (everyContinent) => ( /* mapeamos los continentes */
+                        <Paper key={everyContinent.continent}>
+                            <div className="continents">
+                                {everyContinent.cities.map((everyCity) => ( /* mapeamos las ciudades */
+                                    <Paper key={everyCity.id}> {/* configuramos el renderizado de cada card */}
+                                        <article className='artCities'>
+                                            <h2 className="textCities">{everyCity.city}</h2>
+                                            <img className="imgCities" src={process.env.PUBLIC_URL+ `${everyCity.photo}`} alt={everyCity.city} />
+                                        </article>
+                                    </Paper>
+                                ))}
+                            </div>
+                        </Paper>
+                    ))}
+                </Carousel>
+            </div>
+            <Footer /> {/* llamamos al footer */}
+        </div>
     </div>
-)
-}
-
-function PrintContinents(props) {
-    return (
-        <Paper className="continents">
-            {props.continent.map((everyCity) => <PrintCities key={everyCity.id} cities={everyCity} />)}
-        </Paper>
-    )
-}
-
-function PrintCities(props) {
-    /* const backgroundText = {backgroundImage: process.env.PUBLIC_URL+ `/${props.cities.photo}`, backgroundRepeat: "no-repeat",  backgroundSize: "cover"} */
-    return (
-        <article className='artCities'>
-            <h2 className="textCities">{props.cities.city}</h2>
-            <img className="imgCities" src={process.env.PUBLIC_URL+ `${props.cities.photo}`} alt={props.cities.city} />
-        </article>
-    )
-}
+)}

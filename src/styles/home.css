@@ -8,24 +8,109 @@
     background-position: center;
     background-size: cover;
 }
+
 .backHome {
     width: 100%;
     height: 100%;
-    background-color: rgb(242, 245, 200, 0.3);
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('../../public/img/background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.colorMain {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgb(232, 232, 166, 0.6);
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    flex-wrap: wrap !important;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.textTitle {
+    padding: 4px 0 0 0;
+    margin: 0;
+    font-family: 'Festive', cursive !important;
+    font-size: 30px !important;
+}
+.textCard {
+    padding: 0 0 4px 0;
+    margin: 0;
+    font-weight: 400;
+}
+  
+.textFooter {
+    font-size: 17px !important;
+    margin: 0;
 }
 
 .linksHero {
-    display: flex;
-    justify-content: space-between;
+    display: inline-block;
+    margin-top: 20px;
+    padding: 5px 15px;
+    font-size: 24px;
+    font-weight: 600 !important;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: rgb(242, 245, 200);
+    background-color: rgb(33, 159, 148);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
 }
 
-.linksHero a {
-    margin: 10px;
-    padding: 15px;
-    border-radius: 10% 30% 50% 70%;
-    background-color: rgb(33, 159, 148) !important;
-    color: rgb(242, 245, 200) !important;
-    font-weight: 600 !important;
+.linksHero:hover {
+    background-color: rgb(193, 222, 174);
+    color: black;
+}
+
+.linksHero:active {
+  background-color: rgb(193, 222, 174);
+  color: black;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 .logo {
@@ -45,6 +130,7 @@
 .titles {
     font-family: 'Festive', cursive !important;
     font-size: 40px !important;
+    padding: 5px 10px 5px 0 !important;
 }
 
 .subtitles {
@@ -54,13 +140,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     margin: 0;
-    margin-top: 15px;
-}
-
-.carousel {
-    display: flex;
-    background-color: darkgrey;
+    margin-top: 5px;
 }
 
 .continents {
@@ -68,12 +150,9 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
 }
 
-.artCities {
-    width: 325px;
-    height: 182px;
+.artCities , .cityCard {
     margin: 3px;
     background-color: rgb(193, 222, 174);
 
@@ -87,74 +166,194 @@
 .textCities {
     position: absolute;
     z-index: 1;
-    width: 325px;
-    height: 182px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
     margin: 0;
+    padding: 0;
     font-family: 'Festive', cursive;
-    font-size: 40px;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.textCitiesReverse {
+    position: absolute;
+    z-index: 1;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
 }
 
 .imgCities {
     display: flex;
     justify-content: center;
     align-items: center;
+    object-fit: cover !important;
     width: 100%;
     opacity: 0.8;
 }
 
 .imgCities:hover {
-    opacity: 0.5;
+    opacity: 0.7
+}
+
+.imgCitiesReverse {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover !important;
+    width: 100%;
+    opacity: 0.4;
 }
 
 a {
     text-decoration: none !important;
 }
 
-@media only screen and (min-width: 214px) and (max-width: 314px) {
-    .artCities , .textCities {
-        width: 190px;
-        height: 106px;
+@media only screen and (max-width: 300px) {
+    .titles {
+        font-size: 15px !important;
+    }
+    .textCities {
+        font-size: 20px;
+    }    
+    .artCities , .cityCard , .textCities , .textCitiesReverse , .imgCities , .imgCitiesReverse {
+        width: 175px !important;
+        height: 109px !important;
+    }
+    .css-1f8sh1y{
+        width: 180px !important;
+        height: 465px !important;
     }
     .carousel {
-        width: 200px;
+        width: 180px !important;
+        height: 485px !important;
+    }
+    .textFooter {
+        font-size: 6px !important;
     }
 }
-@media only screen and (min-width: 314px) and (max-width: 414px) {
-    .artCities , .textCities {
-        width: 300px;
-        height: 168px;
+@media only screen and (min-width: 300px) and (max-width: 400px) {
+    .titles {
+        font-size: 30px !important;
+    }
+    .textCities {
+        font-size: 25px;
+    }    
+    .artCities , .cityCard , .textCities , .textCitiesReverse , .imgCities , .imgCitiesReverse {
+        width: 275px !important;
+        height: 109px !important;
+    }
+    .css-1f8sh1y{
+        width: 280px !important;
+        height: 465px !important;
     }
     .carousel {
-        width: 320px;
+        width: 280px !important;
+        height: 485px !important;
+    }
+    .textFooter {
+        font-size: 10px !important;
     }
 }
-@media only screen and (min-width: 414px) and (max-width: 714px) {
-    .artCities , .textCities {
-        width: 400px;
-        height: 225px;
+@media only screen and (min-width: 400px) and (max-width: 500px) {
+    .titles {
+        font-size: 35px !important;
+    }
+    .textCities {
+        font-size: 30px;
+    }    
+    .artCities , .cityCard , .textCities , .textCitiesReverse , .imgCities , .imgCitiesReverse {
+        width: 375px !important;
+        height: 109px !important;
+    }
+    .css-1f8sh1y{
+        width: 380px !important;
+        height: 465px !important;
     }
     .carousel {
-        width: 420px;
+        width: 380px !important;
+        height: 485px !important;
+    }
+    .textFooter {
+        font-size: 15px !important;
     }
 }
-@media only screen and (min-width: 714px) and (max-width: 1014px) {
-    .artCities , .textCities {
-        width: 350px;
-        height: 196px;
+@media only screen and (min-width: 500px) and (max-width: 600px) { 
+    .artCities , .cityCard , .textCities , .textCitiesReverse , .imgCities , .imgCitiesReverse {
+        width: 230px !important;
+        height: 225px !important;
+    }
+    .css-1f8sh1y{
+        width: 480px !important;
+        height: 465px !important;
     }
     .carousel {
-        width: 720px;
+        width: 480px !important;
+        height: 485px !important;
+    }
+    .textFooter {
+        font-size: 15px !important;
     }
 }
-@media only screen and (min-width: 1014px) {
-    .artCities , .textCities {
-        width: 400px;
-        height: 225px;
+@media only screen and (min-width: 600px) and (max-width: 700px) {
+    .artCities , .cityCard , .textCities , .textCitiesReverse , .imgCities , .imgCitiesReverse {
+        width: 280px !important;
+        height: 225px !important;
+    }
+    .css-1f8sh1y{
+        width: 580px !important;
+        height: 465px !important;
     }
     .carousel {
-        width: 820px;
+        width: 580px !important;
+        height: 485px !important;
     }
 }
+@media only screen and (min-width: 700px) and (max-width: 800px) {
+    .artCities , .cityCard , .textCities , .textCitiesReverse , .imgCities , .imgCitiesReverse {
+        width: 330px !important;
+        height: 225px !important;
+    }
+    .css-1f8sh1y{
+        width: 680px !important;
+        height: 465px !important;
+    }
+    .carousel {
+        width: 680px !important;
+        height: 485px !important;
+    }
+}
+@media only screen and (min-width: 800px) and (max-width: 900px) {
+    .artCities , .cityCard , .textCities , .textCitiesReverse , .imgCities , .imgCitiesReverse {
+        width: 380px !important;
+        height: 225px !important;
+    }
+    .css-1f8sh1y{
+        width: 780px !important;
+        height: 465px !important;
+    }
+    .carousel {
+        width: 780px !important;
+        height: 485px !important;
+    }
+}
+@media only screen and (min-width: 900px){
+    .artCities , .cityCard , .textCities , .textCitiesReverse , .imgCities , .imgCitiesReverse {
+        width: 430px !important;
+        height: 225px !important;
+    }
+    .css-1f8sh1y{
+        width: 880px !important;
+        height: 465px !important;
+    }
+    .carousel {
+        width: 880px !important;
+        height: 485px !important;
+    }
+}
+
