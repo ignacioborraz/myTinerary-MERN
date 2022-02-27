@@ -19,7 +19,7 @@ export default class Home extends React.Component { //generamos un objeto de cla
             <> {/* se puede returnar un hijo unico por lo que ese necesari una etiqueta auxiliar padre de los hermanos a renderizar */}
                 <div className='home'> {/* para aplicar el fondo */}
                     <div className='backHome'> {/* para aplicar estilos */}
-                        <Typography variant="h6" noWrap component="div" className='titles' sx={{flexGrow:'1', display: 'flex', justifyContent:'center', alignItems: 'center'}}>
+                        <Typography variant="h6" noWrap component="div" className='titleIndex' sx={{flexGrow:'1', display: 'flex', justifyContent:'center', alignItems: 'center'}}>
                             MyTinerary
                         </Typography>
                         <h3 className='subtitles'>
