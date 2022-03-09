@@ -2,7 +2,7 @@
 
 # dependencies
 /backEnd/node_modules
-/backEnd/.env
+#/backEnd/.env LO DEJAMOS PUBLICO PARA QUE LOS MENTORES LO PUEDAN EVALUAR
 /node_modules
 /.pnp
 .pnp.js

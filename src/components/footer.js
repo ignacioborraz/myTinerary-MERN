@@ -1,11 +1,13 @@
-import React from 'react' //importo paquetes de react
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import '../styles/home.css';
+//importo de librerias externas
+import React from 'react'
 import {Link as LinkRouter} from "react-router-dom"
-import HomeIcon from '@mui/icons-material/Home';
-import FlightIcon from '@mui/icons-material/Flight';
+import Typography from '@mui/material/Typography'
+import Container from '@mui/material/Container'
+import HomeIcon from '@mui/icons-material/Home'
+import FlightIcon from '@mui/icons-material/Flight'
 
+//importo los estilos
+import '../styles/styles.css'
 
 export default class Footer extends React.Component { //generamos un objeto de clase
     render() { //al objeto le definimos un metodo que imprime en HTML

@@ -1,7 +1,12 @@
-import React from 'react' //importo paquetes de react
-import NavBar from './navBar' //importo el nav
-import Footer from './footer';
-import '../styles/home.css';
+//importo de librerias externas
+import React from 'react'
+
+//importo los estilos
+import '../styles/styles.css'
+
+//importo componentes locales
+import NavBar from '../components/navBar'
+import Footer from '../components/footer'
 
 export default class LogIn extends React.Component { //generamos un objeto de clase
     

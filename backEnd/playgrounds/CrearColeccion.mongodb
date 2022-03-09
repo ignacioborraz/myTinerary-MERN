@@ -1,15 +1,8 @@
-// MongoDB Playground
-// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
-//https://docs.mongodb.com/manual/crud/
+let database = 'myTinerary'; //nombre de la base de datos
+const collection = 'tineraries'; //nombre de la nueva coleccion
 
-const database = 'alumnos';
-const collection = 'acnur';
-
-// Create a new database.
-use(database); //Si la Base de datos no existe la crea
-
-// Create a new collection.
-db.createCollection(collection);
+use(database); //"usamos" la base de datos, si no existe: la crea
+db.createCollection(collection); //creamos una nueva coleccion
 
 // The prototype form to create a collection:
 /* db.createCollection( <name>,

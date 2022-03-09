@@ -1,9 +1,14 @@
-import React from 'react'; //importo todos los componentes necesarios de react, de otras librerias y creados en nuestra webapp
-import '../styles/home.css';
-import NavBar from './navBar'
-import Footer from './footer';
+//importo de librerias externas
+import React from 'react'
 import Carousel from 'react-material-ui-carousel'
 import {Paper} from '@mui/material'
+
+//importo los estilos
+import '../styles/styles.css'
+
+//importo componentes locales
+import NavBar from './navBar'
+import Footer from './footer'
 
 export default function MyCarousel () {
     var citiesOfTheWorld = [{

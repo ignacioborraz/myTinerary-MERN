@@ -14,3 +14,5 @@ app.use('/api', Router) //usamos la ruta desde el servidor para ingresar a la ba
 
 app.listen(PORT, ()=>console.log('SERVER READY EN PORT '+PORT)) //listen es un metodo que escucha una variable y ejecuta una funcion
 //para recargar el servidor automaticamente instalamos nodemon
+
+//una vez configurado el servidor y la conexion a la base de datos, generamos el modelo de conexion

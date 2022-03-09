@@ -6,11 +6,16 @@
 //está pensada para que el usuario no necesite desplazarse lateral ni longitudinalmente (salvo una medida que no la pude resolver y quedaba muy mal si la achicaba mas)
 //la webapp es 90% responsivo ya que tiene algunos destalles que en algunas pantallas no funcionan bien
 
-import React from 'react' //importo paquetes de react
-import './styles/home.css'; //importo CSS
-import {Link as LinkRouter} from "react-router-dom" //importo el buscador de rutas
-import { Typography } from '@mui/material'; //importo componentes de una libreria
-import MyCarousel from './components/carousel'; //importo componentes creados con REACT
+//importo de librerias externas
+import React from 'react'
+import {Link as LinkRouter} from "react-router-dom"
+import {Typography} from '@mui/material'
+
+//importo los estilos
+import '../styles/styles.css'
+
+//importo componentes locales
+import MyCarousel from '../components/carousel'
 
 export default class Home extends React.Component { //generamos un objeto de clase
        

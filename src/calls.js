@@ -9,3 +9,13 @@ export const getCitiesFromApi = async () => {
         throw error
     }
 }
+
+export const getTinerariesFromApi = async () => {
+    try {
+        let data = await axios.get(`http://localhost:4000/api/tineraries`)
+        return data
+    }
+    catch (error) {
+        throw error
+    }
+}
