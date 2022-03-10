@@ -1,5 +1,5 @@
 //importo de librerias externas
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import Input from '@mui/material/Input'
 import Box from '@mui/material/Box'
 
@@ -14,7 +14,6 @@ import Cards from '../components/cardCity'
 //importo acciones de redux
 import {useDispatch, useSelector} from 'react-redux'
 import cityActions from '../redux/actions/cityActions'
-import inputActions from '../redux/actions/inputActions'
 
 export default function Cities () {
 
@@ -26,11 +25,7 @@ export default function Cities () {
     const citiesFromRedux = useSelector(store => store.cityReducer.cities) //defino una variable con las ciudades del store
     //console.log(citiesFromRedux)
 
-    const handleInput = ({target:{value}}) => { //defino una funcion para manejar el evento del input
-        dispatch(inputActions.getValue(value)) //y obtener su valor
-    }
-    const inputFromRedux = useSelector(store => store.inputReducer.inputSearch)
-    //console.log(inputFromRedux)
+    const [inputSearch,setInputSearch] = useState()
 
     return(
         <Box className='main'>
@@ -52,8 +47,8 @@ export default function Cities () {
                     alignItems: 'center',
                     width: '100%',
                     marginTop: '20px'}}>
-                    <Input onKeyUp={handleInput} placeholder='find your city!' sx={{width: '50%'}} />
-                    <Cards input={inputFromRedux} cities={citiesFromRedux} />
+                    <Input onKeyUp={event => setInputSearch(event.target.value)} placeholder='find your city!' sx={{width: '50%'}} />
+                    <Cards input={inputSearch} cities={citiesFromRedux} />
                 </Box>
                 <Footer />
             </Box>

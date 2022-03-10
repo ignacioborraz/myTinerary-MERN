@@ -25,7 +25,7 @@ export default function Cards (props) {
 
     const filterFromRedux = useSelector(store => store.cityReducer.filterCity)
     
-    let data = props.input.length>0 ? filterFromRedux : props.cities
+    let data = props.input ? filterFromRedux : props.cities
 
     return (
         <>
