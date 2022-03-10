@@ -42,6 +42,7 @@ const cityReducer = (state = initialState, action) => { //defino el reductor, qu
             }
         case 'FIL_CITIES':
             let filter = state.cities.filter(everyCity => everyCity.city.toLowerCase().startsWith(action.payload.toLowerCase()))
+            console.log(action.payload)
             return {
                 ...state,
                 filterCity: filter

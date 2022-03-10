@@ -16,7 +16,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import cityActions from '../redux/actions/cityActions'
 import tineraryActions from '../redux/actions/tineraryActions'
 
-export default function CityCard () {
+export default function CityDetail () {
     
     const {id} = useParams()
     const dispatch = useDispatch()
@@ -33,7 +33,7 @@ export default function CityCard () {
     },[])
 
     const tinFromRedux = useSelector(store => store.tineraryReducer.filterTin)
-    console.log(tinFromRedux)
+    //console.log(tinFromRedux)
 
     return(
         <Box className='main'>

@@ -2,7 +2,7 @@
 // Use Ctrl+Space inside a snippet or a string literal to trigger completions.
 
 const database = 'myTynerary';
-const collection = 'ciudades'
+const collection = 'cities'
 
 
 use(database);
@@ -13,13 +13,13 @@ use(database);
 
 
  //Buscar un valor dentro de la coleccion
-db.getCollection(collection)
-  .find({pais:"Argentina"})
+/* db.getCollection(collection)
+  .find({pais:"Argentina"}) */
 
 //Ordenar la consulta ascendente o descendente
-//db.getCollection(collection)
-  //.find()
- // .sort({apellido:1})// 1 Ascendente -1 descendente
+db.getCollection(collection)
+  .find()
+  .sort({city:1})// 1 Ascendente -1 descendente
 
 //Filtrar por campo mayor que
 //db.getCollection(collection)

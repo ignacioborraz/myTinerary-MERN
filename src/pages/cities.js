@@ -25,7 +25,7 @@ export default function Cities () {
     const citiesFromRedux = useSelector(store => store.cityReducer.cities) //defino una variable con las ciudades del store
     //console.log(citiesFromRedux)
 
-    const [inputSearch,setInputSearch] = useState()
+    const [input,setInput] = useState("")
 
     return(
         <Box className='main'>
@@ -47,8 +47,8 @@ export default function Cities () {
                     alignItems: 'center',
                     width: '100%',
                     marginTop: '20px'}}>
-                    <Input onKeyUp={event => setInputSearch(event.target.value)} placeholder='find your city!' sx={{width: '50%'}} />
-                    <Cards input={inputSearch} cities={citiesFromRedux} />
+                    <Input onKeyUp={event => setInput(event.target.value)} placeholder='find your city!' sx={{width: '50%'}} />
+                    <Cards input={input} cities={citiesFromRedux} />
                 </Box>
                 <Footer />
             </Box>

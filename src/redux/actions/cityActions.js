@@ -9,7 +9,7 @@ const cityActions = { //las acciones son eventos en forma de objetos
         return async(dispatch, getState) => {
             const res = await axios.get(`http://localhost:4000/api/cities`)
             dispatch({type:'GET_CITIES', payload:res.data.response.cities})
-       }
+        }
     },
     uploadCity: (continent,country,city,photo,population)=>{
         return async(dispatch,getState)=>{

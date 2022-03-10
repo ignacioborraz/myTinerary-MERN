@@ -6,8 +6,6 @@ const initialState = { //defino el estado inicial del reductor
 }
 
 const tineraryReducer = (state = initialState, action) => { //defino el reductor, que va a depender del estado inicial y de una accion
-    console.log(action);
-    console.log(state);
     switch(action.type) {
         case 'GET_TINERARIES':
             return {
@@ -41,7 +39,7 @@ const tineraryReducer = (state = initialState, action) => { //defino el reductor
                 oneTinerary: action.payload
             }
         case 'FIL_TINERARIES':
-            console.log(action.payload);
+            //console.log(action.payload);
             return {
                 ...state,
                 filterTin: action.payload

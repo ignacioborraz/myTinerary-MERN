@@ -21,7 +21,7 @@ import Footer from '../components/footer'
 import MyCarousel from '../components/carousel'
 
 export default class Home extends React.Component { //generamos un objeto de clase
-       
+
     render() { //al objeto le definimos un metodo que imprime en HTML
         return ( //returno el HTML
             <> {/* se puede returnar un hijo unico por lo que ese necesari una etiqueta auxiliar padre de los hermanos a renderizar */}

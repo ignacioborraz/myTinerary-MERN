@@ -9,7 +9,7 @@ import './styles/styles.css'
 //importo las páginas que se van a renderizar
 import Home from './pages/Home';
 import Cities from './pages/cities';
-import CityCard from './pages/cityCard';
+import CityDetail from './pages/cityDetail';
 import LogIn from './pages/login';
 
 //importo los componentes de REDUX:
@@ -28,7 +28,7 @@ ReactDOM.render( //a la pantalla, le aplico el método render para imprimir lo s
             <BrowserRouter> {/* buscador de rutas */}
                 <Routes> 
                     <Route path="/cities" element={<Cities />} /> {/* en path se coloca la ruta del archivo que se busca */}
-                    <Route path ="/cities/:id" element={<CityCard />}/> v
+                    <Route path ="/cities/:id" element={<CityDetail />}/> v
                     <Route path='/login' element={<LogIn  />} />
                     <Route path="/*" index element={<Home />} />
                 </Routes>

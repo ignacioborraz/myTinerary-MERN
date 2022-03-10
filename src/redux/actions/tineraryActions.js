@@ -9,7 +9,7 @@ const tineraryActions = { //las acciones son eventos en forma de objetos
         return async(dispatch, getState) => {
             const res = await axios.get(`http://localhost:4000/api/tineraries`)
             dispatch({type:'GET_TINERARIES', payload:res.data.response.tineraries})
-       }
+        }
     },
     uploadTinerary: (city,userPhoto,userName,itinerary,price,time,tags,description,comments)=>{
         return async(dispatch,getState)=>{
@@ -39,11 +39,11 @@ const tineraryActions = { //las acciones son eventos en forma de objetos
         }
     },
     findFromCity: (id) => {
-        console.log(id);
+        //console.log(id);
         return async(dispatch, getState) => {
             try {
                 const answer = await axios.get(`http://localhost:4000/api/tineraries/cities/${id}`)
-                console.log(answer.data);
+                //console.log(answer.data);
                 dispatch({type:'FIL_TINERARIES', payload:answer.data.response.tineraries})
             }catch (err) {
                 console.log(err)
