@@ -1,14 +1,11 @@
 //importo de librerias externas
 import React from 'react'
 import Carousel from 'react-material-ui-carousel'
-import {Paper} from '@mui/material'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
 
 //importo los estilos
 import '../styles/styles.css'
-
-//importo componentes locales
-import NavBar from './navBar'
-import Footer from './footer'
 
 export default function MyCarousel () {
     var citiesOfTheWorld = [{
@@ -43,28 +40,22 @@ export default function MyCarousel () {
     ]
 
 return (
-    <div className='main'> {/* en cada pagina se rendirza el nav, la infor del cuerpo de cada pagina y el pie de pagina */}
-        <div className='colorMain'>
-            <NavBar/> {/* llamamos al nav */}
-            <div className='info'>
-                <Carousel className='carousel' sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' , width: '100%'}}>
+
+                                <Carousel className='carousel' sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' , width: '100%'}}>
                     {citiesOfTheWorld.map( (everyContinent) => ( /* mapeamos los continentes */
-                        <Paper key={everyContinent.continent}>
+                        <Box key={everyContinent.continent}>
                             <div className="continents">
                                 {everyContinent.cities.map((everyCity) => ( /* mapeamos las ciudades */
-                                    <Paper key={everyCity.id}> {/* configuramos el renderizado de cada card */}
+                                    <Box key={everyCity.id}> {/* configuramos el renderizado de cada card */}
                                         <article className='artCities'>
                                             <h2 className="textCities">{everyCity.city}</h2>
                                             <img className="imgCities" src={process.env.PUBLIC_URL+ `${everyCity.photo}`} alt={everyCity.city} />
                                         </article>
-                                    </Paper>
+                                    </Box>
                                 ))}
                             </div>
-                        </Paper>
+                        </Box>
                     ))}
                 </Carousel>
-            </div>
-            <Footer /> {/* llamamos al footer */}
-        </div>
-    </div>
+
 )}

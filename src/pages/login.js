@@ -1,5 +1,7 @@
 //importo de librerias externas
 import React from 'react'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
 
 //importo los estilos
 import '../styles/styles.css'
@@ -28,17 +30,32 @@ export default class LogIn extends React.Component { //generamos un objeto de cl
 
     render() { //al objeto le definimos un metodo que imprime en HTML
         return ( //returno el HTML
-            <div className='main'> {/* en cada pagina se rendirza el nav, la infor del cuerpo de cada pagina y el pie de pagina */}
-                <div className='colorMain'>
-                    <NavBar/> {/* llamamos al nav */}
-                    <div className='infoLog'>
-                        <h1>LOG IN</h1>
-                        <button onClick={this.changeToin}>{this.state.login ? 'log in!' : this.state.text}</button>
-                        <p><b>{this.state.login ? this.state.text1 : this.state.text2}</b></p>
-                    </div>
+            <Box className='main'>
+                <Box sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    flexGrow: '1',
+                    textAlign: 'center',
+                    alignItems: 'center',
+                    width: '100%',
+                    minHeight: '100vh',
+                    backgroundColor: 'rgb(232, 232, 166, 0.7)'}}>
+                    <NavBar/>
+                    <Box sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        flexGrow: '1',
+                        textAlign: 'center',
+                        alignItems: 'center',
+                        width: '100%',
+                        marginTop: '20px'}}>
+                        <Typography variant='h2'>LOG IN</Typography>
+                        <button className='linksHero' onClick={this.changeToin}>{this.state.login ? 'log in!' : this.state.text}</button>
+                        <Typography variant='h5' sx={{marginTop: '20px'}}>{this.state.login ? this.state.text1 : this.state.text2}</Typography>
+                    </Box>
                     <Footer />
-                </div>
-            </div>
+                </Box>
+            </Box>
         )
     }
 }

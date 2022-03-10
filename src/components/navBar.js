@@ -41,7 +41,7 @@ const NavBar = () => {
 
   return (
     <AppBar position="sticky">
-      <Container maxWidth="xl" sx={{backgroundColor: 'rgb(33, 159, 148)'}}>
+      <Container maxWidth="100%" sx={{backgroundColor: 'rgb(33, 159, 148)'}}>
         <Toolbar disableGutters sx={{display: 'flex' , justifyContent: 'center', alignContent: 'center'}}>
           <Typography variant="h6" noWrap component="div" className='titles' sx={{display: { xs: 'none', md: 'flex' }, justifyContent:'center', alignItems:'center'}}>
             MyTinerary

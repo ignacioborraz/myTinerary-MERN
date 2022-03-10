@@ -1,6 +1,7 @@
 //importo de librerias externas
 import React, {useEffect} from 'react'
 import {useParams} from 'react-router-dom'
+import Box from '@mui/material/Box'
 
 //importo los estilos
 import '../styles/styles.css'
@@ -35,14 +36,29 @@ export default function CityCard () {
     console.log(tinFromRedux)
 
     return(
-        <div className='main'>
-            <div className='colorMain'>
+        <Box className='main'>
+            <Box sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                flexGrow: '1',
+                textAlign: 'center',
+                alignItems: 'center',
+                width: '100%',
+                minHeight: '100vh',
+                backgroundColor: 'rgb(232, 232, 166, 0.7)'}}>
                 <NavBar/>
-                <div className='info'>
+                <Box sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    flexGrow: '1',
+                    textAlign: 'center',
+                    alignItems: 'center',
+                    width: '100%',
+                    marginTop: '20px'}}>
                     <CardDetail cityDat={oneCityFromRedux} tinDat={tinFromRedux} />
-                </div>
+                </Box>
                 <Footer />
-            </div>
-        </div>
+            </Box>
+        </Box>
     )
 }

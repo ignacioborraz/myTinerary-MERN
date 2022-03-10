@@ -1,24 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Festive&display=swap');
+                        @import url('https://fonts.googleapis.com/css2?family=Festive&display=swap');
 
-body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+                        * {
+                            margin: 0;
+                            padding: 0;
+                            box-sizing: border-box;
+                        }
 
-.home {
-    width: 100%;
-    height: 100vh;
-    background-image: url('../../public/img/index.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
+                        .home {
+                            width: 100%;
+                            height: 100vh;
+                            background-image: url('../../public/img/index.jpg');
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            background-size: cover;
+                        }
 
-.backHome {
-    width: 100%;
-    height: 100%;
-}
+                        .backHome {
+                            width: 100%;
+                            height: 100%;
+                        }
+
+
+                        .flippy-container  {
+                            width: 30%;
+                            height: 30vh;
+                            padding: 10px;
+                        }
 
 .main {
     display: flex;
@@ -26,9 +33,6 @@ body {
     flex-grow: 1;
     text-align: center;
     align-items: center;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
     width: 100%;
     min-height: 100vh;
     background-image: url('../../public/img/background.jpg');
@@ -36,7 +40,7 @@ body {
     background-position: center;
 }
 
-.colorMain {
+/* .colorMain {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -48,16 +52,16 @@ body {
     width: 100%;
     min-height: 100vh;
     background-color: rgb(232, 232, 166, 0.6);
-}
+} */
 
-.info {
+/* .info {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     align-items: center;
     justify-content: center;
     width: 85% !important;
-}
+} */
 
 .infoLog {
     display: flex;
@@ -81,14 +85,22 @@ body {
     margin: 0;
 }
 
-.textTitle {
-    padding: 4px 0 0 0;
-    margin: 0;
-    font-family: 'Festive', cursive !important;
-    font-size: 40px !important;
-}
+                    .festiveFont {
+                        font-family: 'Festive', cursive !important;
+                    }
+                    .bigAnounce {
+                        font-size: 50px !important
+                    }
+                    .fitImg {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover !important;
+                    }
+                    .shadows {
+                        text-shadow: 0 0 1px black, 0 0 20px rgb(193, 222, 174), 0px 0px 20px rgb(242, 245, 200);
+                    }
 
-.textCard , .onlytextCard {
+.textCard {
     padding: 0 0 6px 0;
     margin: 0;
     font-weight: 500;
@@ -101,12 +113,23 @@ body {
     justify-content: center;
 }
 
+/* .displayCardFlex {
+    padding: 2x;
+    background-color: rgb(242, 245, 200);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
 .displayCard {
-    padding: 10px;
-    margin: 5px;
     background-color: rgb(242, 245, 200);
     text-align: center;
     font-weight: 800;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .textFooter {
@@ -114,38 +137,37 @@ body {
     margin: 0;
 }
 
-.linksHero {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 5px 15px;
-    font-size: 24px;
-    font-weight: 600 !important;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: rgb(242, 245, 200);
-    background-color: rgb(33, 159, 148);
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
-}
+                .linksHero {
+                    display: inline-block;
+                    margin-top: 20px;
+                    padding: 5px 15px;
+                    font-size: 24px;
+                    font-weight: 600 !important;
+                    cursor: pointer;
+                    text-align: center;
+                    text-decoration: none;
+                    outline: none;
+                    color: rgb(242, 245, 200);
+                    background-color: rgb(33, 159, 148);
+                    border: none;
+                    border-radius: 15px;
+                    box-shadow: 0 9px #999;
+                }
 
-.linksCities {
-    display: inline-block;
-    margin: 5px;
-    padding: 1px;
-    font-size: 14px;
-    font-weight: 400 !important;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: rgb(33, 159, 148);
-    background-color: rgb(242, 245, 200);
-    border: none;
-    border-radius: 5px;
-}
+                .linksCities {
+                    display: inline-block;
+                    padding: 10px !important;
+                    font-size: 14px;
+                    font-weight: 400 !important;
+                    cursor: pointer;
+                    text-align: center;
+                    text-decoration: none;
+                    outline: none;
+                    color: rgb(33, 159, 148);
+                    background-color: rgb(242, 245, 200);
+                    border: none;
+                    border-radius: 5px;
+                }
 
 .linksHero:hover , .linksCities:hover {
     background-color: black;
@@ -185,7 +207,7 @@ body {
     padding: 5px 10px 5px 0 !important;
 }
 
-.subtitles {
+/* .subtitles {
     font-size: 20px !important;
     font-weight: 400;
     display: flex;
@@ -195,7 +217,7 @@ body {
     text-align: center;
     margin: 0;
     margin-top: 5px;
-}
+} */
 
 .continents {
     display: flex;
@@ -219,7 +241,7 @@ body {
     margin-bottom: 5px !important;
 }
 
-.artCities , .cityCard {
+.artCities {
     margin: 3px;
     background-color: rgb(193, 222, 174);
 }
@@ -309,8 +331,8 @@ body {
     justify-content: center;
     align-items: center;
     object-fit: cover !important;
-    width: 100px !important;
-    height: 100px !important;
+    width: 150px;
+    height: 150px;
 }
 
 a {
@@ -351,17 +373,8 @@ a {
     .textCard {
         display: none;
     }
-    .onlytextCard {
-        padding: 0 0 6px 0;
-        margin: 0;
-        font-weight: 400;
-        font-size: 10px;
-    }
     .textFooter {
         font-size: 6px !important;
-    }
-    .displayCard {
-        width: 130px;
     }
 }
 @media only screen and (min-width: 300px) and (max-width: 400px) {
@@ -398,17 +411,8 @@ a {
     .textTitle {
         font-size: 25px !important;
     }
-    .onlytextCard {
-        padding: 0 0 6px 0;
-        margin: 0;
-        font-weight: 400;
-        font-size: 13px;
-    }
     .textFooter {
         font-size: 11px !important;
-    }
-    .displayCard {
-        width: 210px;
     }
 }
 @media only screen and (min-width: 400px) and (max-width: 500px) {
@@ -448,9 +452,6 @@ a {
     .textFooter {
         font-size: 11px !important;
     }
-    .displayCard {
-        width: 300px;
-    }
 }
 @media only screen and (min-width: 500px) and (max-width: 600px) { 
     .artCities , .cityCard , .textCities , .textCitiesReverse , .imgCities , .imgCitiesReverse {
@@ -468,9 +469,6 @@ a {
     .textFooter {
         font-size: 15px !important;
     }
-    .displayCard {
-        width: 380px;
-    }
 }
 @media only screen and (min-width: 600px) and (max-width: 700px) {
     .artCities , .cityCard , .textCities , .textCitiesReverse , .imgCities , .imgCitiesReverse {
@@ -484,9 +482,6 @@ a {
     .carousel {
         width: 580px !important;
         height: 485px !important;
-    }
-    .displayCard {
-        width: 410px;
     }
 }
 @media only screen and (min-width: 700px) and (max-width: 800px) {
@@ -502,9 +497,6 @@ a {
         width: 680px !important;
         height: 485px !important;
     }
-    .displayCard {
-        width: 510px;
-    }
 }
 @media only screen and (min-width: 800px) and (max-width: 900px) {
     .artCities , .cityCard , .textCities , .textCitiesReverse , .imgCities , .imgCitiesReverse {
@@ -518,9 +510,6 @@ a {
     .carousel {
         width: 780px !important;
         height: 485px !important;
-    }
-    .displayCard {
-        width: 610px;
     }
 }
 @media only screen and (min-width: 900px){
@@ -536,13 +525,7 @@ a {
         width: 880px !important;
         height: 485px !important;
     }
-    .displayCard {
-        width: 710px;
-    }
 }
 @media only screen and (min-width: 1400px){
-    .displayCard {
-        width: 1150px;
-    }
 }
 

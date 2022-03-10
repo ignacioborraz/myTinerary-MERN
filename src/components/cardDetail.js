@@ -1,18 +1,51 @@
-import * as React from 'react';
-import Tineraries from './tineraries';
+//importo de librerias externas
+import React from 'react'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography';
+
+//importo los estilos
+import '../styles/styles.css'
+
+//importo componentes locales
+import Tineraries from './tineraries'
+import TinerariesNon from './tinerariesNon';
 
 export default function CardDetail (props) {
-  return (
-    <>
-        <div className="onlyCard-text">
-            <h2 className='textTitle'>{props.cityDat.city}</h2>
-            <h5 className='onlytextCard'>Country: {props.cityDat.country}</h5>
-            <h5 className='onlytextCard'>Population: {props.cityDat.population}</h5>
-            {props.tinDat.length > 0 ?
-                <Tineraries tinDat={props.tinDat} /> : <h5>NO TINERARIES YET!</h5>
-            }
-        </div>
-        <img className="onlyCard-img" src={process.env.PUBLIC_URL+`${props.cityDat.photo}`} alt={props.cityDat.city} />
-    </>
-  );
+    return (
+        <>
+            <>
+              <Box sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  textAlign: 'center',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '100%',
+                  height: '300px',
+                  position: 'relative',
+                  zIndex: 'tooltip'}}>
+                    <Typography variant="h1" className='festiveFont shadows' sx={{paddingTop: '20px'}}>{props.cityDat.city}</Typography>
+                    <Typography variant="h5" className='shadows' sx={{paddingTop: '10px'}}>{props.cityDat.country} - {props.cityDat.continent}</Typography>
+                </Box>
+                <Box sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    textAlign: 'center',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '100%',
+                    height: '300px',
+                    opacity: '0.5',
+                    position: 'absolute',
+                    zIndex: 'modal'}}>
+                    <img src={process.env.PUBLIC_URL+`${props.cityDat.photo}`} alt={props.cityDat.city} className='fitImg' />
+                </Box>
+            </>
+            <>
+                {props.tinDat.length > 0 ?
+                    <Tineraries tinDat={props.tinDat} /> : <TinerariesNon />
+                }
+            </>
+        </>
+    );
 }

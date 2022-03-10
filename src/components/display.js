@@ -1,11 +1,17 @@
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
-import IconButton from '@mui/material/IconButton';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import TinCarousel from './tineraries';
+//importo de librerias externas
+import React from 'react'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
+import {styled} from '@mui/material/styles'
+import Card from '@mui/material/Card'
+import CardActions from '@mui/material/CardActions'
+import Collapse from '@mui/material/Collapse'
+import IconButton from '@mui/material/IconButton'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+
+//importo los estilos
+import '../styles/styles.css'
+
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -27,15 +33,25 @@ export default function Display(props) {
   };
 
     return (
-        <Card /* sx={{ maxWidth: 345 }} */>
-            <h5 className='onlytextCard'>{props.tinDat.userName}</h5>
-            <h5 className='onlytextCard'>{props.tinDat.itinerary}</h5>
+        <Card sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            flexGrow: '1',
+            height: '100%',
+            textAlign: 'center',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: 'rgb(242, 245, 200)',
+            padding: '10px',}}>
+            <Typography variant="h4">{props.tinDat.itinerary}</Typography>
+            <Typography variant="h6">price: {props.tinDat.price} - time: {props.tinDat.time}</Typography>
+            <Typography variant="subtitle1">{props.tinDat.tags.join(" , ")}</Typography>
             <CardActions disableSpacing>
                 <ExpandMore expand={expanded} onClick={handleExpandClick} aria-expanded={expanded} aria-label="show more"><ExpandMoreIcon /></ExpandMore>
             </CardActions>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
-                <h5 className='onlytextCard'>ACTIVITIES</h5>
-                <h5 className='onlytextCard'>COMENTS</h5>
+                <Typography variant="subtitle1">ACTIVITIES</Typography>
+                <Typography variant="subtitle1">COMENTS</Typography>
             </Collapse>
         </Card>
     );

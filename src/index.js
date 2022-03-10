@@ -25,7 +25,6 @@ const reduxStore = createStore(mainReducer,applyMiddleware(thunk)) //creamos un 
 ReactDOM.render( //a la pantalla, le aplico el método render para imprimir lo siguiente:
     <React.StrictMode> {/* usamos el modo estricto de react */}
         <Provider store={reduxStore}> {/* aplicamos el almacenamiento a toda la App */}
-            {console.log(reduxStore.getState())}
             <BrowserRouter> {/* buscador de rutas */}
                 <Routes> 
                     <Route path="/cities" element={<Cities />} /> {/* en path se coloca la ruta del archivo que se busca */}

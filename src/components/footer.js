@@ -12,7 +12,7 @@ import '../styles/styles.css'
 export default class Footer extends React.Component { //generamos un objeto de clase
     render() { //al objeto le definimos un metodo que imprime en HTML
         return ( //returno el HTML
-            <Container maxWidth="xl" sx={{display: 'flex', backgroundColor: 'rgb(33, 159, 148)'}}>
+            <Container maxWidth="100%" sx={{display: 'flex', backgroundColor: 'rgb(33, 159, 148)'}}>
                 <LinkRouter to="/home" className='linksCities'>
                     <HomeIcon />
                 </LinkRouter>

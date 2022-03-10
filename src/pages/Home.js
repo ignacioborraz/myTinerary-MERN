@@ -9,12 +9,15 @@
 //importo de librerias externas
 import React from 'react'
 import {Link as LinkRouter} from "react-router-dom"
-import {Typography} from '@mui/material'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
 
 //importo los estilos
 import '../styles/styles.css'
 
 //importo componentes locales
+import NavBar from '../components/navBar'
+import Footer from '../components/footer'
 import MyCarousel from '../components/carousel'
 
 export default class Home extends React.Component { //generamos un objeto de clase
@@ -24,17 +27,46 @@ export default class Home extends React.Component { //generamos un objeto de cla
             <> {/* se puede returnar un hijo unico por lo que ese necesari una etiqueta auxiliar padre de los hermanos a renderizar */}
                 <div className='home'> {/* para aplicar el fondo */}
                     <div className='backHome'> {/* para aplicar estilos */}
-                        <Typography variant="h6" noWrap component="div" className='titleIndex' sx={{flexGrow:'1', display: 'flex', justifyContent:'center', alignItems: 'center'}}>
-                            MyTinerary
-                        </Typography>
-                        <h3 className='subtitles'>
-                            <p className='subtitles'>FIND YOUR PERFECT TRIP</p>
-                            <p className='subtitles'>designed by insiders who know and love their cities!</p>
+                        <Box sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            textAlign: 'center',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            marginTop: '5px'}}>
+                            <Typography variant="h2" noWrap className='festiveFont shadows' sx={{marginTop: '60px', marginBottom: '30px'}}>
+                                MyTinerary
+                            </Typography>
+                            <Typography variant='h5'>FIND YOUR PERFECT TRIP</Typography>
+                            <Typography variant='h5'>designed by insiders who know and love their cities!</Typography>
                             <LinkRouter to="cities" className='linksHero'>START</LinkRouter>
-                        </h3> 
+                        </Box> 
                     </div>
                 </div>
-                <MyCarousel />
+                <Box className='main'>
+                    <Box sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        flexGrow: '1',
+                        textAlign: 'center',
+                        alignItems: 'center',
+                        width: '100%',
+                        minHeight: '100vh',
+                        backgroundColor: 'rgb(232, 232, 166, 0.7)'}}>
+                        <NavBar/>
+                        <Box sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            flexGrow: '1',
+                            textAlign: 'center',
+                            alignItems: 'center',
+                            width: '100%',
+                            marginTop: '20px'}}>
+                            <MyCarousel />
+                        </Box>
+                        <Footer />
+                    </Box>
+                </Box>
             </>
         )
     }

@@ -1,8 +1,7 @@
 //importo de librerias externas
 import React, {useEffect} from 'react'
-import {Link as LinkRouter} from "react-router-dom"
-import Flippy, {FrontSide, BackSide} from 'react-flippy';
-import Input from '@mui/material/Input';
+import Input from '@mui/material/Input'
+import Box from '@mui/material/Box'
 
 //importo los estilos
 import '../styles/styles.css'
@@ -10,7 +9,7 @@ import '../styles/styles.css'
 //importo componentes locales
 import NavBar from '../components/navBar'
 import Footer from '../components/footer'
-import Card from '../components/card';
+import Cards from '../components/cardCity'
 
 //importo acciones de redux
 import {useDispatch, useSelector} from 'react-redux'
@@ -34,15 +33,30 @@ export default function Cities () {
     //console.log(inputFromRedux)
 
     return(
-        <div className='main'> {/* en cada pagina se rendirza el nav, la infor del cuerpo de cada pagina y el pie de pagina */}
-            <div className='colorMain'>
+        <Box className='main'>
+            <Box sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                flexGrow: '1',
+                textAlign: 'center',
+                alignItems: 'center',
+                width: '100%',
+                minHeight: '100vh',
+                backgroundColor: 'rgb(232, 232, 166, 0.7)'}}>
                 <NavBar/>
-                <div className='info'>
-                    <Input onKeyUp={handleInput} placeholder='find your city!' />
-                    <Card input={inputFromRedux} cities={citiesFromRedux} />
-                </div>
+                <Box sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    flexGrow: '1',
+                    textAlign: 'center',
+                    alignItems: 'center',
+                    width: '100%',
+                    marginTop: '20px'}}>
+                    <Input onKeyUp={handleInput} placeholder='find your city!' sx={{width: '50%'}} />
+                    <Cards input={inputFromRedux} cities={citiesFromRedux} />
+                </Box>
                 <Footer />
-            </div>
-        </div>
+            </Box>
+        </Box>
     )
 }
