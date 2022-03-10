@@ -10,6 +10,7 @@ import '../styles/styles.css'
 //importo componentes locales
 import NavBar from '../components/navBar'
 import Footer from '../components/footer'
+import Card from '../components/card';
 
 //importo acciones de redux
 import {useDispatch, useSelector} from 'react-redux'
@@ -38,98 +39,10 @@ export default function Cities () {
                 <NavBar/>
                 <div className='info'>
                     <Input onKeyUp={handleInput} placeholder='find your city!' />
-                    <ReduxCities input={inputFromRedux} cities={citiesFromRedux} />
+                    <Card input={inputFromRedux} cities={citiesFromRedux} />
                 </div>
                 <Footer />
             </div>
         </div>
-    )
-}
-
-function ReduxCities (props) {
-    console.log(props);
-    //console.log(props.input) //verifico
-    //console.log(props.cities) //verifico
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        dispatch(cityActions.filterCities(props.input))  //despacho la obtencion de ciudades
-    },[props.input])
-
-    const filterFromRedux = useSelector(store => store.cityReducer.filterCity) //defino una variable con las ciudades del store
-    
-    let data = props.input.length>0 ? filterFromRedux : props.cities
-    
-    //console.log(data)
-    //console.log(input.cities) //verifico
-    //console.log(filterFromRedux) //verifico
-
-    return ( //returno el HTML
-        <>
-        <div className='allTheCards'>
-            {data.length>0 ? 
-                data.map(everyCity => (
-                    <Flippy key={everyCity._id} flipOnHover={true} flipOnClick={false} flipDirection="horizontal">
-                        <FrontSide>
-                            <CardFront cities={everyCity}/>
-                        </FrontSide>
-                        <BackSide>
-                            <CardBack cities={everyCity}/>
-                        </BackSide>
-                    </Flippy>
-                ))
-            : <><h3>TYPE ANOTHER CITY PLEASE</h3><h5>we didn't find that!</h5></>}
-        </div>
-        </>
-    )
-}
-
-
-
-
-function TheCities (props) {
-    console.log(props);
-    const filterFromRedux = useSelector(store => store.cityReducer.filterCities)
-    var data = {filterFromRedux}.length>0 ? {filterFromRedux} : props.inputSearch === "" ? props.cities : []
-    return ( //returno el HTML
-        <>
-        <div className='allTheCards'>
-            {data.length>0 ? 
-                data.map(everyCity => (
-                    <Flippy key={everyCity._id} flipOnHover={true} flipOnClick={false} flipDirection="horizontal">
-                        <FrontSide>
-                            <CardFront cities={everyCity}/>
-                        </FrontSide>
-                        <BackSide>
-                            <CardBack cities={everyCity}/>
-                        </BackSide>
-                    </Flippy>
-                ))
-            : <><h3>TYPE ANOTHER CITY PLEASE</h3><h5>we didn't find that!</h5></>}
-        </div>
-        </>
-    )
-}
-
-function CardFront (infoCities) { //definimos la card del frente
-    return (
-        <article className='cityCard'>
-            <h2 className="textCities">{infoCities.cities.city}</h2>
-            <img className="imgCities" src={process.env.PUBLIC_URL+ `${infoCities.cities.photo}`} alt={infoCities.cities.city} />
-        </article>
-    )
-}
-
-function CardBack (infoCities) { //definimos la card del reverso
-    return(
-        <article className='cityCard'>
-            <div className="textCitiesReverse">
-                <h2 className='textTitle'>{infoCities.cities.city}</h2>
-                <h5 className='textCard'>Country: {infoCities.cities.country}</h5>
-                <h5 className='textCard population'>Population: {infoCities.cities.population}</h5>
-                <LinkRouter to={`/cities/${infoCities.cities._id}`} className='linksCities'>+info</LinkRouter>
-            </div>
-            <img className="imgCitiesReverse" src={process.env.PUBLIC_URL+ `${infoCities.cities.photo}`} alt={infoCities.cities.city} />
-        </article>
     )
 }

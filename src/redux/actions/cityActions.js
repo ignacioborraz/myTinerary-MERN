@@ -11,6 +11,12 @@ const cityActions = { //las acciones son eventos en forma de objetos
             dispatch({type:'GET_CITIES', payload:res.data.response.cities})
        }
     },
+    uploadCity: (continent,country,city,photo,population)=>{
+        return async(dispatch,getState)=>{
+            const answer = await axios.post('http://localhost:4000/api/cities',{continent,country,city,photo,population})
+            dispatch({type:'UPD_CITY', payload:answer.data.response.cities})
+        }
+    },
     deleteCity: (id) => {
         return async(dispatch, getState) => {
             try {
@@ -21,14 +27,18 @@ const cityActions = { //las acciones son eventos en forma de objetos
             }
         }
     },
-    uploadCity: (continent,country,city,photo,population)=>{
-        return async(dispatch,getState)=>{
-            const answer = await axios.post('http://localhost:4000/api/productos',{continent,country,city,photo,population})
-            dispatch({type:'UPD_CITY', payload:answer.data.response.cities})
+    /* modifyCity: '', */
+    oneCity: (id) => {
+        return async(dispatch, getState) => {
+            try {
+                const answer = await axios.get(`http://localhost:4000/api/cities/${id}`)
+                dispatch({type:'ONE_CITY', payload:answer.data.response.cities})
+            }catch (err) {
+                console.log(err)
+            }
         }
     },
     filterCities: (input) => {
-        console.log(input)
         return (dispatch,getState)=>{
             dispatch({type:'FIL_CITIES', payload:input})
         }

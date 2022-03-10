@@ -31,7 +31,7 @@ export default class LogIn extends React.Component { //generamos un objeto de cl
             <div className='main'> {/* en cada pagina se rendirza el nav, la infor del cuerpo de cada pagina y el pie de pagina */}
                 <div className='colorMain'>
                     <NavBar/> {/* llamamos al nav */}
-                    <div className='info'>
+                    <div className='infoLog'>
                         <h1>LOG IN</h1>
                         <button onClick={this.changeToin}>{this.state.login ? 'log in!' : this.state.text}</button>
                         <p><b>{this.state.login ? this.state.text1 : this.state.text2}</b></p>

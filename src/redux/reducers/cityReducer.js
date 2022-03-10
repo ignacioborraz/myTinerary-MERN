@@ -1,6 +1,7 @@
 const initialState = { //defino el estado inicial del reductor
     cities: [],
     filterCity: [],
+    oneCity: {},
     auxCities: []
 }
 
@@ -13,11 +14,6 @@ const cityReducer = (state = initialState, action) => { //defino el reductor, qu
                 ...state,
                 cities: action.payload
             }
-        case 'DEL_CITY':
-            return {
-                ...state,
-                cities: action.payload
-            }
         case 'UPD_CITY':
             let cities = [...state.cities]
             cities.push(action.payload)
@@ -26,10 +22,26 @@ const cityReducer = (state = initialState, action) => { //defino el reductor, qu
                 cities: action.payload,
                 auxCities: [...cities]
             }
+        case 'DEL_CITY':
+            return {
+                ...state,
+                cities: action.payload
+            }
+/*         case 'MOD_CITY':
+            let cities = [...state.cities]
+            cities.push(action.payload)
+            return{
+                ...state,
+                cities: action.payload,
+                auxCities: [...cities]
+            } */
+        case 'ONE_CITY':
+            return {
+                ...state,
+                oneCity: action.payload
+            }
         case 'FIL_CITIES':
-            console.log(action.payload);
             let filter = state.cities.filter(everyCity => everyCity.city.toLowerCase().startsWith(action.payload.toLowerCase()))
-            console.log(filter)
             return {
                 ...state,
                 filterCity: filter

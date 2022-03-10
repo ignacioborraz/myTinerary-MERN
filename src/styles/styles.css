@@ -55,6 +55,15 @@ body {
     flex-direction: column;
     flex-grow: 1;
     align-items: center;
+    justify-content: center;
+    width: 85% !important;
+}
+
+.infoLog {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
     width: 100%;
     padding: 20px 0;
     margin: 0;
@@ -78,13 +87,28 @@ body {
     font-family: 'Festive', cursive !important;
     font-size: 40px !important;
 }
+
 .textCard , .onlytextCard {
     padding: 0 0 6px 0;
     margin: 0;
     font-weight: 500;
     font-size: 16px;
 }
-  
+
+.tineraryCard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.displayCard {
+    padding: 10px;
+    margin: 5px;
+    background-color: rgb(242, 245, 200);
+    text-align: center;
+    font-weight: 800;
+}
+
 .textFooter {
     font-size: 17px !important;
     margin: 0;
@@ -195,19 +219,33 @@ body {
     margin-bottom: 5px !important;
 }
 
-.artCities , .cityCard , .onlyCard {
+.artCities , .cityCard {
     margin: 3px;
     background-color: rgb(193, 222, 174);
 }
 
-.onlyCard {
-    width: 690px !important;
-    height: 400px !important;
+.onlyCard-text {
+    width: 100% !important;
+    height: 80vh !important;
+    position: absolute;
+    z-index: 1;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-weight: 400;
 }
 
-.onlyCard-text , .onlyCard-img {
-    width: 690px !important;
-    height: 400px !important;
+.onlyCard-img {
+    width: 100% !important;
+    height: 80vh !important;
+    object-fit: cover !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    opacity: 0.4;
 }
 
 .artCities:hover {
@@ -245,14 +283,6 @@ body {
     padding: 0 !important;
 }
 
-.allTheCards {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    flex-direction: row !important;
-    flex-wrap: wrap;
-}
-
 .imgCities {
     display: flex;
     justify-content: center;
@@ -266,13 +296,21 @@ body {
     opacity: 0.7
 }
 
-.imgCitiesReverse , .onlyCard-img {
+.imgCitiesReverse {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    opacity: 0.4;
+}
+
+.onlyimgCard {
     display: flex;
     justify-content: center;
     align-items: center;
     object-fit: cover !important;
-    width: 100%;
-    opacity: 0.4;
+    width: 100px !important;
+    height: 100px !important;
 }
 
 a {
@@ -299,14 +337,6 @@ a {
         width: 175px !important;
         height: 109px !important;
     }
-    .onlyCard {
-        width: 190px !important;
-        height: 400px !important;
-    }
-    .onlyCard-text , .onlyCard-img {
-        width: 190px !important;
-        height: 400px !important;
-    }
     .css-1f8sh1y{
         width: 180px !important;
         height: 465px !important;
@@ -330,6 +360,9 @@ a {
     .textFooter {
         font-size: 6px !important;
     }
+    .displayCard {
+        width: 130px;
+    }
 }
 @media only screen and (min-width: 300px) and (max-width: 400px) {
     .titleIndex {
@@ -350,14 +383,6 @@ a {
     .artCities , .cityCard , .textCities , .textCitiesReverse , .imgCities , .imgCitiesReverse {
         width: 275px !important;
         height: 109px !important;
-    }
-    .onlyCard {
-        width: 290px !important;
-        height: 400px !important;
-    }
-    .onlyCard-text , .onlyCard-img {
-        width: 290px !important;
-        height: 400px !important;
     }
     .css-1f8sh1y{
         width: 280px !important;
@@ -382,6 +407,9 @@ a {
     .textFooter {
         font-size: 11px !important;
     }
+    .displayCard {
+        width: 210px;
+    }
 }
 @media only screen and (min-width: 400px) and (max-width: 500px) {
     .titleIndex {
@@ -403,14 +431,6 @@ a {
         width: 375px !important;
         height: 109px !important;
     }
-    .onlyCard {
-        width: 390px !important;
-        height: 400px !important;
-    }
-    .onlyCard-text , .onlyCard-img {
-        width: 390px !important;
-        height: 400px !important;
-    }
     .css-1f8sh1y{
         width: 380px !important;
         height: 465px !important;
@@ -428,19 +448,14 @@ a {
     .textFooter {
         font-size: 11px !important;
     }
+    .displayCard {
+        width: 300px;
+    }
 }
 @media only screen and (min-width: 500px) and (max-width: 600px) { 
     .artCities , .cityCard , .textCities , .textCitiesReverse , .imgCities , .imgCitiesReverse {
         width: 230px !important;
         height: 225px !important;
-    }
-    .onlyCard {
-        width: 490px !important;
-        height: 400px !important;
-    }
-    .onlyCard-text , .onlyCard-img {
-        width: 490px !important;
-        height: 400px !important;
     }
     .css-1f8sh1y{
         width: 480px !important;
@@ -453,19 +468,14 @@ a {
     .textFooter {
         font-size: 15px !important;
     }
+    .displayCard {
+        width: 380px;
+    }
 }
 @media only screen and (min-width: 600px) and (max-width: 700px) {
     .artCities , .cityCard , .textCities , .textCitiesReverse , .imgCities , .imgCitiesReverse {
         width: 280px !important;
         height: 225px !important;
-    }
-    .onlyCard {
-        width: 590px !important;
-        height: 400px !important;
-    }
-    .onlyCard-text , .onlyCard-img {
-        width: 590px !important;
-        height: 400px !important;
     }
     .css-1f8sh1y{
         width: 580px !important;
@@ -474,6 +484,9 @@ a {
     .carousel {
         width: 580px !important;
         height: 485px !important;
+    }
+    .displayCard {
+        width: 410px;
     }
 }
 @media only screen and (min-width: 700px) and (max-width: 800px) {
@@ -489,6 +502,9 @@ a {
         width: 680px !important;
         height: 485px !important;
     }
+    .displayCard {
+        width: 510px;
+    }
 }
 @media only screen and (min-width: 800px) and (max-width: 900px) {
     .artCities , .cityCard , .textCities , .textCitiesReverse , .imgCities , .imgCitiesReverse {
@@ -503,6 +519,9 @@ a {
         width: 780px !important;
         height: 485px !important;
     }
+    .displayCard {
+        width: 610px;
+    }
 }
 @media only screen and (min-width: 900px){
     .artCities , .cityCard , .textCities , .textCitiesReverse , .imgCities , .imgCitiesReverse {
@@ -516,6 +535,14 @@ a {
     .carousel {
         width: 880px !important;
         height: 485px !important;
+    }
+    .displayCard {
+        width: 710px;
+    }
+}
+@media only screen and (min-width: 1400px){
+    .displayCard {
+        width: 1150px;
     }
 }
 

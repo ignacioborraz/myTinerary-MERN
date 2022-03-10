@@ -1,6 +1,6 @@
-const Cities = require('../models/cities')
+const Cities = require('../models/city')
 
-const citiesControllers = { //defino los metodos que necesita el controlador (utiliza una funcion asincrona (async/await))
+const cityControllers = { //defino los metodos que necesita el controlador (utiliza una funcion asincrona (async/await))
 
     getCities: async (req,res) => { //request,response
         let cities //defino la variable que va a contener la base de datos
@@ -48,7 +48,7 @@ const citiesControllers = { //defino los metodos que necesita el controlador (ut
         .then(respons => res.json({respons})) //luego cargamos la respuesta en un json
     },
 
-    findCity: async (req,res) => { //request,response
+    oneCity: async (req,res) => { //request,response
         let cityId = req.params.id //defino el id qe necesito
         let cities //defino la variable que va a contener la base de datos
         let error = null //predefino el error
@@ -66,7 +66,7 @@ const citiesControllers = { //defino los metodos que necesita el controlador (ut
     }
 }
 
-module.exports = citiesControllers //exporto los controladores
+module.exports = cityControllers //exporto los controladores
 
 //luego configuro el enrrutador de endpoints
 

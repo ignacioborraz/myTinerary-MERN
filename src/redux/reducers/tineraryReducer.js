@@ -1,47 +1,53 @@
-/* 
-const initialState = {
-    productos:[],
-    auxiliar:[],
-    pepito:'pépito'
+const initialState = { //defino el estado inicial del reductor
+    tineraries: [],
+    filterTin: [],
+    oneTinerary: {},
+    auxTineraries: []
 }
 
-const productosReducer = (state = initialState, action)=>{
-
-    switch(action.type){
-        case 'fetch':
-            
+const tineraryReducer = (state = initialState, action) => { //defino el reductor, que va a depender del estado inicial y de una accion
+    console.log(action);
+    console.log(state);
+    switch(action.type) {
+        case 'GET_TINERARIES':
             return {
                 ...state,
-                productos: action.payload,
-                auxiliar: action.payload,
+                tineraries: action.payload
             }
-            
-        case 'delete':
-            return {
-                ...state,
-                productos: action.payload
-            }
-
-        case 'cargarProducto':
-            let productos = [...state.productos]
-            productos.push(action.payload)
+        case 'UPD_TINERARY':
+            let tineraries = [...state.tineraries]
+            tineraries.push(action.payload)
             return{
                 ...state,
-                productos,
-                auxiliar: [...productos]
+                tineraries: action.payload,
+                auxTineraries: [...tineraries]
             }
-
-        case 'filtro':
-            const filtrado =action.payload.productos.filter((product => product.name.toLowerCase().startsWith(action.payload.value.toLowerCase())))
-
+        case 'DEL_TINERARY':
             return {
                 ...state,
-                productos: filtrado
+                tineraries: action.payload
+            }
+/*         case 'MOD_TINERARY':
+            let tineraries = [...state.tineraries]
+            tineraries.push(action.payload)
+            return{
+                ...state,
+                tineraries: action.payload,
+                auxTineraries: [...tineraries]
+            } */
+        case 'ONE_TINERARY':
+            return {
+                ...state,
+                oneTinerary: action.payload
+            }
+        case 'FIL_TINERARIES':
+            console.log(action.payload);
+            return {
+                ...state,
+                filterTin: action.payload
             }
         default:
             return state
     }
-
-
 }
-export default productosReducer */
+export default tineraryReducer

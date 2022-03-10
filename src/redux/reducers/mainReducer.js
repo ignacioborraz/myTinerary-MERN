@@ -4,8 +4,8 @@ import {combineReducers} from 'redux'
 //importo los redutores de REDUX que se van a combinar:
 import cityReducer from './cityReducer'
 import inputReducer from './inputReducer'
-//import tinerariesReducer from './tinerariesReducer'
+import tineraryReducer from './tineraryReducer'
 
-const mainReducer = combineReducers({cityReducer,inputReducer})  //combino los reductores
+const mainReducer = combineReducers({cityReducer,inputReducer,tineraryReducer})
 
 export default mainReducer
