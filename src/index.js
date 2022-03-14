@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import Cities from './pages/cities';
 import CityDetail from './pages/cityDetail';
 import LogIn from './pages/login';
+import SignUp from './pages/signup';
 
 //importo los componentes de REDUX:
 import {Provider} from 'react-redux';
@@ -30,6 +31,7 @@ ReactDOM.render( //a la pantalla, le aplico el método render para imprimir lo s
                     <Route path="/cities" element={<Cities />} /> {/* en path se coloca la ruta del archivo que se busca */}
                     <Route path ="/cities/:id" element={<CityDetail />}/> v
                     <Route path='/login' element={<LogIn  />} />
+                    <Route path='/signup' element={<SignUp  />} />
                     <Route path="/*" index element={<Home />} />
                 </Routes>
             </BrowserRouter>
@@ -37,3 +39,21 @@ ReactDOM.render( //a la pantalla, le aplico el método render para imprimir lo s
     </React.StrictMode>,
     document.getElementById('root') //selecciono la "raiz" del index.html, donde se imprimirá el renderizado
 );
+
+
+
+/* COLORES:
+#4a8c6f
+#7ec4a5
+#a57ec4
+#c4a57e
+#cfeee4 */
+
+//BILLETTITOS
+//{"💵".repeat(parseInt(itinerary.price))}
+
+//SCROLL
+/* window.scrollTo({
+    top: 100,
+    behavior: 'smooth'
+  }); */

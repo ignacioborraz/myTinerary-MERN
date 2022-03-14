@@ -12,15 +12,15 @@ import '../styles/styles.css'
 export default class Footer extends React.Component { //generamos un objeto de clase
     render() { //al objeto le definimos un metodo que imprime en HTML
         return ( //returno el HTML
-            <Container maxWidth="100%" sx={{display: 'flex', backgroundColor: 'rgb(33, 159, 148)'}}>
-                <LinkRouter to="/home" className='linksCities'>
-                    <HomeIcon />
+            <Container maxWidth="100%" sx={{display: 'flex', backgroundColor: '#a57ec4', color: 'white'}}>
+                <LinkRouter to="/home">
+                    <HomeIcon sx={{bgcolor: 'white', color: 'rgb(165, 126, 196)', margin: '10px'}} />
                 </LinkRouter>
-                <Typography className='textFooter' variant="h6" component="div" sx={{display: 'flex', flexGrow: 1, justifyContent: 'center', alignItems: 'center', paddingTop: '3px', paddingBottom: '3px'}}>
+                <Typography className='fredokaFont footer' variant="h6" sx={{display: 'flex', flexGrow: 1, justifyContent: 'center', alignItems: 'center', paddingTop: '3px', paddingBottom: '3px'}}>
                     designed by insiders who know and love their cities!
                 </Typography>
-                <LinkRouter to="/cities" className='linksCities'>
-                    <FlightIcon />
+                <LinkRouter to="/cities">
+                    <FlightIcon sx={{bgcolor: 'white', color: 'rgb(165, 126, 196)', margin: '10px'}} />
                 </LinkRouter>
             </Container>
         )

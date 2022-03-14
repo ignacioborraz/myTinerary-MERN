@@ -21,7 +21,7 @@ export default function MyCarousel () {
             {id: 'asia1' , city: "Bangkok", photo: "/img/asia/bangkok.jpg"},
             {id: 'asia2' , city: "Pekin", photo: "/img/asia/pekin.jpg"},
             {id: 'asia3' , city: "Singapur", photo: "/img/asia/singapur.jpg"},
-            {id: 'asia4' , city: "Tokio", photo: "/img/asia/tokio.jpg"},
+            {id: 'asia4' , city: "Tokyo", photo: "/img/asia/tokio.jpg"},
         ]},{
         continent: "EUROPE", 
         cities: [
@@ -39,23 +39,55 @@ export default function MyCarousel () {
         ]}
     ]
 
-return (
-
-                                <Carousel className='carousel' sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' , width: '100%'}}>
-                    {citiesOfTheWorld.map( (everyContinent) => ( /* mapeamos los continentes */
-                        <Box key={everyContinent.continent}>
-                            <div className="continents">
-                                {everyContinent.cities.map((everyCity) => ( /* mapeamos las ciudades */
-                                    <Box key={everyCity.id}> {/* configuramos el renderizado de cada card */}
-                                        <article className='artCities'>
-                                            <h2 className="textCities">{everyCity.city}</h2>
-                                            <img className="imgCities" src={process.env.PUBLIC_URL+ `${everyCity.photo}`} alt={everyCity.city} />
-                                        </article>
-                                    </Box>
-                                ))}
-                            </div>
-                        </Box>
+    return (
+        <Carousel sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '90vw',
+            height: '80vh'}}>
+            {citiesOfTheWorld.map( (everyContinent) => ( /* mapeamos los continentes */
+                <Box key={everyContinent.continent} sx={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    textAlign: 'center',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '100%',
+                    height: '100%'}}>
+                    {everyContinent.cities.map((everyCity) => ( /* mapeamos las ciudades */
+                            <>
+                            <Box key={everyCity.id} className='wrapCarousel'> {/* configuramos el renderizado de cada card */}
+                                <Typography variant="h2" className='festiveFont shadows fitImg absolute wrapCarousel' sx={{
+                                    display: 'flex',
+                                    textAlign: 'center',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    width: '40vw',
+                                    height: '35vh',
+                                    backgroundColor: 'rgba(126, 196, 165, 0.2)',
+                                    padding: '0.5vh',
+                                    margin: '0.5vh'}}>
+                                    {everyCity.city}
+                                </Typography>
+                                <Box className='wrapCarousel relative' sx={{
+                                    display: 'flex',
+                                    textAlign: 'center',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    width: '40vw',
+                                    height: '35vh',
+                                    opacity: '0.9',
+                                    padding: '0.5vh',
+                                    margin: '0.5vh'}}>
+                                    <img src={process.env.PUBLIC_URL+ `${everyCity.photo}`} alt={everyCity.city} className='fitImg' />
+                                </Box>
+                            </Box>
+                            </>
                     ))}
-                </Carousel>
-
-)}
+                </Box>
+            ))}
+        </Carousel>
+    )
+}

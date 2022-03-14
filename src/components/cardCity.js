@@ -35,14 +35,14 @@ export default function Cards (props) {
         flexWrap: 'wrap',
         textAlign: 'center',
         alignItems: 'center',
-        justifyContent: 'center'}}>
+        justifyContent: 'space-evenly'}}>
             {data.map( everyCity =>
-            <Card key={everyCity._id} sx={{ maxWidth: '450px' , margin: '10px'}}>
+            <Card key={everyCity._id} sx={{width: '45vw', height: '32vw', marginTop: '10px'}} className='cityCards' >
                 <LinkRouter to={`/cities/${everyCity._id}`}>
                 <CardActionArea>
-                    <CardMedia component="img" height="140" image={process.env.PUBLIC_URL+`${everyCity.photo}`} alt={everyCity.city} />
-                    <CardContent sx={{color: 'rgb(242, 245, 200)', margin: 0, backgroundColor: 'rgb(33, 159, 148)'}}>
-                    <Typography variant="h4" gutterBottom component="div" className='festiveFont shadows' sx={{margin: 0}}>{everyCity.city}</Typography>
+                    <CardMedia component="img" sx={{height: '26vw'}} image={process.env.PUBLIC_URL+`${everyCity.photo}`} alt={everyCity.city} className='imgCards' />
+                    <CardContent sx={{height: '6vw', margin: 0, display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(196, 165, 126)'}} className='labelCards' >
+                    <Typography variant="h3" gutterBottom component="div" className='festiveFont shadows textCards' sx={{margin: 0, color: 'white'}}>{everyCity.city}</Typography>
                     </CardContent>
                 </CardActionArea>
                 </LinkRouter>

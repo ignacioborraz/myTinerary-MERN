@@ -17,8 +17,8 @@ import MenuItem from '@mui/material/MenuItem'
 //importo los estilos
 import '../styles/styles.css'
 
-const pages = ['home', 'cities', 'login'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['home', 'cities'];
+const settings = ['login', 'signup'];
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -41,13 +41,14 @@ const NavBar = () => {
 
   return (
     <AppBar position="sticky">
-      <Container maxWidth="100%" sx={{backgroundColor: 'rgb(33, 159, 148)'}}>
+      <Container maxWidth="100%" sx={{backgroundColor: 'rgb(165, 126, 196)'}}>
         <Toolbar disableGutters sx={{display: 'flex' , justifyContent: 'center', alignContent: 'center'}}>
-          <Typography variant="h6" noWrap component="div" className='titles' sx={{display: { xs: 'none', md: 'flex' }, justifyContent:'center', alignItems:'center'}}>
+          <Typography variant="h2" noWrap className='festiveFont' sx={{display: { xs: 'none', md: 'flex'}, justifyContent:'center', alignItems:'center', paddingRight: '20px', paddingTop: '10px', paddingBottom: '10px', color: 'white'}}>
             MyTinerary
           </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton size="large" aria-label="account of current user" aria-controls="menu-appbar" aria-haspopup="true" onClick={handleOpenNavMenu} color="inherit">
+            <IconButton aria-label="account of current user" aria-controls="menu-appbar" aria-haspopup="true" onClick={handleOpenNavMenu} sx={{bgcolor: 'white', color: 'rgb(165, 126, 196)'}}>
               <MenuIcon />
             </IconButton>
             <Menu
@@ -62,19 +63,23 @@ const NavBar = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <LinkRouter to={'/'+page}>{page}</LinkRouter>
+                  <LinkRouter to={'/'+page}>
+                    <Typography className='fredokaFont' sx={{color: 'black'}}>{page}</Typography>
+                  </LinkRouter>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <Typography variant="h6" noWrap component="div" className='titles' sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+
+          <Typography variant="h3" noWrap className='festiveFont titleResp' sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, paddingTop: '10px', paddingBottom: '10px'}}>
             MyTinerary
           </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page,index) => (
-              <LinkRouter to={'/'+page} key={index} >                
-                <Button onClick={handleCloseNavMenu} sx={{color: 'white', display: 'block'}} className='buttonIndex'>
-                  {page}
+              <LinkRouter to={'/'+page} key={index} >              
+                <Button onClick={handleCloseNavMenu}>
+                <Typography variant="h6" className='fredokaFont' sx={{display: 'block', color: 'white'}}>{page}</Typography>
                 </Button>
               </LinkRouter>
             ))}
@@ -82,8 +87,8 @@ const NavBar = () => {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings" sx={{width: '10px'}}>
-              <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              <IconButton onClick={handleOpenUserMenu}>
+                <Avatar src="/broken-image.jpg" sx={{bgcolor: 'white', color: 'rgb(165, 126, 196)'}} />
               </IconButton>
             </Tooltip>
             <Menu
@@ -98,7 +103,9 @@ const NavBar = () => {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <LinkRouter to={'/'+setting}>
+                    <Typography className='fredokaFont' sx={{color: 'black'}}>{setting}</Typography>
+                  </LinkRouter>
                 </MenuItem>
               ))}
             </Menu>

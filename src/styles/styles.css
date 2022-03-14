@@ -1,31 +1,22 @@
-                        @import url('https://fonts.googleapis.com/css2?family=Festive&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Festive&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400&display=swap');
 
-                        * {
-                            margin: 0;
-                            padding: 0;
-                            box-sizing: border-box;
-                        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-                        .home {
-                            width: 100%;
-                            height: 100vh;
-                            background-image: url('../../public/img/index.jpg');
-                            background-repeat: no-repeat;
-                            background-position: center;
-                            background-size: cover;
-                        }
-
-                        .backHome {
-                            width: 100%;
-                            height: 100%;
-                        }
-
-
-                        .flippy-container  {
-                            width: 30%;
-                            height: 30vh;
-                            padding: 10px;
-                        }
+.home {
+    width: 100%;
+    height: 100vh;
+    background-image: url('../../public/img/index.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
 
 .main {
     display: flex;
@@ -35,33 +26,116 @@
     align-items: center;
     width: 100%;
     min-height: 100vh;
+}
+
+.main-back {
     background-image: url('../../public/img/background.jpg');
     background-size: cover;
     background-position: center;
 }
 
-/* .colorMain {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    text-align: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    width: 100%;
-    min-height: 100vh;
-    background-color: rgb(232, 232, 166, 0.6);
-} */
+.main-back-log {
+    background-image: url('../../public/img/backgroundLog.jpg');
+    background-size: cover;
+    background-position: center;
+}
 
-/* .info {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    align-items: center;
-    justify-content: center;
-    width: 85% !important;
-} */
+.main-back-sign {
+    background-image: url('../../public/img/backgroundSign.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.shadows {
+    text-shadow: 0 0 1px white, 0 0 10px white, 0px 0px 10px white;
+}
+
+.fredokaFont {
+    font-family: 'Fredoka', sans-serif !important;
+}
+
+.festiveFont {
+    font-family: 'Festive', cursive !important;
+}
+
+.linksHero {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 5px 15px;
+    font-weight: 600 !important;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: white;
+    background-color: rgb(165, 126, 196);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px white;
+}
+.linksHero:active {
+    transform: translateY(4px);
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+    z-index: 1;
+}
+
+.fitImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important;
+}
+
+.bigAnounce {
+    font-size: 50px !important
+}
+
+@media only screen and (max-width: 700px) {
+    .wrapCarousel {
+        flex-wrap: wrap !important;
+        width: 85vw !important;
+        height: 18vh !important;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .title {
+        font-size: 50px !important;
+    }
+    .titleResp {
+        font-size: 32px !important;
+    }
+    .subtitle {
+        font-size: 15px !important;
+    }
+    .button {
+        font-size: 20px !important;
+    }
+    .footer {
+        font-size: 12px !important;
+    }
+    .cityCards {
+        width: 90vw !important;
+        height: 60vw !important;
+    }
+    .imgCards {
+        height: 42vw !important;
+    }
+    .labelCards {
+        height: 18vw !important;
+    }
+    .textCards {
+        font-size: 10vw !important;
+    }
+}
+
+
+
 
 .infoLog {
     display: flex;
@@ -85,20 +159,8 @@
     margin: 0;
 }
 
-                    .festiveFont {
-                        font-family: 'Festive', cursive !important;
-                    }
-                    .bigAnounce {
-                        font-size: 50px !important
-                    }
-                    .fitImg {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover !important;
-                    }
-                    .shadows {
-                        text-shadow: 0 0 1px black, 0 0 20px rgb(193, 222, 174), 0px 0px 20px rgb(242, 245, 200);
-                    }
+                    
+
 
 .textCard {
     padding: 0 0 6px 0;
@@ -113,17 +175,9 @@
     justify-content: center;
 }
 
-/* .displayCardFlex {
-    padding: 2x;
-    background-color: rgb(242, 245, 200);
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
 
 .displayCard {
-    background-color: rgb(242, 245, 200);
+    background-color: rgba(126, 196, 165, 0.5);
     text-align: center;
     font-weight: 800;
     display: flex;
@@ -137,22 +191,7 @@
     margin: 0;
 }
 
-                .linksHero {
-                    display: inline-block;
-                    margin-top: 20px;
-                    padding: 5px 15px;
-                    font-size: 24px;
-                    font-weight: 600 !important;
-                    cursor: pointer;
-                    text-align: center;
-                    text-decoration: none;
-                    outline: none;
-                    color: rgb(242, 245, 200);
-                    background-color: rgb(33, 159, 148);
-                    border: none;
-                    border-radius: 15px;
-                    box-shadow: 0 9px #999;
-                }
+
 
                 .linksCities {
                     display: inline-block;
@@ -169,16 +208,8 @@
                     border-radius: 5px;
                 }
 
-.linksHero:hover , .linksCities:hover {
-    background-color: black;
-    color: rgb(193, 222, 174);
-}
-
-.linksHero:active {
-  background-color: rgb(193, 222, 174);
-  color: black;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+.linksCities:hover {
+    background-color: #c48e7e;
 }
 
 .logo {
@@ -201,12 +232,6 @@
     padding: 15px 10px 5px 0 !important;
 }
 
-.titles {
-    font-family: 'Festive', cursive !important;
-    font-size: 40px !important;
-    padding: 5px 10px 5px 0 !important;
-}
-
 /* .subtitles {
     font-size: 20px !important;
     font-weight: 400;
@@ -219,12 +244,12 @@
     margin-top: 5px;
 } */
 
-.continents {
+/* .continents {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-}
+} */
 
 .flippy-container {
     display: flex !important;
@@ -242,8 +267,7 @@
 }
 
 .artCities {
-    margin: 3px;
-    background-color: rgb(193, 222, 174);
+    margin: 5px; /* cambiar a 10 */
 }
 
 .onlyCard-text {
@@ -270,12 +294,6 @@
     opacity: 0.4;
 }
 
-.artCities:hover {
-    background-color: rgb(33, 159, 148);
-    margin: 0px;
-    padding: 3px
-}
-
 .textCities {
     position: absolute;
     z-index: 1;
@@ -290,8 +308,7 @@
 }
 
 .textCitiesReverse , .onlyCard-text {
-    position: absolute;
-    z-index: 1;
+
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
@@ -337,195 +354,5 @@
 
 a {
     text-decoration: none !important;
-}
-
-@media only screen and (max-width: 300px) {
-    .titleIndex {
-        font-size: 30px !important;
-        padding: 15px 4px 2px 0 !important;
-    }
-    .titles {
-        font-size: 15px !important;
-        padding: 2px 4px 2px 0 !important;
-    }
-    .subtitles {
-        font-size: 10px !important;
-        margin-top: 2px;
-    }
-    .textCities {
-        font-size: 20px;
-    }    
-    .artCities , .cityCard , .textCities , .textCitiesReverse , .imgCities , .imgCitiesReverse {
-        width: 175px !important;
-        height: 109px !important;
-    }
-    .css-1f8sh1y{
-        width: 180px !important;
-        height: 465px !important;
-    }
-    .carousel {
-        width: 180px !important;
-        height: 485px !important;
-    }
-    .textTitle {
-        font-size: 25px !important;
-    }
-    .textCard {
-        display: none;
-    }
-    .textFooter {
-        font-size: 6px !important;
-    }
-}
-@media only screen and (min-width: 300px) and (max-width: 400px) {
-    .titleIndex {
-        font-size: 35px !important;
-        padding: 15px 4px 2px 0 !important;
-    }
-    .titles {
-        font-size: 25px !important;
-        padding: 2px 4px 2px 0 !important;
-    }
-    .subtitles {
-        font-size: 12px !important;
-        margin-top: 2px;
-    }
-    .textCities {
-        font-size: 25px;
-    }    
-    .artCities , .cityCard , .textCities , .textCitiesReverse , .imgCities , .imgCitiesReverse {
-        width: 275px !important;
-        height: 109px !important;
-    }
-    .css-1f8sh1y{
-        width: 280px !important;
-        height: 465px !important;
-    }
-    .carousel {
-        width: 280px !important;
-        height: 485px !important;
-    }
-    .population {
-        display: none;
-    }
-    .textTitle {
-        font-size: 25px !important;
-    }
-    .textFooter {
-        font-size: 11px !important;
-    }
-}
-@media only screen and (min-width: 400px) and (max-width: 500px) {
-    .titleIndex {
-        font-size: 35px !important;
-        padding: 15px 4px 2px 0 !important;
-    }
-    .titles {
-        font-size: 30px !important;
-        padding: 2px 4px 2px 0 !important;
-    }
-    .subtitles {
-        font-size: 12px !important;
-        margin-top: 2px;
-    }
-    .textCities {
-        font-size: 30px;
-    }    
-    .artCities , .cityCard , .textCities , .textCitiesReverse , .imgCities , .imgCitiesReverse {
-        width: 375px !important;
-        height: 109px !important;
-    }
-    .css-1f8sh1y{
-        width: 380px !important;
-        height: 465px !important;
-    }
-    .carousel {
-        width: 380px !important;
-        height: 485px !important;
-    }
-    .population {
-        display: none;
-    }
-    .textTitle {
-        font-size: 25px !important;
-    }
-    .textFooter {
-        font-size: 11px !important;
-    }
-}
-@media only screen and (min-width: 500px) and (max-width: 600px) { 
-    .artCities , .cityCard , .textCities , .textCitiesReverse , .imgCities , .imgCitiesReverse {
-        width: 230px !important;
-        height: 225px !important;
-    }
-    .css-1f8sh1y{
-        width: 480px !important;
-        height: 465px !important;
-    }
-    .carousel {
-        width: 480px !important;
-        height: 485px !important;
-    }
-    .textFooter {
-        font-size: 15px !important;
-    }
-}
-@media only screen and (min-width: 600px) and (max-width: 700px) {
-    .artCities , .cityCard , .textCities , .textCitiesReverse , .imgCities , .imgCitiesReverse {
-        width: 280px !important;
-        height: 225px !important;
-    }
-    .css-1f8sh1y{
-        width: 580px !important;
-        height: 465px !important;
-    }
-    .carousel {
-        width: 580px !important;
-        height: 485px !important;
-    }
-}
-@media only screen and (min-width: 700px) and (max-width: 800px) {
-    .artCities , .cityCard , .textCities , .textCitiesReverse , .imgCities , .imgCitiesReverse {
-        width: 330px !important;
-        height: 225px !important;
-    }
-    .css-1f8sh1y{
-        width: 680px !important;
-        height: 465px !important;
-    }
-    .carousel {
-        width: 680px !important;
-        height: 485px !important;
-    }
-}
-@media only screen and (min-width: 800px) and (max-width: 900px) {
-    .artCities , .cityCard , .textCities , .textCitiesReverse , .imgCities , .imgCitiesReverse {
-        width: 380px !important;
-        height: 225px !important;
-    }
-    .css-1f8sh1y{
-        width: 780px !important;
-        height: 465px !important;
-    }
-    .carousel {
-        width: 780px !important;
-        height: 485px !important;
-    }
-}
-@media only screen and (min-width: 900px){
-    .artCities , .cityCard , .textCities , .textCitiesReverse , .imgCities , .imgCitiesReverse {
-        width: 430px !important;
-        height: 225px !important;
-    }
-    .css-1f8sh1y{
-        width: 880px !important;
-        height: 465px !important;
-    }
-    .carousel {
-        width: 880px !important;
-        height: 485px !important;
-    }
-}
-@media only screen and (min-width: 1400px){
 }
 

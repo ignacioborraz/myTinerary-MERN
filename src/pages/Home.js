@@ -25,25 +25,22 @@ export default class Home extends React.Component { //generamos un objeto de cla
     render() { //al objeto le definimos un metodo que imprime en HTML
         return ( //returno el HTML
             <> {/* se puede returnar un hijo unico por lo que ese necesari una etiqueta auxiliar padre de los hermanos a renderizar */}
-                <div className='home'> {/* para aplicar el fondo */}
-                    <div className='backHome'> {/* para aplicar estilos */}
+                <Box className='home'> {/* para aplicar el fondo */}
                         <Box sx={{
                             display: 'flex',
                             flexDirection: 'column',
                             textAlign: 'center',
                             alignItems: 'center',
-                            justifyContent: 'center',
-                            marginTop: '5px'}}>
-                            <Typography variant="h2" noWrap className='festiveFont shadows' sx={{marginTop: '60px', marginBottom: '30px'}}>
-                                MyTinerary
-                            </Typography>
-                            <Typography variant='h5'>FIND YOUR PERFECT TRIP</Typography>
-                            <Typography variant='h5'>designed by insiders who know and love their cities!</Typography>
-                            <LinkRouter to="cities" className='linksHero'>START</LinkRouter>
+                            justifyContent: 'flex-start',
+                            backgroundColor: 'rgba(196, 165, 126, 0.4)',
+                            flexGrow: '1'}}>
+                            <Typography variant="h1" noWrap className='festiveFont shadows title' sx={{color: 'rgb(165, 126, 196)', padding: '15px', marginTop: '50px', marginBottom: '10px'}}>MyTinerary</Typography>
+                            <Typography variant='h5' className='fredokaFont subtitle'>FIND YOUR PERFECT TRIP</Typography>
+                            <Typography variant='h5' className='fredokaFont subtitle'>designed by insiders who know and love their cities!</Typography>
+                            <LinkRouter to="cities" className='linksHero'><Typography variant='h5' className='fredokaFont button'>START</Typography></LinkRouter>
                         </Box> 
-                    </div>
-                </div>
-                <Box className='main'>
+                </Box>
+                <Box className='main main-back'>
                     <Box sx={{
                         display: 'flex',
                         flexDirection: 'column',
@@ -52,7 +49,7 @@ export default class Home extends React.Component { //generamos un objeto de cla
                         alignItems: 'center',
                         width: '100%',
                         minHeight: '100vh',
-                        backgroundColor: 'rgb(232, 232, 166, 0.7)'}}>
+                        backgroundColor: 'rgb(126, 196, 165, 0.5)'}}>
                         <NavBar/>
                         <Box sx={{
                             display: 'flex',
@@ -60,8 +57,10 @@ export default class Home extends React.Component { //generamos un objeto de cla
                             flexGrow: '1',
                             textAlign: 'center',
                             alignItems: 'center',
+                            justifyContent: 'center',
                             width: '100%',
-                            marginTop: '20px'}}>
+                            marginTop: '10px',
+                            marginBottom: '10px'}}>
                             <MyCarousel />
                         </Box>
                         <Footer />

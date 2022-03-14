@@ -36,7 +36,7 @@ export default function CityDetail () {
     //console.log(tinFromRedux)
 
     return(
-        <Box className='main'>
+        <Box className='main main-back'>
             <Box sx={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -45,7 +45,7 @@ export default function CityDetail () {
                 alignItems: 'center',
                 width: '100%',
                 minHeight: '100vh',
-                backgroundColor: 'rgb(232, 232, 166, 0.7)'}}>
+                backgroundColor: 'rgb(232, 232, 166, 0.5)'}}>
                 <NavBar/>
                 <Box sx={{
                     display: 'flex',

@@ -1,6 +1,5 @@
 //importo de librerias externas
 import React from 'react'
-import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import {styled} from '@mui/material/styles'
 import Card from '@mui/material/Card'
@@ -44,8 +43,9 @@ export default function Display(props) {
             backgroundColor: 'rgb(242, 245, 200)',
             padding: '10px',}}>
             <Typography variant="h4">{props.tinDat.itinerary}</Typography>
-            <Typography variant="h6">price: {props.tinDat.price} - time: {props.tinDat.time}</Typography>
-            <Typography variant="subtitle1">{props.tinDat.tags.join(" , ")}</Typography>
+            <Typography variant="subtitle1">{props.tinDat.description}</Typography>
+            <Typography variant="subtitle2">price: {props.tinDat.price} - time: {props.tinDat.time}</Typography>
+            <Typography variant="subtitle2">{props.tinDat.tags.join(" , ")}</Typography>
             <CardActions disableSpacing>
                 <ExpandMore expand={expanded} onClick={handleExpandClick} aria-expanded={expanded} aria-label="show more"><ExpandMoreIcon /></ExpandMore>
             </CardActions>

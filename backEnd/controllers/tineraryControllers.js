@@ -32,6 +32,7 @@ const tineraryController = { //defino los metodos que necesita el controlador (u
     modifyTin: async (req,res) => {
         const id = req.params.id
         const tinerary = req.body
+        //agregar try/catch con response (tener cuidado con que no se borren las propiedades que no se setean)
         await Tineraries.findOneAndUpdate({_id:id},tinerary)
     },
 

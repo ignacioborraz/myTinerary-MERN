@@ -27,8 +27,8 @@ export default function Cities () {
 
     const [input,setInput] = useState("")
 
-    return(
-        <Box className='main'>
+    return (
+        <Box className='main main-back'>
             <Box sx={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -37,7 +37,7 @@ export default function Cities () {
                 alignItems: 'center',
                 width: '100%',
                 minHeight: '100vh',
-                backgroundColor: 'rgb(232, 232, 166, 0.7)'}}>
+                backgroundColor: 'rgb(126, 196, 165, 0.5)'}}>
                 <NavBar/>
                 <Box sx={{
                     display: 'flex',
@@ -45,11 +45,13 @@ export default function Cities () {
                     flexGrow: '1',
                     textAlign: 'center',
                     alignItems: 'center',
+                    justifyContent: 'flex-start',
                     width: '100%',
-                    marginTop: '20px'}}>
-                    <Input onKeyUp={event => setInput(event.target.value)} placeholder='find your city!' sx={{width: '50%'}} />
+                    marginTop: '10px',
+                    marginBottom: '10px'}}>
+                    <Input onKeyUp={event => setInput(event.target.value)} placeholder='find your city!' sx={{width: '280px', padding: '10px'}} />
                     <Cards input={input} cities={citiesFromRedux} />
-                </Box>
+                    </Box>
                 <Footer />
             </Box>
         </Box>
