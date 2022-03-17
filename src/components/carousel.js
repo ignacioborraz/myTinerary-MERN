@@ -46,7 +46,7 @@ export default function MyCarousel () {
             alignItems: 'center',
             justifyContent: 'center',
             width: '90vw',
-            height: '80vh'}}>
+            height: '75vh'}}>
             {citiesOfTheWorld.map( (everyContinent) => ( /* mapeamos los continentes */
                 <Box key={everyContinent.continent} sx={{
                     display: 'flex',
@@ -57,34 +57,31 @@ export default function MyCarousel () {
                     width: '100%',
                     height: '100%'}}>
                     {everyContinent.cities.map((everyCity) => ( /* mapeamos las ciudades */
-                            <>
-                            <Box key={everyCity.id} className='wrapCarousel'> {/* configuramos el renderizado de cada card */}
-                                <Typography variant="h2" className='festiveFont shadows fitImg absolute wrapCarousel' sx={{
-                                    display: 'flex',
-                                    textAlign: 'center',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    width: '40vw',
-                                    height: '35vh',
-                                    backgroundColor: 'rgba(126, 196, 165, 0.2)',
-                                    padding: '0.5vh',
-                                    margin: '0.5vh'}}>
-                                    {everyCity.city}
-                                </Typography>
-                                <Box className='wrapCarousel relative' sx={{
-                                    display: 'flex',
-                                    textAlign: 'center',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    width: '40vw',
-                                    height: '35vh',
-                                    opacity: '0.9',
-                                    padding: '0.5vh',
-                                    margin: '0.5vh'}}>
-                                    <img src={process.env.PUBLIC_URL+ `${everyCity.photo}`} alt={everyCity.city} className='fitImg' />
-                                </Box>
+                        <Box key={everyCity.id} className='wrapCarousel'> {/* configuramos el renderizado de cada card */}
+                            <Typography variant="h2" className='festiveFont shadows fitImg absolute wrapCarousel' sx={{
+                                display: 'flex',
+                                textAlign: 'center',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                width: '41vw',
+                                height: '35vh',
+                                backgroundColor: 'rgba(126, 196, 165, 0.4)',
+                                padding: '0.5vh',
+                                margin: '0.5vh'}}>
+                                {everyCity.city}
+                            </Typography>
+                            <Box className='wrapCarousel relative' sx={{
+                                display: 'flex',
+                                textAlign: 'center',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                width: '41vw',
+                                height: '35vh',
+                                padding: '0.5vh',
+                                margin: '0.5vh'}}>
+                                <img src={process.env.PUBLIC_URL+ `${everyCity.photo}`} alt={everyCity.city} className='fitImg' />
                             </Box>
-                            </>
+                        </Box>
                     ))}
                 </Box>
             ))}

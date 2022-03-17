@@ -14,7 +14,7 @@ export default function CardDetail (props) {
     return (
         <>
             <>
-                <Box sx={{
+                <Box className='fitImg absolute' sx={{
                     display: 'flex',
                     flexDirection: 'column',
                     textAlign: 'center',
@@ -22,22 +22,18 @@ export default function CardDetail (props) {
                     justifyContent: 'center',
                     width: '100%',
                     height: '300px',
-                    position: 'relative',
-                    zIndex: 'tooltip'}}>
+                    backgroundColor: 'rgba(126, 196, 165, 0.4)'}}>
                     <Typography variant="h1" className='festiveFont shadows' sx={{paddingTop: '20px'}}>{props.cityDat.city}</Typography>
                     <Typography variant="h5" className='shadows' sx={{paddingTop: '10px'}}>{props.cityDat.country} - {props.cityDat.continent}</Typography>
                 </Box>
-                <Box sx={{
+                <Box className='relative' sx={{
                     display: 'flex',
                     flexDirection: 'column',
                     textAlign: 'center',
                     alignItems: 'center',
                     justifyContent: 'center',
                     width: '100%',
-                    height: '300px',
-                    opacity: '0.5',
-                    position: 'absolute',
-                    zIndex: 'modal'}}>
+                    height: '300px'}}>
                     <img src={process.env.PUBLIC_URL+`${props.cityDat.photo}`} alt={props.cityDat.city} className='fitImg' />
                 </Box>
             </>

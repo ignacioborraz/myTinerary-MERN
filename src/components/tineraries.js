@@ -20,8 +20,8 @@ export default function Tineraries (props) {
                 justifyContent: 'center',
                 width: '100%',
                 minHeight: '200px',
-                backgroundColor: 'rgb(242, 245, 200)',
-                color: 'rgb(193, 222, 174)',
+                backgroundColor: 'rgb(126, 196, 165)',
+                color: 'black',
                 marginTop: '20px'}}>
                 <Box sx={{
                     display: 'flex',
@@ -30,7 +30,7 @@ export default function Tineraries (props) {
                     textAlign: 'center',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    backgroundColor:'rgb(33, 159, 148)',
+                    backgroundColor:'rgb(126, 196, 165)',
                     padding: '10px',}}>
                     <img className="onlyimgCard" src={process.env.PUBLIC_URL+ `${everyTin.userPhoto}`} alt={everyTin.userName} />
                     <Typography variant="h6">{everyTin.userName}</Typography>

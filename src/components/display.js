@@ -40,7 +40,7 @@ export default function Display(props) {
             textAlign: 'center',
             alignItems: 'center',
             justifyContent: 'center',
-            backgroundColor: 'rgb(242, 245, 200)',
+            backgroundColor: 'rgb(207, 238, 228)',
             padding: '10px',}}>
             <Typography variant="h4">{props.tinDat.itinerary}</Typography>
             <Typography variant="subtitle1">{props.tinDat.description}</Typography>

@@ -1,4 +1,4 @@
-//se configuran la conexion a la base de datos
+//se configura la conexion a la base de datos
 
 const mongoose = require('mongoose') //importamos el paquete mongoose que nos da conexion con el servidor de nuestra base de datos
 

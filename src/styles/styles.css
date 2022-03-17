@@ -41,12 +41,16 @@
 }
 
 .main-back-sign {
-    background-image: url('../../public/img/backgroundSign.jpg');
-    background-size: cover;
+    background-image: url('../../public/img/backgroundSign.jpg');    background-size: cover;
     background-position: center;
 }
 
 .shadows {
+    text-shadow: 0 0 1px white, 0 0 10px white, 0px 0px 10px white;
+}
+
+.violetShadows {
+    color: rgb(165, 126, 196);
     text-shadow: 0 0 1px white, 0 0 10px white, 0px 0px 10px white;
 }
 
@@ -96,11 +100,70 @@
     font-size: 50px !important
 }
 
+.css-1m9128y {
+    display: none;
+}
+
+.myInput {
+    padding: 2px;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    border: 0 solid rgb(196, 165, 126);
+    border-radius: 0 50px 50px 0;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.myInput.focus {
+    margin: 0;
+}
+
+.myButton {
+    flex-grow: 1;
+    padding: 5px 10px;
+    margin: 0 10px;
+    font-weight: 600 !important;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: white;
+    background-color: rgb(165, 126, 196);
+    border: none;
+    border-radius: 15px;
+}
+.myButton:active {
+    transform: translateY(4px);
+}
+
+.anchor {
+    display: flex;
+    flex-grow: 1 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 30px !important;
+    font-weight: 600 !important;
+    margin: 0 5px !important;
+}
+
+.w100 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 @media only screen and (max-width: 700px) {
     .wrapCarousel {
         flex-wrap: wrap !important;
         width: 85vw !important;
-        height: 18vh !important;
+        height: 17vh !important;
+        font-size: 45px !important;
+    }
+    .footer {
+        font-size: 12px !important;
     }
 }
 @media only screen and (max-width: 500px) {
@@ -115,9 +178,6 @@
     }
     .button {
         font-size: 20px !important;
-    }
-    .footer {
-        font-size: 12px !important;
     }
     .cityCards {
         width: 90vw !important;

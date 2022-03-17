@@ -21,8 +21,8 @@ db.cities.insertMany([ //el método insertMany carga los siguientes objetos a la
     {"continent": "Oceania", "country": "New Zealand", "city": "Wellington", "photo": "/img/oceania/wellington.jpg", "population": "212700"}
 ]); */
 
-db.tineraries.drop(); //el metodo drop limpia la carga de datos en la coleccion tineraries de la base de datos myTinerary
-db.tineraries.insertMany([ //el método insertMany carga los siguientes objetos a la coleccion
+/* db.tineraries.drop()
+db.tineraries.insertMany([
 
     {"city": "Cancun",
     "userPhoto": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGZlbWFsZSUyMGRvY3RvcnxlbnwwfHwwfHw%3D&w=1000&q=80",
@@ -56,4 +56,15 @@ db.tineraries.insertMany([ //el método insertMany carga los siguientes objetos 
     "description": "You head to the Golden Mask Dynasty Show, which showcases what life was like in ancient China through live on-stage dance and acrobatic performances.",
     "comments": []}
 
-]);
+]); */
+
+db.users.drop()
+db.users.insertMany([
+    {"name": "ignacio",
+    "email": "ignacioborraz@hotmail.com",
+    "password": ["igna1447"],
+    "from": ["mnongoDB"],
+    "uniqueString": "true",
+    "verification": "true"}
+])
+

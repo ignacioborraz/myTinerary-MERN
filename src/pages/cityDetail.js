@@ -54,7 +54,8 @@ export default function CityDetail () {
                     textAlign: 'center',
                     alignItems: 'center',
                     width: '100%',
-                    marginTop: '20px'}}>
+                    marginTop: '10px',
+                    marginBottom: '10px'}}>
                     <CardDetail cityDat={oneCityFromRedux} tinDat={tinFromRedux} />
                 </Box>
                 <Footer />

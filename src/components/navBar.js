@@ -86,13 +86,13 @@ const NavBar = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings" sx={{width: '10px'}}>
+            <Tooltip title="Open settings" sx={{width: '10px',  paddingRight: '20px'}}>
               <IconButton onClick={handleOpenUserMenu}>
                 <Avatar src="/broken-image.jpg" sx={{bgcolor: 'white', color: 'rgb(165, 126, 196)'}} />
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{ mt: '45px' }}
+              sx={{ mt: '45px'}}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{vertical: 'top',horizontal: 'right'}}
