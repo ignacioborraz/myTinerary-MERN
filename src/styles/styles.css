@@ -18,6 +18,17 @@
     flex-direction: column;
 }
 
+.welcome {
+    width: 100%;
+    height: 100vh;
+    background-image: url('../../public/img/welcome.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
 .main {
     display: flex;
     flex-direction: column;
@@ -81,6 +92,22 @@
     transform: translateY(4px);
 }
 
+.linkWelcome {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 5px 15px;
+    font-weight: 600 !important;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: white;
+    background-color: rgb(165, 126, 196);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px white;
+}
+
 .relative {
     position: relative;
 }
@@ -111,7 +138,7 @@
     align-items: center;
     border: 0 solid rgb(196, 165, 126);
     border-radius: 0 50px 50px 0;
-    height: 40px;
+    height: 30px;
     background-color: rgba(255, 255, 255, 0.6);
 }
 
@@ -189,9 +216,6 @@
     .labelCards {
         height: 18vw !important;
     }
-    .textCards {
-        font-size: 10vw !important;
-    }
 }
 
 
@@ -222,11 +246,11 @@
                     
 
 
-.textCard {
-    padding: 0 0 6px 0;
-    margin: 0;
+.textCards {
+    color: white;
+    margin: 0 !important;
     font-weight: 500;
-    font-size: 16px;
+    padding: 1vw !important;
 }
 
 .tineraryCard {
@@ -292,115 +316,8 @@
     padding: 15px 10px 5px 0 !important;
 }
 
-/* .subtitles {
-    font-size: 20px !important;
-    font-weight: 400;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 0;
-    margin-top: 5px;
-} */
-
-/* .continents {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-} */
-
-.flippy-container {
-    display: flex !important;
-    margin: 0;
-}
-
-.MuiInput-root {
-    margin: 10px 0 !important;
-}
-
-.MuiInput-input {
-    background-color: white !important;
-    text-align: center;
-    margin-bottom: 5px !important;
-}
-
-.artCities {
-    margin: 5px; /* cambiar a 10 */
-}
-
-.onlyCard-text {
-    width: 100% !important;
-    height: 80vh !important;
-    position: absolute;
-    z-index: 1;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    font-weight: 400;
-}
-
-.onlyCard-img {
-    width: 100% !important;
-    height: 80vh !important;
-    object-fit: cover !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    opacity: 0.4;
-}
-
-.textCities {
-    position: absolute;
-    z-index: 1;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    margin: 0;
-    padding: 0;
-    font-family: 'Festive', cursive;
-    font-size: 35px;
-    font-weight: 600;
-}
-
-.textCitiesReverse , .onlyCard-text {
-
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    margin: 0 !important;
-    padding: 0 !;
-    font-weight: 400;
-}
-
-.flippy-card {
-    padding: 0 !important;
-}
-
-.imgCities {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    object-fit: cover !important;
-    width: 100%;
-    opacity: 0.8;
-}
-
-.imgCities:hover {
-    opacity: 0.7
-}
-
-.imgCitiesReverse {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    opacity: 0.4;
+a {
+    text-decoration: none !important;
 }
 
 .onlyimgCard {
@@ -411,8 +328,3 @@
     width: 150px;
     height: 150px;
 }
-
-a {
-    text-decoration: none !important;
-}
-

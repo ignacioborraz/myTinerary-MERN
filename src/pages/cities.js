@@ -17,6 +17,10 @@ import cityActions from '../redux/actions/cityActions'
 
 export default function Cities () {
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     const dispatch = useDispatch() //este metodo sirve para despachar acciones al store
 
     useEffect(() => {

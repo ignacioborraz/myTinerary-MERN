@@ -1,35 +1,3 @@
-/* 
-
-
-function MySnackBar(props) {
-
-    return (
-        <div>
-            {props.snackbar.view === true && (
-                <Snackbar
-                    
-                    anchorOrigin={{vertical: 'bottom', horizontal: 'center'}}
-                    open={props.snackbar.view}
-                    onClose={handleClose}
-                    autoHideDuration={10000}>
-                    <>
-                      {(typeof props.snackbar.message) === "string" ?
-                          (<p>{props.snackbar.message}</p>) :
-                          <ul>{props.snackbar.message.map(message =><li>{message.message}</li>)}</ul>
-                      }
-                      <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
-                          <CloseIcon fontSize="small" />
-                      </IconButton>
-                   </>
-              </Snackbar>
-            )}
-        </div>
-    )
-}; */
-
-
-
-
 //importo de librerias externas
 import React from 'react'
 import Box from '@mui/material/Box'
@@ -71,14 +39,15 @@ function MySnackBar(props) {
     return (
         <Snackbar
             open={props.snackbar.view}
-            autoHideDuration={10000}
+            autoHideDuration={5000}
             onClose={handleClose}
             action={action}
             message={
                 <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
                     <CloseIcon fontSize="small" />
                 </IconButton>
-            } />
+            } 
+        />
     )
 }
 

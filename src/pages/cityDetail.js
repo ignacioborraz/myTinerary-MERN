@@ -18,6 +18,10 @@ import tineraryActions from '../redux/actions/tineraryActions'
 
 export default function CityDetail () {
     
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     const {id} = useParams()
     const dispatch = useDispatch()
 

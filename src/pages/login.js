@@ -5,7 +5,6 @@ import MailIcon from '@mui/icons-material/Mail'
 import KeyIcon from '@mui/icons-material/Key'
 import {IconButton} from '@mui/material'
 import GoogleIcon from '@mui/icons-material/Google'
-import FacebookIcon from '@mui/icons-material/Facebook'
 import Typography from '@mui/material/Typography'
 import {Link as LinkRouter} from "react-router-dom"
 
@@ -15,10 +14,11 @@ import '../styles/styles.css'
 //importo componentes locales
 import NavBar from '../components/navBar'
 import Footer from '../components/footer'
-import MySnackBar from '../components/snackBar';
+import MySnackBar from '../components/snackBar'
+import FacebookSignIn from '../components/faceLogin'
 
 //importo acciones de redux
-import {connect} from 'react-redux';
+import {connect} from 'react-redux'
 import userActions from '../redux/actions/userActions'
 
 function LogIn(props) {
@@ -57,7 +57,7 @@ function LogIn(props) {
                     marginTop: '10px',
                     marginBottom: '10px'}}>
                     <>
-                        <Typography variant="h2" className='festiveFont violetShadows' sx={{padding: '10px'}}>Welcome back!</Typography>
+                        <Typography variant="h2" className='festiveFont violetShadows' sx={{padding: '10px'}}>Welcome!</Typography>
                         <form onSubmit={handleSubmit} className='w100'>
                             <Box sx={{
                                 display: 'flex',
@@ -73,10 +73,10 @@ function LogIn(props) {
                                         color: 'white',
                                         backgroundColor: 'rgb(196, 165, 126)',
                                         borderRadius: '50px 0 0 50px',
-                                        width: '40px',
-                                        height: '40px'}}/>
+                                        width: '30px',
+                                        height: '30px'}}/>
                                 </label>
-                                <input type='email' name='email' id='email' placeholder='mail' className='myInput' value={mail} onChange={e=>setMail(e.target.value)} />
+                                <input type='email' name='email' id='email' placeholder='mail' className='myInput' value={mail} onChange={e=>setMail(e.target.value)} required />
                             </Box>
                             <Box sx={{
                                 display: 'flex',
@@ -93,10 +93,10 @@ function LogIn(props) {
                                         color: 'white',
                                         backgroundColor: 'rgb(196, 165, 126)',
                                         borderRadius: '50px 0 0 50px',
-                                        width: '40px',
-                                        height: '40px'}}/>
+                                        width: '30px',
+                                        height: '30px'}}/>
                                 </label>
-                                <input type='password' name='password' id='password' placeholder='password' className='myInput' value={pass} onChange={e=>setPass(e.target.value)} />
+                                <input type='password' name='password' id='password' placeholder='password' className='myInput' value={pass} onChange={e=>setPass(e.target.value)} required />
                             </Box>
                             <Box sx={{
                                 display: 'flex',
@@ -107,13 +107,11 @@ function LogIn(props) {
                                 <IconButton sx={{bgcolor: 'white', color: 'rgb(165, 126, 196)', height: '40px'}}>
                                     <GoogleIcon />
                                 </IconButton>
-                                <input type="submit" value='log in!' className='myButton fredokaFont'  />
+                                <input type="submit" value='log in!' className='myButton fredokaFont' required />
                                 <LinkRouter to={'/signup'} className='anchor festiveFont violetShadows'>
                                     Sign up!
                                 </LinkRouter>
-                                <IconButton sx={{bgcolor: 'white', color: 'rgb(165, 126, 196)', height: '40px'}}>
-                                    <FacebookIcon />
-                                </IconButton>
+                                <FacebookSignIn />
                             </Box>
                         </form>
                     </>

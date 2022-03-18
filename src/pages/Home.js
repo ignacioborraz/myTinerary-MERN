@@ -16,11 +16,13 @@ import Typography from '@mui/material/Typography'
 import '../styles/styles.css'
 
 //importo componentes locales
-import NavBar from '../components/navBar'
-import Footer from '../components/footer'
-import MyCarousel from '../components/carousel'
+import MyCarousel from './carousel'
 
 export default class Home extends React.Component { //generamos un objeto de clase
+
+    componentDidMount() {
+        window.scrollTo(0, 0)
+    }
 
     render() { //al objeto le definimos un metodo que imprime en HTML
         return ( //returno el HTML
@@ -37,35 +39,11 @@ export default class Home extends React.Component { //generamos un objeto de cla
                             <Typography variant="h1" noWrap className='festiveFont shadows title' sx={{color: 'rgb(165, 126, 196)', padding: '15px', marginTop: '50px', marginBottom: '10px'}}>MyTinerary</Typography>
                             <Typography variant='h5' className='fredokaFont subtitle'>FIND YOUR PERFECT TRIP</Typography>
                             <Typography variant='h5' className='fredokaFont subtitle'>designed by insiders who know and love their cities!</Typography>
-                            <LinkRouter to="cities" className='linksHero'><Typography variant='h5' className='fredokaFont button'>START</Typography></LinkRouter>
+                            <LinkRouter to="cities" className='linksHero'><Typography variant='h5' className='fredokaFont button'>START!</Typography></LinkRouter>
+                            <LinkRouter to="cities" className='linksHero'><Typography variant='h5' className='fredokaFont button'>LOG IN!</Typography></LinkRouter>
                         </Box> 
                 </Box>
-                <Box className='main main-back'>
-                    <Box sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        flexGrow: '1',
-                        textAlign: 'center',
-                        alignItems: 'center',
-                        width: '100%',
-                        minHeight: '100vh',
-                        backgroundColor: 'rgb(126, 196, 165, 0.5)'}}>
-                        <NavBar/>
-                        <Box sx={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            flexGrow: '1',
-                            textAlign: 'center',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            width: '100%',
-                            marginTop: '10px',
-                            marginBottom: '10px'}}>
-                            <MyCarousel />
-                        </Box>
-                        <Footer />
-                    </Box>
-                </Box>
+                <MyCarousel />
             </>
         )
     }

@@ -1,12 +1,13 @@
 const Router = require('express').Router()
 const validator = require('../config/validator')
+const passport = require('../config/passport')
 
 const cityController = require('../controllers/cityControllers') //importamos los controladores que configuramos
 const {getCities,uploadCity,deleteCity,modifyCity,oneCity} = cityController //desestructuramos el objeto para obtener los controladores
 const tineraryController = require('../controllers/tineraryControllers')
 const {getTineraries,uploadTinerary,deleteTin,modifyTin,oneTinerary,findTinFromCity} = tineraryController
 const userController = require('../controllers/userControllers')
-const {signUpUser,logInUser,signOutUser,verifyEmail} = userController
+const {signUpUser,logInUser,signOutUser,verifyToken,verifyEmail} = userController
 
 Router.route('/cities') //llamo a ciudades (el nombre del endpoint de la consulta axios)
 .get(getCities) //llamo al metodo get para obtener las ciudades
@@ -37,6 +38,9 @@ Router.route('/auth/logIn')
 
 Router.route('/auth/signOut')
 .post(signOutUser)
+
+Router.route('/auth/loginToken')
+.get(passport.authenticate('jwt', {session:false}), verifyToken)
 
 Router.route('/verify/:uniqueString')
 .get(verifyEmail)

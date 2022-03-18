@@ -1,11 +1,7 @@
 //importo de librerias externas
 import React, {useEffect} from 'react'
 import {Link as LinkRouter} from "react-router-dom"
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import {CardActionArea} from '@mui/material';
 import Box from '@mui/material/Box'
 
 //importo los estilos
@@ -29,27 +25,48 @@ export default function Cards (props) {
 
     return (
         <>
-        {data.length>0 ? 
-        <Box sx={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        textAlign: 'center',
-        alignItems: 'center',
-        justifyContent: 'space-evenly'}}>
-            {data.map( everyCity =>
-            <Card key={everyCity._id} sx={{width: '45vw', height: '32vw', marginTop: '10px'}} className='cityCards' >
-                <LinkRouter to={`/cities/${everyCity._id}`}>
-                <CardActionArea>
-                    <CardMedia component="img" sx={{height: '26vw'}} image={process.env.PUBLIC_URL+`${everyCity.photo}`} alt={everyCity.city} className='imgCards' />
-                    <CardContent sx={{height: '6vw', margin: 0, display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(196, 165, 126)'}} className='labelCards' >
-                    <Typography variant="h3" gutterBottom component="div" className='festiveFont shadows textCards' sx={{margin: 0, color: 'white'}}>{everyCity.city}</Typography>
-                    </CardContent>
-                </CardActionArea>
-                </LinkRouter>
-            </Card>
-            )}
-        </Box> : <><h3>TYPE ANOTHER CITY PLEASE</h3><h5>we didn't find that!</h5></>
-        }
+            {data.length>0 ? 
+                <Box sx={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    textAlign: 'center',
+                    alignItems: 'center',
+                    justifyContent: 'space-evenly'}}>
+                    {data.map( everyCity =>
+                    <LinkRouter to={`/cities/${everyCity._id}`} key={everyCity._id}>
+                        <Box className='fitImg absolute' sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            textAlign: 'center',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            width: '270px',
+                            height: '180px',
+                            backgroundColor: 'rgba(126, 196, 165, 0.4)',
+                            margin: '5px',
+                            marginTop: '10px'}}>
+                            <Typography variant="h2" className='festiveFont shadows' sx={{color: 'black'}}>{everyCity.city}</Typography>
+                        </Box>
+                        <Box className='relative' sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            textAlign: 'center',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            width: '270px',
+                            height: '180px',
+                            margin: '5px',
+                            marginTop: '10px'}}>
+                            <img src={process.env.PUBLIC_URL+`${everyCity.photo}`} alt={everyCity.city} className='fitImg' />
+                        </Box>
+                    </LinkRouter>
+                    )}
+                </Box> : 
+                <>
+                    <h3>TYPE ANOTHER CITY PLEASE</h3>
+                    <h5>we didn't find that!</h5>
+                </>     
+            }
         </>
     )
 }

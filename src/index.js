@@ -35,9 +35,3 @@ rgb(207, 238, 228) //verde claro
 
 //BILLETTITOS
 //{"💵".repeat(parseInt(itinerary.price))}
-
-//SCROLL
-/* window.scrollTo({
-    top: 100,
-    behavior: 'smooth'
-  }); */

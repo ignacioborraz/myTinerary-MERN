@@ -15,9 +15,9 @@ export default function TinerariesNon () {
                 alignItems: 'center',
                 justifyContent: 'center',
                 width: '100%',
-                height: '200px',
-                backgroundColor: 'rgb(242, 245, 200)',
-                marginTop: '20px'}}>
+                height: '100px',
+                backgroundColor: 'rgb(207, 238, 228)',
+                marginTop: '10px'}}>
                 <Typography variant="h6">no <label className='festiveFont bigAnounce'> Tineraries </label> yet!</Typography>
             </Box>
         </>

@@ -22,7 +22,7 @@ export default function Tineraries (props) {
                 minHeight: '200px',
                 backgroundColor: 'rgb(126, 196, 165)',
                 color: 'black',
-                marginTop: '20px'}}>
+                marginTop: '10px'}}>
                 <Box sx={{
                     display: 'flex',
                     flexDirection: 'column',

@@ -11,7 +11,6 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 //importo los estilos
 import '../styles/styles.css'
 
-
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;

@@ -1,7 +1,8 @@
 const joi = require('joi')
 
 const validator = (req, res, next) => {
-    console.log(req.body)
+    //console.log("req.body es")
+    //console.log(req.body)
     const schema = joi.object({ //los campos a validar dependen del front
         name: joi.string()
             .max(20)
@@ -21,6 +22,12 @@ const validator = (req, res, next) => {
             .messages({
                 'string.min': '"last name": min 3 characters',
                 'string.max': '"last name": max 20 characters'}),
+        userPhoto: joi.string()
+            .trim()
+            .required(),
+        country: joi.string()
+            .trim()
+            .required(),
         email: joi.string().email({minDomainSegments:2})
             .required()
             .messages({

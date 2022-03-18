@@ -12,7 +12,7 @@ app.use(cors()) //gesionamos los datos
 app.use(express.json()) //devuelve la respuesta en formato json
 app.use('/api', Router) //usamos la ruta desde el servidor para ingresar a la base del dato
 
-app.listen(PORT, ()=>console.log('SERVER READY EN PORT '+PORT)) //listen es un metodo que escucha una variable y ejecuta una funcion
+app.listen(PORT, ()=>console.log('SERVER READY ON PORT '+PORT)) //listen es un metodo que escucha una variable y ejecuta una funcion
 //para recargar el servidor automaticamente instalamos nodemon
 
 //una vez configurado el servidor y la conexion a la base de datos, generamos el modelo de conexion

@@ -7,7 +7,8 @@ const jwt = require('jsonwebtoken')
 const userControllers = {
 
     signUpUser: async (req,res) => { //controlador del usuario nuevo
-        let {name, lastName, email, password, from} = req.body.userData //requerimos los datos del formulario
+        //console.log(req.body) //vemos los datos que necesitamos
+        let {name, lastName, email, password, from, userPhoto, country} = req.body.userData //requerimos los datos del formulario
         const test = req.body.test
         try {
             const myTUser = await User.findOne({email}) //esperamos a que encuentre el mail dentro de lo usuarios
@@ -32,11 +33,11 @@ const userControllers = {
                             from: "SignUpForm", 
                             message: `check ${email}! we send you a mail to confirm your SIGN UP!`}) //avisa que confirme el mail
                     } else { //si el ingreso es por otros medios (google, face)
-                    myTUser.save() //guardamos el modelo              
-                    res.json({
-                        success: true,
-                        from:"externalSignUp", 
-                        message: `you SIGN UP by ${from}`})
+                        myTUser.save() //guardamos el modelo              
+                        res.json({
+                            success: true,
+                            from:"externalSignUp", 
+                            message: `user exist! LOG IN please!`})
                     }
                 }
             } else { //si el mail no fue registrado
@@ -48,6 +49,8 @@ const userControllers = {
                     password: [hashWord],
                     from: [from],
                     uniqueString: crypto.randomBytes(15).toString('hex'),
+                    userPhoto,
+                    country,
                     verification: false})
                 if (from === "SignUpForm") { //si el nuevo usuario proviene del formulario
                     await myNewTUser.save() //esperamos el guardado del usuario
@@ -55,7 +58,7 @@ const userControllers = {
                     res.json({
                         success: true, 
                         from:"SignUpForm",
-                        message: `check ${email}! we send you a mail to finish your SIGN UP!`}) //avisa que confirme el mail
+                        message: `check ${email} and finish your SIGN UP!`}) //avisa que confirme el mail
                 //SI ES POR OTROS MEDIOS
                 //SI ES POR OTROS MEDIOS
                 //SI ES POR OTROS MEDIOS
@@ -64,12 +67,12 @@ const userControllers = {
                     res.json({
                         success: true, 
                         from:"externalSignUp",
-                        message: `you SIGN UP by ${from}`})
+                        message: `you SIGN UP by ${from}! now LOG IN!`})
                 }
             }
         } catch (error) {
             console.log(error)
-            res.json({success: false, message: "sorry! try in a few minutes!"})
+            res.json({success: false, message: "sorry! try in a few minutessssssssssssssssssss!"})
         }
     },
 
@@ -90,7 +93,9 @@ const userControllers = {
                                 id: myTUser._id,
                                 name: myTUser.name, 
                                 email: myTUser.email,
+                                userPhoto: myTUser.userPhoto,
                                 from: myTUser.from}
+                            console.log(userData)
                             const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 1000*60*60*24 }) //generamos un token que expira en un día
                             res.json({
                                 success: true, 
@@ -118,7 +123,9 @@ const userControllers = {
                             id: myTUser._id,
                             name: myTUser.name, 
                             email: myTUser.email,
+                            userPhoto: myTUser.userPhoto,
                             from: myTUser.from}
+                        console.log(userData)
                         await myTUser.save()
                         const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 1000*60*60*24 }) //generamos un token que expira en un día
                         res.json({ success: true, 
@@ -139,10 +146,27 @@ const userControllers = {
     },
 
     signOutUser: async (req, res) => { //controlador del cierre de sesion
-        const email = req.body.closeUser
+        const email = req.body.closeData
         const user = await User.findOne({email})
         await user.save()
         res.json(console.log(email+' sign out!'))
+    },
+
+    verifyToken:(req, res) => {
+        console.log(req.user)
+        if (!req.err) {
+        res.json({
+            success: true,
+            response: {id: req.user.id,
+                name:req.user.name,
+                email:req.user.email,
+                from:"token"},
+            message:"Welcome back "+req.user.name}) 
+        } else {
+            res.json({
+                success:false,
+                message:"sign in please!"}) 
+        }
     },
 
     verifyEmail: async (req, res) => { //controlador de la verificacion del email
@@ -152,10 +176,10 @@ const userControllers = {
         if (user) {
             user.verification = true //cambiamos el booleano para que verifique el mail
             await user.save()
-            res.redirect("http://localhost:3000/") //redirigimos a la pagina principal
+            res.redirect("http://localhost:3000/welcome") //redirigimos a la pagina principal
         }
         else { res.json({success: false, response: `email has not been confirmed yet!`}) }
-    },
+    }
 
 }
 
