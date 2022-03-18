@@ -40,7 +40,6 @@ export default class Home extends React.Component { //generamos un objeto de cla
                             <Typography variant='h5' className='fredokaFont subtitle'>FIND YOUR PERFECT TRIP</Typography>
                             <Typography variant='h5' className='fredokaFont subtitle'>designed by insiders who know and love their cities!</Typography>
                             <LinkRouter to="cities" className='linksHero'><Typography variant='h5' className='fredokaFont button'>START!</Typography></LinkRouter>
-                            <LinkRouter to="cities" className='linksHero'><Typography variant='h5' className='fredokaFont button'>LOG IN!</Typography></LinkRouter>
                         </Box> 
                 </Box>
                 <MyCarousel />
