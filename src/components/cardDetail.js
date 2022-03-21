@@ -10,7 +10,10 @@ import '../styles/styles.css'
 import Tineraries from './tineraries'
 import TinerariesNon from './tinerariesNon';
 
+//se llama en cityDetail
+//llegan como props: cityDat (datos de esa ciudad) y tinDat (datos de los itinerarios)
 export default function CardDetail (props) {
+    
     return (
         <>
             <>

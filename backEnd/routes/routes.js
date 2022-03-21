@@ -6,6 +6,8 @@ const cityController = require('../controllers/cityControllers') //importamos lo
 const {getCities,uploadCity,deleteCity,modifyCity,oneCity} = cityController //desestructuramos el objeto para obtener los controladores
 const tineraryController = require('../controllers/tineraryControllers')
 const {getTineraries,uploadTinerary,deleteTin,modifyTin,oneTinerary,findTinFromCity} = tineraryController
+const activityController = require('../controllers/activityControllers')
+const {getActivities,uploadActivity,deleteAct,modifyAct,oneActivity,findActFromTin} = activityController
 const userController = require('../controllers/userControllers')
 const {signUpUser,logInUser,signOutUser,verifyToken,verifyEmail} = userController
 
@@ -29,6 +31,18 @@ Router.route('/tineraries/:id')
 
 Router.route('/tineraries/cities/:id')
 .get(findTinFromCity)
+
+Router.route('/activities')
+.get(getActivities)
+.post(uploadActivity)
+
+Router.route('/activities/:id')
+.delete(deleteAct)
+.put(modifyAct)
+.get(oneActivity)
+
+Router.route('/activities/tineraries/:id')
+.get(findActFromTin)
 
 Router.route('/auth/signUp')
 .post(validator,signUpUser)

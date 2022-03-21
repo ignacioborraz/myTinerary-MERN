@@ -9,7 +9,10 @@ import '../styles/styles.css'
 //importo componentes locales
 import Display from './display'
 
+//se llama en cardDetail
+//llega como props: tinDat (datos de los itinerarios)
 export default function Tineraries (props) {
+    
     return (
         <>
         {props.tinDat.map( (everyTin) => (

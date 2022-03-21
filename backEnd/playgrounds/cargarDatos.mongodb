@@ -24,47 +24,73 @@ db.cities.insertMany([ //el método insertMany carga los siguientes objetos a la
 /* db.tineraries.drop()
 db.tineraries.insertMany([
 
-    {"city": "Cancun",
+    {"city": "621ab3a90eeda252a3bfccd4",
     "userPhoto": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGZlbWFsZSUyMGRvY3RvcnxlbnwwfHwwfHw%3D&w=1000&q=80",
     "userName": "Caro Pardiaco",
-    "name": "isla mujeres tour", "price": "1", "time": "8hs",
+    "itinerary": "isla mujeres tour", "price": "2", "time": "8hs",
     "tags": ["#beach","#islamujeres","#catamaran","#snorkel"],
     "description": "An Isla Mujeres catamaran tour is one of our favorite things to do in Cancun! Sail across turquoise waters, explore a Mexican Caribbean island and spend quality time relaxing with the ones you love.",
     "comments": []},
 
-    {"city": "Cancun",
+    {"city": "621ab3a90eeda252a3bfccd4",
     "userPhoto": "https://media.istockphoto.com/photos/portrait-of-casual-smiling-man-picture-id1138562953?k=20&m=1138562953&s=612x612&w=0&h=lNhjf4BqFckYRzz5H-CsqWs4cpoPvatzTkjGJTcdm8M=",
-    "userName": "John Haks",
-    "name": "encounter with dolphins", "price": "1", "time": "2hs",
+    "userName": "John Connors",
+    "itinerary": "encounter with dolphins", "price": "1", "time": "5hs",
     "tags": ["#beach","#islamujeres","#dophins","#swim","#dolphinswim"],
     "description": "Your Dolphin Encounter swimming with dolphins in Riviera Maya will be an unforgettable adventure, guaranteed! Absolutely one of our favourite things to do in the Riviera Maya!",
-    "comments": []},
+    "comments": []}
 
-    {"city": "Pekin",
+    {"city": "621ab3a90eeda252a3bfccd9",
     "userPhoto": "https://media.istockphoto.com/photos/portrait-of-cheerful-mid-adult-black-man-in-casual-clothing-picture-id1265576300?b=1&k=20&m=1265576300&s=170667a&w=0&h=hW1FZPrA_XktOu70WD8dweE2ErDNPAjW1ZjuXpJJz7A=",
     "userName": "Nick Querow",
-    "name": "forbidden city ", "price": "2", "time": "4hs",
+    "itinerary": "forbidden city ", "price": "2", "time": "4hs",
     "tags": ["#pekin","#beijing","#forbiddencity","#palace","s#gallery"],
     "description": "Explore the magnificent palace complex at your own pace, also the Hall of Clocks and the Treasure Gallery.",
     "comments": []},
 
-    {"city": "Pekin",
-    "userPhoto": "Sonia Ando",
-    "userName": "https://hips.hearstapps.com/ghk.h-cdn.co/assets/17/39/1506453136-gettyimages-97830053.jpg",
-    "name": "night tour", "price": "3", "time": "5hs",
+    {"city": "621ab3a90eeda252a3bfccd9",
+    "userPhoto": "https://hips.hearstapps.com/ghk.h-cdn.co/assets/17/39/1506453136-gettyimages-97830053.jpg",
+    "userName": "Sonia Ando",
+    "itinerary": "night tour", "price": "3", "time": "5hs",
     "tags": ["#pekin","#beijing","#goldenmaskdinasty","#ancientchina","#dance"],
     "description": "You head to the Golden Mask Dynasty Show, which showcases what life was like in ancient China through live on-stage dance and acrobatic performances.",
+    "comments": []},
+
+    {"city": "621ab3a90eeda252a3bfccda",
+    "userPhoto": "https://elcomercio.pe/resizer/_AU2P5dLFwqJAqD1lWq8GSPCYE4=/620x0/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/NMWZVMUFXRG5JPSJYFDSDL7I6I.jpg",
+    "userName": "Alice Inchains",
+    "itinerary": "garden by the bay", "price": "2", "time": "8hs",
+    "tags": ["#singapore","#garden","#future","#futuristictrees","#sustentable"],
+    "description": "The outstanding feature of the garden is the harmonious combination between urban and nature.",
+    "comments": []},
+
+    {"city": "621ab3a90eeda252a3bfccda",
+    "userPhoto": "https://www.lolitamoda.com/uploads/post/image/61/56.Reglas_de_estilo_que_todo_hombre_debe_conocer.jpg",
+    "userName": "Armando Parades",
+    "itinerary": "marina bay sands", "price": "5", "time": "8hs",
+    "tags": ["#singapore","#marinabay","#casino","#hotel","#bar"],
+    "description": "Three most luxurious towers with a hotel, casino, bars and swimming pool.",
     "comments": []}
 
 ]); */
-
-db.users.drop()
-db.users.insertMany([
-    {"name": "ignacio",
-    "email": "ignacioborraz@hotmail.com",
-    "password": ["igna1447"],
-    "from": ["mnongoDB"],
-    "uniqueString": "true",
-    "verification": "true"}
+db.activities.drop(); //el metodo drop limpia la carga de datos en la coleccion cities de la base de datos myTinerary
+db.activities.insertMany([ //el método insertMany carga los siguientes objetos a la coleccion
+    {"itinerary":"62380ac6494d6e3fdc969910", "activity":"aquarium", "actPhoto": "/img/acts/DOLPHINSaquarium.jpg"},
+    {"itinerary":"62380ac6494d6e3fdc969910", "activity":"feed&play", "actPhoto": "/img/acts/DOLPHINSfeedPlay.jpg"},
+    {"itinerary":"62380ac6494d6e3fdc969910", "activity":"swimming with dolphins", "actPhoto": "/img/acts/DOLPHINSswim.png"},
+    {"itinerary":"62380792fb4e3093a3bd4d87", "activity":"goos god bar", "actPhoto": "/img/acts/FORBIDDENgoodGodBar"},
+    {"itinerary":"62380792fb4e3093a3bd4d87", "activity":"lake temple", "actPhoto": "/img/acts/FORBIDDENlake"},
+    {"itinerary":"62380792fb4e3093a3bd4d87", "activity":"walking", "actPhoto": "/img/acts/FORBIDDENwalk"},
+    {"itinerary":"6238072c307286f29bfa7dbf", "activity":"night show", "actPhoto": "/img/acts/GARDENSnightShow"},
+    {"itinerary":"6238072c307286f29bfa7dbf", "activity":"trees viewpoint", "actPhoto": "/img/acts/GARDENStrees"},
+    {"itinerary":"6238072c307286f29bfa7dbf", "activity":"walk", "actPhoto": "/img/acts/GARDENSwalk"},
+    {"itinerary":"6238093f95306f7ede5f2744", "activity":"casino&bar", "actPhoto": "/img/acts/MARINAbar"},
+    {"itinerary":"6238093f95306f7ede5f2744", "activity":"pool", "actPhoto": "/img/acts/MARINApool"},
+    {"itinerary":"6238093f95306f7ede5f2744", "activity":"marina viewpoint", "actPhoto": "/img/acts/MARINAwalk"},
+    {"itinerary":"623806f5307286f29bfa7dbb", "activity":"acrobatic show", "actPhoto": "/img/acts/MASKacrobatic"},
+    {"itinerary":"623806f5307286f29bfa7dbb", "activity":"golden show", "actPhoto": "/img/acts/MASKgolden"},
+    {"itinerary":"623806f5307286f29bfa7dbb", "activity":"water show", "actPhoto": "/img/acts/MASKwater"},
+    {"itinerary":"62380a46494d6e3fdc96990b", "activity":"diving the lost city", "actPhoto": "/img/acts/MUJERESdive"},
+    {"itinerary":"62380a46494d6e3fdc96990b", "activity":"gran oasis resort", "actPhoto": "/img/acts/MUJERESgranOasis"},
+    {"itinerary":"62380a46494d6e3fdc96990b", "activity":"kayak", "actPhoto": "/img/acts/MUJERESkeyak"}
 ])
-

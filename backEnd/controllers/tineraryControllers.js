@@ -55,10 +55,12 @@ const tineraryController = { //defino los metodos que necesita el controlador (u
 
     findTinFromCity: async (req,res) => { 
         let cityId = req.params.id
+        console.log(cityId)
         let tineraries 
         let error = null 
         try { 
             tineraries = await Tineraries.find({city:cityId}) 
+            console.log(tineraries)
         } catch (err) {
             error = err
             console.log(error)

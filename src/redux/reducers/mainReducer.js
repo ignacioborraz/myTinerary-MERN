@@ -5,7 +5,8 @@ import {combineReducers} from 'redux'
 import cityReducer from './cityReducer'
 import tineraryReducer from './tineraryReducer'
 import userReducer from './userReducer'
+import activityReducer from './activityReducer'
 
-const mainReducer = combineReducers({cityReducer,tineraryReducer,userReducer})
+const mainReducer = combineReducers({cityReducer,tineraryReducer,userReducer,activityReducer})
 
 export default mainReducer

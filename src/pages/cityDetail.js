@@ -28,14 +28,12 @@ export default function CityDetail () {
     useEffect(() => {
         dispatch(cityActions.oneCity(id))
     },[])
-
     const oneCityFromRedux = useSelector(store => store.cityReducer.oneCity)
     //console.log(oneCityFromRedux)
 
     useEffect(() => {
         dispatch(tineraryActions.findFromCity(id))
     },[])
-
     const tinFromRedux = useSelector(store => store.tineraryReducer.filterTin)
     //console.log(tinFromRedux)
 
