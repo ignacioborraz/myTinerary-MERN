@@ -95,8 +95,8 @@ function NavBar(props) {
                         <Tooltip title="Open settings" sx={{width: '10px',  paddingRight: '20px'}}>
                             <IconButton onClick={handleOpenUserMenu}>
                                 {props.user ? 
-                                    <Avatar src="/broken-image.jpg" sx={{bgcolor: 'white', color: 'rgb(165, 126, 196)'}} /> :
-                                    <Avatar src="/broken-image.jpg" sx={{bgcolor: 'rgb(196, 165, 126)', color: 'white'}} />
+                                    <Avatar src={props.user.userPhoto} sx={{bgcolor: 'rgb(196, 165, 126)', color: 'white'}} /> :
+                                    <Avatar src="/broken-image.jpg" sx={{bgcolor: 'white', color: 'rgb(165, 126, 196)'}} />
                                 }
                             </IconButton>
                         </Tooltip>
