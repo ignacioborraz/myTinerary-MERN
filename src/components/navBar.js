@@ -21,12 +21,10 @@ import '../styles/styles.css'
 import SignOut from '../components/signout'
 
 //importo acciones de redux
-import {useSelector} from 'react-redux'
+import {connect} from 'react-redux'
 
-export default function NavBar() {
-
-    const userData = useSelector(store => store.userReducer.user)
-
+function NavBar(props) {
+    console.log(props.user)
     const pages = ['home', 'cities']
     const settings = ['login', 'signup']
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -96,7 +94,7 @@ export default function NavBar() {
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings" sx={{width: '10px',  paddingRight: '20px'}}>
                             <IconButton onClick={handleOpenUserMenu}>
-                                {userData ? 
+                                {props.user ? 
                                     <Avatar src="/broken-image.jpg" sx={{bgcolor: 'white', color: 'rgb(165, 126, 196)'}} /> :
                                     <Avatar src="/broken-image.jpg" sx={{bgcolor: 'rgb(196, 165, 126)', color: 'white'}} />
                                 }
@@ -111,7 +109,7 @@ export default function NavBar() {
                             transformOrigin={{vertical: 'top',horizontal: 'right'}}
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}>
-                            {userData ? 
+                            {props.user ? 
                                 <SignOut handleCloseUserMenu={handleCloseUserMenu} /> : 
                                 settings.map((setting) => (
                                     <MenuItem key={setting} onClick={handleCloseUserMenu}>
@@ -127,3 +125,11 @@ export default function NavBar() {
         </AppBar>
     )
 }
+
+const mapStateToProps = (state) => {
+    return {
+        user: state.userReducer.user,
+    }
+}
+
+export default connect(mapStateToProps, null)(NavBar)

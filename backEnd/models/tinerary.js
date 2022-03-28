@@ -9,7 +9,11 @@ const tinerariesSchema = new mongoose.Schema ({ //construimos el modelo de tabla
     time: {type:String, required:true},
     tags: {type:Array, required:true},
     description: {type:String, required:true},
-    comments: {type:Array, required:true}
+    likes: {type:Array},
+    comments: [{
+        comment: {type: String},
+        userId: {type:mongoose.Types.ObjectId, ref:'users'}
+    }]
 })
 
 const Tineraries = mongoose.model('tineraries',tinerariesSchema) //defino el constructor del modelo con el nombre de coleccion y el nombre de la tabla del modelo

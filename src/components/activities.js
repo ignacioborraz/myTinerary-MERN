@@ -1,26 +1,14 @@
 //importo de librerias externas
-import React, {useEffect} from 'react'
+import React from 'react'
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box'
 
 //importo los estilos
 import '../styles/styles.css'
 
-//importo acciones de redux
-import {useDispatch, useSelector} from 'react-redux'
-import activityActions from '../redux/actions/activityActions'
-
 //se llama en display
 //llega como props: tinId (id del itinerario)
 export default function Activities (props) {
-
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        dispatch(activityActions.findActFromTin(props.tinId))
-    },[])
-    const actsFromRedux = useSelector(store => store.activityReducer.filterAct)
-
     return (
         <Box sx={{
             display: 'flex',
@@ -28,7 +16,7 @@ export default function Activities (props) {
             textAlign: 'center',
             alignItems: 'center',
             justifyContent: 'space-evenly'}}>
-            {actsFromRedux.map( everyAct =>
+            {props.activities?.map( everyAct =>
                 <div key={everyAct._id}>
                     <Box className='fitImg absolute' sx={{
                         display: 'flex',

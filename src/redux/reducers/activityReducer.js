@@ -38,12 +38,6 @@ const tineraryReducer = (state = initialState, action) => { //defino el reductor
                 ...state,
                 oneActivity: action.payload
             }
-        case 'FIL_ACTIVITIES':
-            //console.log(action.payload);
-            return {
-                ...state,
-                filterAct: action.payload
-            }
         default:
             return state
     }

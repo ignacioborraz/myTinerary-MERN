@@ -21,7 +21,7 @@ const activityController = { //defino los metodos que necesita el controlador (u
     uploadActivity: async (req,res) => {
         const {itinerary,activity,actPhoto} = req.body
         new Activities ({itinerary,activity,actPhoto}).save()
-        .then(respons => res.json({respons}))
+        .then(response => res.json({response}))
     },
 
     deleteAct: async (req,res) => {
@@ -55,12 +55,12 @@ const activityController = { //defino los metodos que necesita el controlador (u
 
     findActFromTin: async (req,res) => { 
         let itineraryId = req.params.id
-        console.log(itineraryId)
+        //console.log(itineraryId)
         let activities 
         let error = null 
         try { 
             activities = await Activities.find({itinerary:itineraryId}) 
-            console.log(activities)
+            //console.log(activities)
         } catch (err) {
             error = err
             console.log(error)
@@ -71,20 +71,6 @@ const activityController = { //defino los metodos que necesita el controlador (u
             error: error 
         })
     }
-
-
-/*     findActFromTin: async (req,res) => {
-        try {
-            let activities = await Activities.find({
-                itineraryId:req.params.itineraryId
-            })
-            res.json({success: true, response: activities})
-        }
-        catch (error) {
-            console.log(error)
-            res.json({success: false, response: error.message})
-        }
-    } */
 
 }
 

@@ -5,11 +5,13 @@ const passport = require('../config/passport')
 const cityController = require('../controllers/cityControllers') //importamos los controladores que configuramos
 const {getCities,uploadCity,deleteCity,modifyCity,oneCity} = cityController //desestructuramos el objeto para obtener los controladores
 const tineraryController = require('../controllers/tineraryControllers')
-const {getTineraries,uploadTinerary,deleteTin,modifyTin,oneTinerary,findTinFromCity} = tineraryController
+const {getTineraries,uploadTinerary,deleteTin,oneTinerary,findTinFromCity,likeDislike} = tineraryController
 const activityController = require('../controllers/activityControllers')
 const {getActivities,uploadActivity,deleteAct,modifyAct,oneActivity,findActFromTin} = activityController
 const userController = require('../controllers/userControllers')
 const {signUpUser,logInUser,signOutUser,verifyToken,verifyEmail} = userController
+const commentControllers = require('../controllers/commentControllers')
+const {addComment,modifyComment,deleteComment}= commentControllers
 
 Router.route('/cities') //llamo a ciudades (el nombre del endpoint de la consulta axios)
 .get(getCities) //llamo al metodo get para obtener las ciudades
@@ -26,7 +28,7 @@ Router.route('/tineraries')
 
 Router.route('/tineraries/:id')
 .delete(deleteTin)
-.put(modifyTin)
+//.put(modifyTin)
 .get(oneTinerary)
 
 Router.route('/tineraries/cities/:id')
@@ -58,6 +60,16 @@ Router.route('/auth/loginToken')
 
 Router.route('/verify/:uniqueString')
 .get(verifyEmail)
+
+Router.route('/tineraries/likeDislike/:id')
+.put(passport.authenticate('jwt', {session:false}), likeDislike)
+
+Router.route('/tineraries/comment')
+.post(passport.authenticate('jwt', {session: false}), addComment)
+.put(passport.authenticate('jwt', {session: false}), modifyComment)
+
+Router.route('/tineraries/comment/:id')
+.post(passport.authenticate('jwt', {session: false}), deleteComment)
 
 module.exports = Router //esporto el modulo
 

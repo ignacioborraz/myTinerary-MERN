@@ -108,6 +108,25 @@
     box-shadow: 0 9px white;
 }
 
+.like {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px 15px;
+    font-weight: 600 !important;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: white;
+    background-color: rgb(0, 73, 48);
+    border: none;
+    border-radius: 15px;
+}
+.like:hover {
+    background-color: rgb(107, 176, 145);
+}
+
+
 .relative {
     position: relative;
 }
@@ -164,6 +183,23 @@
     transform: translateY(4px);
 }
 
+.myButtons {
+    padding: 5px 10px;
+    margin: 0 10px;
+    font-weight: 600 !important;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: white;
+    background-color: rgb(196, 165, 126);
+    border: none;
+    border-radius: 15px;
+}
+.myButtons:active {
+    transform: translateY(4px);
+}
+
 .anchor {
     display: flex;
     flex-grow: 1 !important;
@@ -172,6 +208,12 @@
     font-size: 30px !important;
     font-weight: 600 !important;
     margin: 0 5px !important;
+}
+
+.myInputforComment {
+    flex-grow: 1;
+    padding: 4px;
+    resize: none;
 }
 
 .w100 {
@@ -327,4 +369,13 @@ a {
     object-fit: cover !important;
     width: 150px;
     height: 150px;
+}
+
+.onlyimgComment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover !important;
+    width: 75px;
+    height: 75px;
 }

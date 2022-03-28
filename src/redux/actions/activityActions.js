@@ -38,7 +38,7 @@ const activityActions = { //las acciones son eventos en forma de objetos
             }
         }
     },
-    findActFromTin: (id) => {
+/*     findActFromTin: (id) => {
         console.log(id);
         return async(dispatch, getState) => {
             try {
@@ -49,14 +49,14 @@ const activityActions = { //las acciones son eventos en forma de objetos
                 console.log(err)
             }
         }
-    }
+    } */
 
-/*     findActFromTin: (id) => {
-        return async (dispatch, getState) => {
+    findActFromTin: (id) => {
+        return async () => {
             try {
-                let response = await axios.get(`http://localhost:4000/api/activities/tineraries/${id}`)
-                return {
-                    success: true, response: response.data.response
+                let answer = await axios.get(`http://localhost:4000/api/activities/tineraries/${id}`)
+                return { //NO DESPACHA! RETURNA PARA SETEAR UN HOOK COMÚN
+                    success: true, response: answer.data.response.activities
                 }
             }
             catch (error) {
@@ -66,7 +66,7 @@ const activityActions = { //las acciones son eventos en forma de objetos
             }
         }
 
-    } */
+    }
 
 }
 

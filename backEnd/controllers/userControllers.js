@@ -86,16 +86,16 @@ const userControllers = {
                 if (from === "LogInForm") { //si el ingreso es desde el formulario
                     if (myTUser.verification ) { //si el usuario ya fue validado
                         let checkedWord =  myTUser.password.filter(pass => bcryptjs.compareSync(password, pass)) //comparamos la contraseña
-                        console.log(checkedWord)
-                        console.log("resultado de busqueda de contraseña: " +(checkedWord.length >0))
+                        //console.log(checkedWord)
+                        //console.log("resultado de busqueda de contraseña: " +(checkedWord.length >0))
                         if (checkedWord.length > 0) { //si hay mas de una coincidencia con la contraseña de la base de datos
                             const userData = { //definimos una variable con los datos del usuario
                                 id: myTUser._id,
-                                name: myTUser.name, 
+                                name: myTUser.name,
                                 email: myTUser.email,
                                 userPhoto: myTUser.userPhoto,
                                 from: myTUser.from}
-                            console.log(userData)
+                            //console.log(userData)
                             const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 1000*60*60*24 }) //generamos un token que expira en un día
                             res.json({
                                 success: true, 
@@ -125,7 +125,7 @@ const userControllers = {
                             email: myTUser.email,
                             userPhoto: myTUser.userPhoto,
                             from: myTUser.from}
-                        console.log(userData)
+                        //console.log(userData)
                         await myTUser.save()
                         const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 1000*60*60*24 }) //generamos un token que expira en un día
                         res.json({ success: true, 
@@ -153,15 +153,16 @@ const userControllers = {
     },
 
     verifyToken:(req, res) => {
-        console.log(req.user)
+        //console.log(req.user)
         if (!req.err) {
         res.json({
             success: true,
             response: {id: req.user.id,
                 name:req.user.name,
                 email:req.user.email,
+                userPhoto:req.user.userPhoto,
                 from:"token"},
-            message:"Welcome back "+req.user.name}) 
+            message:"Hi! Welcome back "+req.user.name}) 
         } else {
             res.json({
                 success:false,
@@ -172,7 +173,7 @@ const userControllers = {
     verifyEmail: async (req, res) => { //controlador de la verificacion del email
         const {uniqueString} = req.params; //requerimos el codigo del link (del mail)
         const user = await User.findOne({uniqueString: uniqueString}) //esperamos que encuentre el codigo en el modelo
-        console.log(user)
+        //console.log(user)
         if (user) {
             user.verification = true //cambiamos el booleano para que verifique el mail
             await user.save()

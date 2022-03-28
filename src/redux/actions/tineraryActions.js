@@ -11,9 +11,9 @@ const tineraryActions = { //las acciones son eventos en forma de objetos
             dispatch({type:'GET_TINERARIES', payload:res.data.response.tineraries})
         }
     },
-    uploadTinerary: (city,userPhoto,userName,itinerary,price,time,tags,description,comments)=>{
+    uploadTinerary: (city,userPhoto,userName,itinerary,price,time,tags,description,likes,comments)=>{
         return async(dispatch,getState)=>{
-            const answer = await axios.post('http://localhost:4000/api/tineraries',{city,userPhoto,userName,itinerary,price,time,tags,description,comments})
+            const answer = await axios.post('http://localhost:4000/api/tineraries',{city,userPhoto,userName,itinerary,price,time,tags,description,likes,comments})
             dispatch({type:'UPD_TINERARY', payload:answer.data.response.tineraries})
         }
     },
@@ -29,10 +29,11 @@ const tineraryActions = { //las acciones son eventos en forma de objetos
     },
     /* modifyTin: '', */
     oneTinerary: (id) => {
-        return async(dispatch, getState) => {
+        //console.log(id)
+        return async() => {
             try {
                 const answer = await axios.get(`http://localhost:4000/api/tineraries/${id}`)
-                dispatch({type:'ONE_TINERARY', payload:answer.data.response.tineraries})
+                return answer.data.response.tinerary
             }catch (err) {
                 console.log(err)
             }
@@ -48,6 +49,53 @@ const tineraryActions = { //las acciones son eventos en forma de objetos
             }catch (err) {
                 console.log(err)
             }
+        }
+    },
+    likeDislike: (id) => {
+        const token = localStorage.getItem('token')
+        return async() => {
+            try {
+                const answer = await axios.put(`http://localhost:4000/api/tineraries/likeDislike/${id}`,{},
+                    {headers: {Authorization: "Bearer "+token}}
+                )
+                console.log(answer.data.response)
+                return answer.data.response
+            }catch (err) {
+                console.log(err)
+            }
+        }
+    },
+    addComment: (commentaries) => {
+        const token = localStorage.getItem('token')
+        return async (dispatch, getState) => {
+            const answer = await axios.post(`http://localhost:4000/api/tineraries/comment`,{...commentaries},
+                {headers: {'Authorization': "Bearer "+token}}
+            )
+            dispatch({type: 'message', payload: {view: true, message: answer.data.message, success: answer.data.success}
+            })
+            return answer.data.response
+        }
+    },
+    modifyComment: (comment) => {
+        const token = localStorage.getItem('token')
+        return async (dispatch, getState) => {
+            const answer = await axios.put(`http://localhost:4000/api/tineraries/comment`,{...comment},
+            {headers: {Authorization: "Bearer "+token}}
+        )
+        dispatch({type: 'message', payload: {view: true, message: answer.data.message, success: answer.data.success}
+        })
+        return answer.data.response
+        }
+    },
+    deleteComment: (id) => {
+        const token = localStorage.getItem('token')
+            return async (dispatch, getState) => {
+                const answer = await axios.post(`http://localhost:4000/api/tineraries/comment/${id}`,{},
+                {headers: {Authorization: "Bearer "+token}}
+            )
+            dispatch({type: 'message', payload: {view: true, message: answer.data.message, success: answer.data.success}
+            })
+            return answer.data.response
         }
     }
 }
