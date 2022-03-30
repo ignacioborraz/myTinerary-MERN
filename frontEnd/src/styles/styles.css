@@ -360,33 +360,39 @@ a {
     height: 50px;
 }
 
+.width60 {
+    width: 85vw !important;
+}
 .activities {
-    width: 350px;
-    height: 200px;
+    width: calc(85vw / 3 - 32px);
+    height: 250px;
 }
 
 @media only screen and (max-width: 1500px) {
     .activities {
-        width: 325px;
+        width: 285px;
         height: 200px;
     }
 }
 
 @media only screen and (max-width: 1400px) {
     .activities {
-        width: 295px;
+        width: 255px;
         height: 200px;
     }
 }
 
 @media only screen and (max-width: 1300px) {
     .activities {
-        width: 265px;
+        width: 230px;
         height: 200px;
     }
 }
 
 @media only screen and (max-width: 1200px) {
+    .width60 {
+        width: 90% !important;
+    }
     .activities {
         width: 235px;
         height: 200px;
@@ -394,11 +400,15 @@ a {
 }
 
 @media only screen and (max-width: 1100px) {
-    .width60 {
-        width: 90% !important;
-    }
     .activities {
-        width: 175px;
+        width: 205px;
+        height: 175px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .activities {
+        width: 175x;
         height: 175px;
     }
 }

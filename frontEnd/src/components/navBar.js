@@ -24,7 +24,7 @@ import SignOut from '../components/signout'
 import {connect} from 'react-redux'
 
 function NavBar(props) {
-    console.log(props.user)
+    //console.log(props.user)
     const pages = ['home', 'cities']
     const settings = ['login', 'signup']
     const [anchorElNav, setAnchorElNav] = React.useState(null);
