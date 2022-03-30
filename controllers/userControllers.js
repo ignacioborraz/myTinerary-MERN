@@ -190,12 +190,12 @@ const sendEmail = async (email, uniqueString) => {
         port: 465,
         secure: true,
         auth: {
-            user: "ignaciojavierborraz@gmail.com",
-            pass: "Ign@1080"
+            user: "my.ty.borraz@gmail.com",
+            pass: "Hola1234"
         }
     })
     let mailOptions = { //definimos el mail que se enviará
-        from: 'ignaciojavierborraz@gmail.com',
+        from: 'my.ty.borraz@gmail.com',
         to: email,
         subject: "verify MyTinerary account", //EL ASUNTO Y EN HTML EL TEMPLATE PARA EL CUERPO DE EMAIL Y EL LINK DE VERIFICACION
         html: `
