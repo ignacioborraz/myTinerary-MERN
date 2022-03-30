@@ -18,7 +18,7 @@ app.use('/api', Router) //usamos la ruta desde el servidor para ingresar a la ba
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static("client/build"))
     app.get("*", (req,res)=> {
-        req.sendFile(path.join(__dirname+"/client/build/index.html"))
+        res.sendFile(path.join(__dirname+"/client/build/index.html"))
     })
 }
 
