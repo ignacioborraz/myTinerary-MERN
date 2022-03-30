@@ -58,7 +58,7 @@ const tineraryActions = { //las acciones son eventos en forma de objetos
                 const answer = await axios.put(`https://mytinerary-borraz.herokuapp.com/api/tineraries/likeDislike/${id}`,{},
                     {headers: {Authorization: "Bearer "+token}}
                 )
-                console.log(answer.data.response)
+                //console.log(answer.data.response)
                 return answer.data.response
             }catch (err) {
                 console.log(err)

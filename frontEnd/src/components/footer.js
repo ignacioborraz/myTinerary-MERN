@@ -15,7 +15,7 @@ export default class Footer extends React.Component { //generamos un objeto de c
         return ( //returno el HTML
             <Container maxWidth="100%" sx={{display: 'flex', backgroundColor: '#a57ec4', color: 'white'}}>
                 <LinkRouter to="/home">
-                    <IconButton sx={{bgcolor: 'rgb(165, 126, 196)', color: 'white', height: '40px', margin: '10px', '&:hover': {bgcolor: 'rgba(0, 0, 0, 0.5)'}}}>
+                    <IconButton sx={{bgcolor: 'white', color: 'rgb(165, 126, 196)', height: '40px', margin: '10px', '&:hover': {bgcolor: 'rgba(0, 0, 0, 0.5)'}}}>
                         <HomeIcon />
                     </IconButton>
                 </LinkRouter>
@@ -23,7 +23,7 @@ export default class Footer extends React.Component { //generamos un objeto de c
                     designed by insiders who know and love their cities!
                 </Typography>
                 <LinkRouter to="/cities">
-                    <IconButton sx={{bgcolor: 'rgb(165, 126, 196)', color: 'white', height: '40px', margin: '10px', '&:hover': {bgcolor: 'rgba(0, 0, 0, 0.5)'}}}>
+                    <IconButton sx={{bgcolor: 'white', color: 'rgb(165, 126, 196)', height: '40px', margin: '10px', '&:hover': {bgcolor: 'rgba(0, 0, 0, 0.5)'}}}>
                         <FlightIcon />
                     </IconButton>
                 </LinkRouter>

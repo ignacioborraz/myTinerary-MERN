@@ -94,7 +94,7 @@ function NavBar(props) {
                     {/* //////////icono de usuario////////// */}
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings" sx={{width: '10px',  paddingRight: '20px'}}>
-                            <IconButton onClick={handleOpenUserMenu} sx={{bgcolor: 'rgb(165, 126, 196)', color: 'white', height: '40px', '&:hover': {bgcolor: 'rgba(0, 0, 0, 0.5)'}}}>
+                            <IconButton onClick={handleOpenUserMenu} sx={{bgcolor: 'white', color: 'rgb(165, 126, 196)', height: '40px', '&:hover': {bgcolor: 'rgba(0, 0, 0, 0.5)'}}}>
                                 {props.user ? 
                                     <Avatar src={props.user.userPhoto} /> :
                                     <PersonIcon />

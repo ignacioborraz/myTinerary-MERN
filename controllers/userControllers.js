@@ -177,7 +177,7 @@ const userControllers = {
         if (user) {
             user.verification = true //cambiamos el booleano para que verifique el mail
             await user.save()
-            res.redirect("http://localhost:3000/welcome") //redirigimos a la pagina principal
+            res.redirect("https://mytinerary-borraz.herokuapp.com/welcome") //redirigimos a la pagina principal
         }
         else { res.json({success: false, response: `email has not been confirmed yet!`}) }
     }
