@@ -14,8 +14,7 @@ import userActions from '../redux/actions/userActions'
 function FacebookSignUp(props) {
     const responseFacebook = async (res) => {
         const arrayName = res.name.split(" ")
-        console.log(res)
-        //console.log(props)
+        //console.log(res)
         const userData = {
             name: arrayName[0],
             lastName: arrayName[arrayName.length-1],

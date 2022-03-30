@@ -13,7 +13,7 @@ import userActions from '../redux/actions/userActions'
 
 function GoogleSignUp(props) {
     const responseGoogle = async (res) => {
-        console.log(res)
+        //console.log(res)
         const userData = {
             //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
             name: res.profileObj.givenName,
@@ -24,7 +24,7 @@ function GoogleSignUp(props) {
             from: "google",
             country: "arg"
         }
-        console.log(userData)
+        //console.log(userData)
         await props.signUpUser(userData)
     }
     return (

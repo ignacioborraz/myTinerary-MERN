@@ -13,14 +13,14 @@ import userActions from '../redux/actions/userActions'
 
 function GoogleSignIn(props) {
     const responseGoogle = async (res) => {
-        console.log(res);
+        //console.log(res);
         const userLogin = {
             email: res.profileObj.email,
             password: res.profileObj.googleId,
             from: "google",
             userPhoto: res.profileObj.imageUrl,
         }
-        console.log(userLogin);
+        //console.log(userLogin);
         await props.logInUser(userLogin)
     }
     return (

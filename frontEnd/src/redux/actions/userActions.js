@@ -5,7 +5,7 @@ const userActions = {
         //console.log(userData)
         return async (dispatch, getState) => {
             const res = await axios.post('https://mytinerary-borraz.herokuapp.com/api/auth/signUp', {userData}) //envio a la api los datos del usuario nuevo
-            console.log(res)
+            //console.log(res)
             dispatch({ //despacho al reductor
                 type: 'message',
                 payload: {
@@ -20,7 +20,7 @@ const userActions = {
         //console.log(userLogin)
         return async (dispatch, getState) => {
             const res = await axios.post('https://mytinerary-borraz.herokuapp.com/api/auth/logIn', {userLogin})
-            console.log(res)
+            //console.log(res)
             if(res.data.success) { //si tiene exito
                 localStorage.setItem('token',res.data.response.token) //en el almacenamiento local guardamos el token para que no se cierre sesion cuando salgamos
                 dispatch({

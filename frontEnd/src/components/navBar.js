@@ -13,6 +13,7 @@ import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
 import Tooltip from '@mui/material/Tooltip'
 import MenuItem from '@mui/material/MenuItem'
+import PersonIcon from '@mui/icons-material/Person'
 
 //importo los estilos
 import '../styles/styles.css'
@@ -96,7 +97,7 @@ function NavBar(props) {
                             <IconButton onClick={handleOpenUserMenu}>
                                 {props.user ? 
                                     <Avatar src={props.user.userPhoto} sx={{bgcolor: 'rgb(196, 165, 126)', color: 'white'}} /> :
-                                    <Avatar src="/broken-image.jpg" sx={{bgcolor: 'white', color: 'rgb(165, 126, 196)'}} />
+                                    <PersonIcon sx={{bgcolor: 'white', color: 'rgb(165, 126, 196)'}} />
                                 }
                             </IconButton>
                         </Tooltip>
