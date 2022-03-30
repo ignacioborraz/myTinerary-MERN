@@ -368,6 +368,11 @@ a {
     height: 250px;
 }
 
+.boxSize {
+    width: 23vw;
+    height: 18vw;
+}
+
 @media only screen and (max-width: 1500px) {
     .activities {
         width: 285px;
@@ -379,6 +384,10 @@ a {
     .activities {
         width: 255px;
         height: 200px;
+    }
+    .boxSize {
+        width: 30vw;
+        height: 20vw;
     }
 }
 
@@ -410,6 +419,10 @@ a {
     .activities {
         width: 175px;
         height: 175px;
+    }
+    .boxSize {
+        width: 45vw;
+        height: 30vw;
     }
 }
 
@@ -455,6 +468,10 @@ a {
     }
     .footer {
         font-size: 12px !important;
+    }
+    .boxSize {
+        width: 90vw;
+        height: 30vw;
     }
 }
 @media only screen and (max-width: 500px) {

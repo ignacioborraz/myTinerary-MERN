@@ -34,27 +34,23 @@ export default function Cards (props) {
                     justifyContent: 'space-evenly'}}>
                     {data.map( everyCity =>
                     <LinkRouter to={`/cities/${everyCity._id}`} key={everyCity._id}>
-                        <Box className='fitImg absolute' sx={{
+                        <Box className='fitImg absolute boxSize' sx={{
                             display: 'flex',
                             flexDirection: 'column',
                             textAlign: 'center',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            width: '270px',
-                            height: '180px',
                             backgroundColor: 'rgba(126, 196, 165, 0.4)',
                             margin: '5px',
                             marginTop: '10px'}}>
                             <Typography variant="h2" className='festiveFont shadows' sx={{color: 'black'}}>{everyCity.city}</Typography>
                         </Box>
-                        <Box className='relative' sx={{
+                        <Box className='relative boxSize' sx={{
                             display: 'flex',
                             flexDirection: 'column',
                             textAlign: 'center',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            width: '270px',
-                            height: '180px',
                             margin: '5px',
                             marginTop: '10px'}}>
                             <img src={process.env.PUBLIC_URL+`${everyCity.photo}`} alt={everyCity.city} className='fitImg' />
