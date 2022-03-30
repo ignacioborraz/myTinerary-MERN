@@ -3,11 +3,9 @@ import React, {useState} from 'react'
 import Box from '@mui/material/Box'
 import MailIcon from '@mui/icons-material/Mail'
 import KeyIcon from '@mui/icons-material/Key'
-import {IconButton} from '@mui/material'
 import PersonIcon from '@mui/icons-material/Person'
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera'
 import LocationCityIcon from '@mui/icons-material/LocationCity'
-import GoogleIcon from '@mui/icons-material/Google'
 import Typography from '@mui/material/Typography'
 import {Link as LinkRouter} from "react-router-dom"
 
@@ -18,6 +16,7 @@ import '../styles/styles.css'
 import NavBar from '../components/navBar'
 import Footer from '../components/footer'
 import FacebookSignIn from '../components/faceSignup'
+import GoogleSignIn from '../components/gSignup'
 
 //importo acciones de redux
 import {connect} from 'react-redux'
@@ -200,9 +199,7 @@ function SignUp(props) {
                                 width: '40%',
                                 minWidth: '280px',
                                 marginTop: '10px'}}>
-                                <IconButton sx={{bgcolor: 'white', color: 'rgb(165, 126, 196)'}}>
-                                    <GoogleIcon />
-                                </IconButton>
+                                <GoogleSignIn />
                                 <button type="submit" className='myButton'>sign up!</button>
                                 <LinkRouter to={'/login'} className='anchor festiveFont violetShadows'>Log in!</LinkRouter>
                                 <FacebookSignIn />

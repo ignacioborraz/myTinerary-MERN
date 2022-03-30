@@ -31,7 +31,7 @@ function FacebookSignIn(props) {
             callback = {responseFacebook}
             render = { renderProps => (
                 <>
-                <IconButton onClick={renderProps.onClick} sx={{bgcolor: 'rgb(165, 126, 196)', color: 'white', height: '40px', '&:hover': {bgcolor: 'black'}}}>
+                <IconButton onClick={renderProps.onClick} sx={{bgcolor: 'rgb(165, 126, 196)', color: 'white', height: '40px', '&:hover': {bgcolor: 'rgba(0, 0, 0, 0.5)'}}}>
                     <FacebookIcon />
                 </IconButton>
                 </>

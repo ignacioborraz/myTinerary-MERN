@@ -3,8 +3,6 @@ import React, {useState} from 'react'
 import Box from '@mui/material/Box'
 import MailIcon from '@mui/icons-material/Mail'
 import KeyIcon from '@mui/icons-material/Key'
-import {IconButton} from '@mui/material'
-import GoogleIcon from '@mui/icons-material/Google'
 import Typography from '@mui/material/Typography'
 import {Link as LinkRouter} from "react-router-dom"
 
@@ -15,6 +13,7 @@ import '../styles/styles.css'
 import NavBar from '../components/navBar'
 import Footer from '../components/footer'
 import FacebookSignIn from '../components/faceLogin'
+import GoogleSignIn from '../components/gLogin'
 
 //importo acciones de redux
 import {connect} from 'react-redux'
@@ -103,9 +102,7 @@ function LogIn(props) {
                                 width: '40%',
                                 minWidth: '280px',
                                 marginTop: '10px'}}>
-                                <IconButton sx={{bgcolor: 'white', color: 'rgb(165, 126, 196)', height: '40px'}}>
-                                    <GoogleIcon />
-                                </IconButton>
+                                <GoogleSignIn />
                                 <input type="submit" value='log in!' className='myButton fredokaFont' required />
                                 <LinkRouter to={'/signup'} className='anchor festiveFont violetShadows'>
                                     Sign up!
