@@ -56,18 +56,21 @@ function Display(props) {
             alignItems: 'center',
             justifyContent: 'center',
             backgroundColor: 'rgb(207, 238, 228)',
-            padding: '10px',}}>
-            <Typography variant="h4">{props.tinDat.itinerary}</Typography>
-            <Typography variant="subtitle1">{props.tinDat.description}</Typography>
-            <Typography variant="subtitle2">price: {props.tinDat.price} - time: {props.tinDat.time}</Typography>
-            <Typography variant="subtitle2">{props.tinDat.tags.join(" , ")}</Typography>
+            padding: '10px',
+            width: '100%'}}>
+            <Typography variant="h2" className='festiveFont'>{props.tinDat.itinerary}</Typography>
+            <Typography variant="subtitle1" className='fredokaFont'>{props.tinDat.description}</Typography>
+            <Typography variant="subtitle2" className='fredokaFont'>price: {props.tinDat.price} - time: {props.tinDat.time}</Typography>
+            <Typography variant="subtitle2" className='fredokaFont'>{props.tinDat.tags.join(" , ")}</Typography>
             <CardActions disableSpacing>
                 <LikeButton tinDat={props.tinDat} />
-                <ExpandMore expand={expanded} onClick={handleExpandClick} aria-expanded={expanded} aria-label="show more"><ExpandMoreIcon /></ExpandMore>
+                <ExpandMore expand={expanded} onClick={handleExpandClick} aria-expanded={expanded} aria-label="show more">
+                    <ExpandMoreIcon sx={{bgcolor: 'rgb(196, 165, 126)', '&:hover': {bgcolor: 'rgba(196, 165, 126, 0.7)'}, padding: '5px', marginTop: '5px', marginBottom: '5px', color: 'white', width: '30px', height: '30px', borderRadius: '15px'}}/>
+                </ExpandMore>
             </CardActions>
-            <Collapse in={expanded} timeout="auto" unmountOnExit>
+            <Collapse in={expanded} timeout="auto" unmountOnExit sx={{width: '80%'}} className='width60'>
                 <Activities activities={activity} />
-                <Typography variant="h5" sx={{padding: '8px'}}>comments</Typography>
+                <Typography variant="h5" className='fredokaFont' sx={{margin: '16px', padding: '8px', textAlign: 'center', color: 'white', backgroundColor: 'rgb(0, 73, 48)'}}>comments</Typography>
                 <Comments tinDat={props.tinDat} />
             </Collapse>
         </Card>

@@ -17,7 +17,6 @@ import '../styles/styles.css'
 //importo componentes locales
 import NavBar from '../components/navBar'
 import Footer from '../components/footer'
-import MySnackBar from '../components/snackBar'
 import FacebookSignIn from '../components/faceSignup'
 
 //importo acciones de redux
@@ -210,8 +209,6 @@ function SignUp(props) {
                             </Box>
                         </form>
                     </>
-                    
-                    <MySnackBar />
                 </Box>
                 <Footer />
             </Box>

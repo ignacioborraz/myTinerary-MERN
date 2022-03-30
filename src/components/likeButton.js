@@ -1,7 +1,5 @@
 //importo de librerias externas
 import React, {useEffect, useState} from 'react'
-import Badge from '@mui/material/Badge'
-import {styled} from '@mui/material/styles'
 import IconButton from '@mui/material/IconButton'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
@@ -26,7 +24,7 @@ function LikeButton(props) {
     }, [!reload])
 
     async function toLike() {
-        console.log(props.tinDat._id);
+        //console.log(props.tinDat._id);
         await props.likeDislike(props.tinDat._id)
         setReload(!reload)
     }
@@ -41,37 +39,23 @@ function LikeButton(props) {
             .then(response => setLikes(response.likes))
     } */
 
-
     return (
         <>
             {props.user ?
                 <IconButton onClick={toLike} aria-label="cart">
-                    <StyledBadge sx={{color:"black"}}> 
-                    {likes.includes(props.user.id) ?
-                        <FavoriteIcon /> :
-                        <FavoriteBorderIcon />}
-                        <Typography sx={{paddingLeft: '8px'}}>{likes.length} likes</Typography>
-                    </StyledBadge>
+                {likes.includes(props.user.id) ?
+                    <FavoriteIcon sx={{bgcolor: 'rgb(196, 165, 126)', '&:hover': {bgcolor: 'rgba(196, 165, 126, 0.7)'}, padding: '5px', margin: '5px', color: 'white', width: '30px', height: '30px', borderRadius: '15px'}}/> :
+                    <FavoriteBorderIcon sx={{bgcolor: 'rgb(196, 165, 126)', '&:hover': {bgcolor: 'rgba(196, 165, 126, 0.7)'}, padding: '5px', margin: '5px', color: 'white', width: '30px', height: '30px', borderRadius: '15px'}}/>}
+                    <Typography sx={{color: 'black', paddingLeft: '5px'}}>{likes.length} likes</Typography>
                 </IconButton> :
-                <IconButton onClick={() => console.log('connect!')}  aria-label="cart">
-                    <StyledBadge sx={{color:"black"}}> 
-                        <FavoriteBorderIcon />
-                        <Typography sx={{paddingLeft: '8px'}}>{likes.length} likes</Typography>
-                    </StyledBadge>
+                <IconButton aria-label="cart">
+                    <FavoriteBorderIcon sx={{bgcolor: 'rgb(196, 165, 126)', '&:hover': {bgcolor: 'rgba(196, 165, 126, 0.7)'}, padding: '5px', margin: '5px', color: 'white', width: '30px', height: '30px', borderRadius: '15px'}}/>
+                    <Typography sx={{color: 'black', paddingLeft: '5px'}}>{likes.length} likes</Typography>
                 </IconButton>
             }
         </>
     )
 }
-
-const StyledBadge = styled(Badge)(({ theme }) => ({
-  '& .MuiBadge-badge': {
-    right: -3,
-    top: 13,
-    border: `2px solid ${theme.palette.background.paper}`,
-    padding: '0 4px',
-  },
-}))
 
 const mapDispatchToProps = {
     likeDislike: tineraryActions.likeDislike,
@@ -79,8 +63,7 @@ const mapDispatchToProps = {
 }
 const mapStateToProps = (state) => {
     return {
-        user: state.userReducer.user,
-        oneTin: state.tineraryReducer.oneTin
+        user: state.userReducer.user
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(LikeButton)

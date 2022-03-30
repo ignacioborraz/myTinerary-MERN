@@ -15,32 +15,28 @@ export default function Activities (props) {
             flexWrap: 'wrap',
             textAlign: 'center',
             alignItems: 'center',
-            justifyContent: 'space-evenly'}}>
+            justifyContent: 'space-between'}}>
             {props.activities?.map( everyAct =>
                 <div key={everyAct._id}>
-                    <Box className='fitImg absolute' sx={{
+                    <Box className='absolute activities' sx={{
                         display: 'flex',
                         flexDirection: 'column',
                         textAlign: 'center',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        width: '270px',
-                        height: '180px',
                         backgroundColor: 'rgba(126, 196, 165, 0.4)',
-                        margin: '5px',
-                        marginTop: '10px'}}>
-                        <Typography variant="h2" className='festiveFont shadows' sx={{color: 'black'}}>{everyAct.activity}</Typography>
+                        marginLeft: '16px',
+                        marginRight: '16px'}}>
+                        <Typography variant="h4" className='fredokaFont shadows' sx={{color: 'black'}}>{everyAct.activity}</Typography>
                     </Box>
-                    <Box className='relative' sx={{
+                    <Box className='relative activities' sx={{
                         display: 'flex',
                         flexDirection: 'column',
                         textAlign: 'center',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        width: '270px',
-                        height: '180px',
-                        margin: '5px',
-                        marginTop: '10px'}}>
+                        marginLeft: '16px',
+                        marginRight: '16px'}}>
                         <img src={process.env.PUBLIC_URL+`${everyAct.actPhoto}`} alt={everyAct.activity} className='fitImg' />
                     </Box>
                 </div>

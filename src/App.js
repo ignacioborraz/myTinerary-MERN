@@ -14,6 +14,9 @@ import SignUp from './pages/signup'
 import MyCarousel from './pages/carousel'
 import Welcome from './pages/welcome'
 
+//importo componentes locales
+import MySnackBar from './components/snackBar'
+
 //importo acciones de redux
 import {connect} from 'react-redux'
 import userActions from './redux/actions/userActions'
@@ -36,6 +39,7 @@ function App(props) {
                 <Route path='/welcome' element={<Welcome  />} />
                 <Route path="/*" index element={<Home />} />
             </Routes>
+            <MySnackBar />
         </BrowserRouter>
     )
 }

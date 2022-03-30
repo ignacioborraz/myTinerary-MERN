@@ -35,3 +35,9 @@ rgb(207, 238, 228) //verde claro
 
 //BILLETTITOS
 //{"💵".repeat(parseInt(itinerary.price))}
+/* 
+expo init proyect
+cd proyect
+expod start
+
+ */

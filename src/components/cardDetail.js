@@ -27,7 +27,7 @@ export default function CardDetail (props) {
                     height: '300px',
                     backgroundColor: 'rgba(126, 196, 165, 0.4)'}}>
                     <Typography variant="h1" className='festiveFont shadows' sx={{paddingTop: '20px'}}>{props.cityDat.city}</Typography>
-                    <Typography variant="h5" className='shadows' sx={{paddingTop: '10px'}}>{props.cityDat.country} - {props.cityDat.continent}</Typography>
+                    <Typography variant="h5" className='fredokaFont shadows' sx={{paddingTop: '10px'}}>{props.cityDat.country} - {props.cityDat.continent}</Typography>
                 </Box>
                 <Box className='relative' sx={{
                     display: 'flex',

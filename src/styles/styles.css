@@ -224,45 +224,6 @@
     justify-content: center;
 }
 
-@media only screen and (max-width: 700px) {
-    .wrapCarousel {
-        flex-wrap: wrap !important;
-        width: 85vw !important;
-        height: 17vh !important;
-        font-size: 45px !important;
-    }
-    .footer {
-        font-size: 12px !important;
-    }
-}
-@media only screen and (max-width: 500px) {
-    .title {
-        font-size: 50px !important;
-    }
-    .titleResp {
-        font-size: 32px !important;
-    }
-    .subtitle {
-        font-size: 15px !important;
-    }
-    .button {
-        font-size: 20px !important;
-    }
-    .cityCards {
-        width: 90vw !important;
-        height: 60vw !important;
-    }
-    .imgCards {
-        height: 42vw !important;
-    }
-    .labelCards {
-        height: 18vw !important;
-    }
-}
-
-
-
-
 .infoLog {
     display: flex;
     flex-direction: column;
@@ -371,11 +332,145 @@ a {
     height: 150px;
 }
 
+.divImgComment {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    object-fit: cover !important;
+    width: 100px;
+    min-height: 100px;
+}
 .onlyimgComment {
+    object-fit: cover !important;
+    width: 100px;
+    height: 100px;
+}
+
+.divImgComment2 {
     display: flex;
     justify-content: center;
     align-items: center;
     object-fit: cover !important;
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    min-height: 50px;
+}
+.onlyimgComment2 {
+    object-fit: cover !important;
+    width: 50px;
+    height: 50px;
+}
+
+.activities {
+    width: 350px;
+    height: 200px;
+}
+
+@media only screen and (max-width: 1500px) {
+    .activities {
+        width: 325px;
+        height: 200px;
+    }
+}
+
+@media only screen and (max-width: 1400px) {
+    .activities {
+        width: 295px;
+        height: 200px;
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    .activities {
+        width: 265px;
+        height: 200px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .activities {
+        width: 235px;
+        height: 200px;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .width60 {
+        width: 90% !important;
+    }
+    .activities {
+        width: 175px;
+        height: 175px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .width60 {
+        width: 60vw !important;
+    }
+    .activities {
+        width: calc(60vw - 32px);
+        height: 140px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .flexColumn {
+        flex-direction: column;
+        align-items: center !important;
+        padding-top: 5px;
+    }
+    .width60 {
+        width: 95vw !important;
+    }
+    .activities {
+        width: calc(95vw - 32px);
+        height: 140px;
+    }
+    .divImgComment {
+        width: 50px;
+        min-height: 50px;
+    }
+    .onlyimgComment {
+        width: 50px;
+        height: 50px;
+    }
+    .smallT {
+        font-size: 13px !important;
+    }
+    .wrapCarousel {
+        flex-wrap: wrap !important;
+        width: 85vw !important;
+        height: 17vh !important;
+        font-size: 45px !important;
+    }
+    .footer {
+        font-size: 12px !important;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .divImgComment, .onlyimgComment, .divImgComment2, .onlyimgComment2 {
+        display: none
+    }
+    .title {
+        font-size: 50px !important;
+    }
+    .titleResp {
+        font-size: 32px !important;
+    }
+    .subtitle {
+        font-size: 15px !important;
+    }
+    .button {
+        font-size: 20px !important;
+    }
+    .cityCards {
+        width: 90vw !important;
+        height: 60vw !important;
+    }
+    .imgCards {
+        height: 42vw !important;
+    }
+    .labelCards {
+        height: 18vw !important;
+    }
 }

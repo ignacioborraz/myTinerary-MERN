@@ -16,7 +16,7 @@ export default function Tineraries (props) {
     return (
         <>
         {props.tinDat.map( (everyTin) => (
-            <Box key={everyTin._id} sx={{
+            <Box className='flexColumn' key={everyTin._id} sx={{
                 display: 'flex',
                 textAlign: 'center',
                 alignItems: 'flex-start',
@@ -36,7 +36,7 @@ export default function Tineraries (props) {
                     backgroundColor:'rgb(126, 196, 165)',
                     padding: '10px',}}>
                     <img className="onlyimgCard" src={process.env.PUBLIC_URL+ `${everyTin.userPhoto}`} alt={everyTin.userName} />
-                    <Typography variant="h6">{everyTin.userName}</Typography>
+                    <Typography variant="h6" className='fredokaFont'>{everyTin.userName}</Typography>
                 </Box>
                 <Display tinDat={everyTin} />
             </Box> 
