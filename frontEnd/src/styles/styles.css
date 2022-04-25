@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Festive&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Licorice&display=swap');
 
 * {
     margin: 0;
@@ -57,7 +59,7 @@
 }
 
 .shadows {
-    text-shadow: 0 0 1px white, 0 0 10px white, 0px 0px 10px white;
+    text-shadow: 0 0 10px white, 0 0 10px white, 0px 0px 10px white;
 }
 
 .violetShadows {
@@ -70,7 +72,7 @@
 }
 
 .festiveFont {
-    font-family: 'Festive', cursive !important;
+    font-family: 'Licorice', cursive !important;
 }
 
 .linksHero {
@@ -314,7 +316,7 @@
 }
 
 .titleIndex {
-    font-family: 'Festive', cursive !important;
+    font-family: 'Licorice', cursive !important;
     font-size: 45px !important;
     padding: 15px 10px 5px 0 !important;
 }
@@ -464,7 +466,7 @@ a {
         flex-wrap: wrap !important;
         width: 85vw !important;
         height: 17vh !important;
-        font-size: 45px !important;
+        font-size: 70px !important;
     }
     .footer {
         font-size: 12px !important;
@@ -479,7 +481,7 @@ a {
         display: none
     }
     .title {
-        font-size: 50px !important;
+        font-size: 70px !important;
     }
     .titleResp {
         font-size: 32px !important;
@@ -499,5 +501,8 @@ a {
     }
     .labelCards {
         height: 18vw !important;
+    }
+    .wrapCarousel {
+        font-size: 60px !important;
     }
 }

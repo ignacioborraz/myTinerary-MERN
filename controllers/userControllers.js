@@ -6,43 +6,44 @@ const jwt = require('jsonwebtoken')
 
 const userControllers = {
 
-    signUpUser: async (req,res) => { //controlador del usuario nuevo
-        //console.log(req.body) //vemos los datos que necesitamos
-        let {name, lastName, email, password, from, userPhoto, country} = req.body.userData //requerimos los datos del formulario
+    signUpUser: async (req,res) => {
+        //console.log('REQ BODY')
+        //console.log(req.body)
+        let {name, lastName, email, password, from, userPhoto, country} = req.body.userData
         const test = req.body.test
         try {
-            const myTUser = await User.findOne({email}) //esperamos a que encuentre el mail dentro de lo usuarios
+            const myTUser = await User.findOne({email})
             //console.log(myTUser)
-            if (myTUser) { //si el mail ya fue registrado, entonces myTUser existe
+            if (myTUser) { 
                 //console.log('this number is:'+myTUser.from.indexOf(from))
-                if (myTUser.from.indexOf(from) === 0) { //si ya fue registrado por este medio (formulario)
+                if (myTUser.from.indexOf(from) === 0) {
                     res.json({
                         success: false,
                         from: "SignUpForm",
-                        message: `user ${email} already exists, please LOG IN!`}) //avisa que ya existe
-                } else { //si fue registrado por otros medios (google, face)
-                    const hashWord = bcryptjs.hashSync(password, 10) //encriptamos la contraseña
-                    myTUser.from.push(from) //pusheamos "desde donde se ingresa" (en el modelo se define como un array)
-                    myTUser.password.push(hashWord) //pusheamos la contraseña encriptada (tambien es unn array)
-                    if (from === "SignUpForm") { //si el ingreso es desde el formulario
-                        myTUser.uniqueString = crypto.randomBytes(15).toString('hex') //agrego la propiedad y le asigno un nuevo "codigo/contraseña/token"
-                        await myTUser.save() //esperamos el guardado del usuario
-                        await sendEmail(email, myTUser.uniqueString) //esperamos el envío del mail
+                        message: `user ${email} already exists, please LOG IN!`}) 
+                } else { 
+                    const hashWord = bcryptjs.hashSync(password, 10) 
+                    myTUser.from.push(from) 
+                    myTUser.password.push(hashWord) 
+                    if (from === "SignUpForm") { 
+                        myTUser.uniqueString = crypto.randomBytes(15).toString('hex') 
+                        await myTUser.save() 
+                        await sendEmail(email, myTUser.uniqueString) 
                         res.json({
                             success: true, 
                             from: "SignUpForm", 
-                            message: `check ${email}! we send you a mail to confirm your SIGN UP!`}) //avisa que confirme el mail
-                    } else { //si el ingreso es por otros medios (google, face)
-                        myTUser.save() //guardamos el modelo              
+                            message: `check ${email}! we send you a mail to confirm your SIGN UP!`}) 
+                    } else { 
+                        myTUser.save() 
                         res.json({
                             success: true,
                             from:"externalSignUp", 
                             message: `user exist! LOG IN please!`})
                     }
                 }
-            } else { //si el mail no fue registrado
-                const hashWord = bcryptjs.hashSync(password, 10) //encriptamos la contraseña
-                const myNewTUser = await new User({ //generamos un nuevo modelo de usuario
+            } else {
+                const hashWord = bcryptjs.hashSync(password, 10) //
+                const myNewTUser = await new User({ 
                     name,
                     lastName,
                     email,
@@ -52,18 +53,15 @@ const userControllers = {
                     userPhoto,
                     country,
                     verification: false})
-                if (from === "SignUpForm") { //si el nuevo usuario proviene del formulario
-                    await myNewTUser.save() //esperamos el guardado del usuario
-                    await sendEmail(email, myNewTUser.uniqueString) //esperamos el envío del mail
+                if (from === "SignUpForm") { 
+                    await myNewTUser.save() 
+                    await sendEmail(email, myNewTUser.uniqueString) 
                     res.json({
                         success: true, 
                         from:"SignUpForm",
-                        message: `check ${email} and finish your SIGN UP!`}) //avisa que confirme el mail
-                //SI ES POR OTROS MEDIOS
-                //SI ES POR OTROS MEDIOS
-                //SI ES POR OTROS MEDIOS
-                    } else { //si el nuevo usuario proviene de otros medios (google, face)
-                    await myNewTUser.save() //esperamos el guardado del usuario
+                        message: `check ${email} and finish your SIGN UP!`}) 
+                    } else { 
+                    await myNewTUser.save()
                     res.json({
                         success: true, 
                         from:"externalSignUp",
@@ -76,50 +74,47 @@ const userControllers = {
         }
     },
 
-    logInUser: async (req, res) => { //controlador del inicio de sesion en nuestra webapp
+    logInUser: async (req, res) => {
         const {email, password, from} = req.body.userLogin
         try {
-            const myTUser = await User.findOne({email}) //esperamos a que encuentre el mail dentro de lo usuarios
-            if (!myTUser) { //si el mail no existe
+            const myTUser = await User.findOne({email}) 
+            if (!myTUser) { 
                 res.json({success: false, message: `${email} has no account in MyTinerary, please SIGN UP!`})
-            } else { //si existe el mail
-                if (from === "LogInForm") { //si el ingreso es desde el formulario
-                    if (myTUser.verification ) { //si el usuario ya fue validado
-                        let checkedWord =  myTUser.password.filter(pass => bcryptjs.compareSync(password, pass)) //comparamos la contraseña
-                        //console.log(checkedWord)
+            } else { 
+                if (from === "LogInForm") { 
+                    if (myTUser.verification ) { 
+                        let checkedWord =  myTUser.password.filter(pass => bcryptjs.compareSync(password, pass)) 
                         //console.log("resultado de busqueda de contraseña: " +(checkedWord.length >0))
-                        if (checkedWord.length > 0) { //si hay mas de una coincidencia con la contraseña de la base de datos
-                            const userData = { //definimos una variable con los datos del usuario
+                        if (checkedWord.length > 0) {
+                            const userData = {
                                 id: myTUser._id,
                                 name: myTUser.name,
                                 email: myTUser.email,
                                 userPhoto: myTUser.userPhoto,
                                 from: myTUser.from}
                             //console.log(userData)
-                            const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 1000*60*60*24 }) //generamos un token que expira en un día
+                            const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 1000*60*60*24 })
                             res.json({
                                 success: true, 
                                 from: from, 
                                 response: {token, userData}, 
                                 message: `welcome back ${userData.name}!`})
-                        } else { //si no hay coincidencias
+                        } else {
                             res.json({ success: false, 
                                 from: from,  
                                 message: `verify your password!`})
                         }
-                    } else { //si el usuario no fue validado
+                    } else {
                         res.json({
                             success: false, 
                             from: from, 
                             message:`check ${email}! confirm your SIGN UP and LOG IN!`}) 
                     }
-                //SI ES POR OTROS MEDIOS
-                //SI ES POR OTROS MEDIOS
-                //SI ES POR OTROS MEDIOS
-                } else { //si el  usuario ingresa por otros medios (google, face)
-                    let checkedWord =  myTUser.password.filter(pass => bcryptjs.compareSync(password, pass)) //comparamos la contraseña
-                    if (checkedWord.length > 0) { //si hay mas de una coincidencia con la contraseña de la base de datos
-                        const userData = { //definimos una variable con los datos del usuario
+                } else {
+                    let checkedWord =  myTUser.password.filter(pass => bcryptjs.compareSync(password, pass))
+                    //console.log(checkedWord)
+                    if (checkedWord.length > 0) {
+                        const userData = {
                             id: myTUser._id,
                             name: myTUser.name, 
                             email: myTUser.email,
@@ -127,12 +122,12 @@ const userControllers = {
                             from: myTUser.from}
                         //console.log(userData)
                         await myTUser.save()
-                        const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 1000*60*60*24 }) //generamos un token que expira en un día
+                        const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 1000*60*60*24 })
                         res.json({ success: true, 
                             from: from, 
                             response: {token, userData}, 
                             message: `welcome back ${userData.name}!`})
-                    } else { //si no hay coincidencias
+                    } else {
                         res.json({ success: false, 
                             from: from,  
                             message: `there is no register from ${from}, please SIGN UP`})
@@ -145,7 +140,7 @@ const userControllers = {
         }
     },
 
-    signOutUser: async (req, res) => { //controlador del cierre de sesion
+    signOutUser: async (req, res) => {
         const email = req.body.closeData
         const user = await User.findOne({email})
         await user.save()
@@ -170,14 +165,14 @@ const userControllers = {
         }
     },
 
-    verifyEmail: async (req, res) => { //controlador de la verificacion del email
-        const {uniqueString} = req.params; //requerimos el codigo del link (del mail)
-        const user = await User.findOne({uniqueString: uniqueString}) //esperamos que encuentre el codigo en el modelo
+    verifyEmail: async (req, res) => {
+        const {uniqueString} = req.params;
+        const user = await User.findOne({uniqueString: uniqueString})
         //console.log(user)
         if (user) {
-            user.verification = true //cambiamos el booleano para que verifique el mail
+            user.verification = true
             await user.save()
-            res.redirect("https://mytinerary-borraz.herokuapp.com/welcome") //redirigimos a la pagina principal
+            res.redirect("https://mytinerary-borraz.herokuapp.com/welcome")
         }
         else { res.json({success: false, response: `email has not been confirmed yet!`}) }
     }
@@ -185,7 +180,7 @@ const userControllers = {
 }
 
 const sendEmail = async (email, uniqueString) => {
-    const transporter = nodemailer.createTransport({ //definimos desde donde se envía el mail
+    const transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
         port: 465,
         secure: true,
@@ -194,10 +189,10 @@ const sendEmail = async (email, uniqueString) => {
             pass: "Hola1234"
         }
     })
-    let mailOptions = { //definimos el mail que se enviará
+    let mailOptions = {
         from: 'my.ty.borraz@gmail.com',
         to: email,
-        subject: "verify MyTinerary account", //EL ASUNTO Y EN HTML EL TEMPLATE PARA EL CUERPO DE EMAIL Y EL LINK DE VERIFICACION
+        subject: "verify MyTinerary account",
         html: `
         <div>
             <h1><a href=https://mytinerary-borraz.herokuapp.com/api/verify/${uniqueString} style="color:red">CLICK!</a> to confirm you account.</h1>
@@ -207,7 +202,7 @@ const sendEmail = async (email, uniqueString) => {
             <h4>designed by insiders who know and love their cities!</h4>
         </div>
         `};
-    await transporter.sendMail(mailOptions, function (error, response) { //esperamos el envío del mail
+    await transporter.sendMail(mailOptions, function (error, response) {
         if (error) { console.log(error) }
         else {
             console.log(`check ${email} to confirm your account`)

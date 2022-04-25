@@ -1,19 +1,19 @@
-require('dotenv').config() //carga el contenido de env en process
-const cors = require('cors')//middleware gestiona los datos //se instala cors
-const express = require('express') //carga el contenido de express
+require('dotenv').config()
+const cors = require('cors')
+const express = require('express')
 
-require('./config/database') //requerimos la base de datos
-const Router = require('./routes/routes') //requerimos la ruta
+require('./config/database')
+const Router = require('./routes/routes')
 
-const app = express() //app es una constante que usa los metodos de express
+const app = express()
 
 const path = require('path')
 const PORT = process.env.PORT || 4000
 const HOST = process.env.HOST || '0.0.0.0'
 
-app.use(cors()) //gesionamos los datos
-app.use(express.json()) //devuelve la respuesta en formato json
-app.use('/api', Router) //usamos la ruta desde el servidor para ingresar a la base del dato
+app.use(cors())
+app.use(express.json())
+app.use('/api', Router)
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static("client/build"))
@@ -22,7 +22,11 @@ if (process.env.NODE_ENV === 'production') {
     })
 }
 
-app.listen(PORT,HOST, ()=>console.log('SERVER READY ON PORT '+PORT)) //listen es un metodo que escucha una variable y ejecuta una funcion
-//para recargar el servidor automaticamente instalamos nodemon
+//app.listen(PORT, ()=>console.log('SERVER READY ON PORT '+PORT))
+app.listen(PORT,HOST, ()=>console.log('SERVER READY ON PORT '+PORT))
 
-//una vez configurado el servidor y la conexion a la base de datos, generamos el modelo de conexion
+/* 
+    "scripts": {
+        "start": "nodemon server.js"
+    }
+*/

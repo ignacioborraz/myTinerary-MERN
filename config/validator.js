@@ -3,7 +3,7 @@ const joi = require('joi')
 const validator = (req, res, next) => {
     //console.log("req.body es")
     //console.log(req.body)
-    const schema = joi.object({ //los campos a validar dependen del front
+    const schema = joi.object({
         name: joi.string()
             .max(20)
             .min(3)
@@ -42,7 +42,7 @@ const validator = (req, res, next) => {
                 'string.max': '"password": max 30 characters'}),
         from: joi.string()
     })
-    const validation = schema.validate(req.body.userData, {abortEarly:false}) //userData es el nombre del conjunto de datos requeridos en el front
+    const validation = schema.validate(req.body.userData, {abortEarly:false})
     if (validation.error) {
         return res.json({success: false, from: 'validator', message: validation.error.details, test: validation})
     }
@@ -50,5 +50,3 @@ const validator = (req, res, next) => {
 }
 
 module.exports = validator
-
-//luego de las validaciones configuro las rutas

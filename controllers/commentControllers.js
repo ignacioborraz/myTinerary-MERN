@@ -1,10 +1,8 @@
 const Tineraries = require('../models/tinerary')
 
-const commentControllers = { //defino los metodos que necesita el controlador (utiliza una funcion asincrona (async/await))
+const commentControllers = {
 
     addComment: async (req, res) => {
-        //console.log('REQ.PARAMS')
-        //console.log(req.params)
         //console.log('REQ.BODY')
         //console.log(req.body)
         //console.log('REQ.USER')
@@ -27,12 +25,10 @@ const commentControllers = { //defino los metodos que necesita el controlador (u
     },
 
     modifyComment: async (req, res) => {
-        //console.log('REQ.PARAMS')
-        //console.log(req.params)
         //console.log('REQ.BODY')
         //console.log(req.body)
         //console.log('REQ.USER')
-        //console.log(req.user)s
+        //console.log(req.user)
         const {commentId,comments} = req.body
         const user = req.user._id
         try {
@@ -52,8 +48,6 @@ const commentControllers = { //defino los metodos que necesita el controlador (u
     deleteComment: async (req, res) => {
         //console.log('REQ.PARAMS')
         //console.log(req.params)
-        //console.log('REQ.BODY')
-        //console.log(req.body)
         //console.log('REQ.USER')
         //console.log(req.user)
         const commentId = req.params.id
@@ -73,6 +67,4 @@ const commentControllers = { //defino los metodos que necesita el controlador (u
     }
 }
 
-module.exports = commentControllers //exporto los controladores
-
-//luego configuro el enrrutador de endpoints
+module.exports = commentControllers

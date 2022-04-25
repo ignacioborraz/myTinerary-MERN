@@ -88,7 +88,7 @@ export default function MyCarousel () {
                                 height: '100%'}}>
                                 {everyContinent.cities.map((everyCity) => ( /* mapeamos las ciudades */
                                     <Box key={everyCity.id} className='wrapCarousel'> {/* configuramos el renderizado de cada card */}
-                                        <Typography variant="h2" className='festiveFont shadows fitImg absolute wrapCarousel' sx={{
+                                        <Typography variant="h1" className='festiveFont shadows fitImg absolute wrapCarousel' sx={{
                                             display: 'flex',
                                             textAlign: 'center',
                                             alignItems: 'center',

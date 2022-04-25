@@ -1,12 +1,15 @@
-import axios from 'axios';
+import axios from 'axios'
+
+let urlMyTin = 'https://mytinerary-borraz.herokuapp.com/'
+//let urlMyTin ='http://localhost:4000/'
 
 const userActions = {
     signUpUser: (userData) => {
         //console.log(userData)
         return async (dispatch, getState) => {
-            const res = await axios.post('https://mytinerary-borraz.herokuapp.com/api/auth/signUp', {userData}) //envio a la api los datos del usuario nuevo
+            const res = await axios.post(urlMyTin+'api/auth/signUp', {userData})
             //console.log(res)
-            dispatch({ //despacho al reductor
+            dispatch({
                 type: 'message',
                 payload: {
                     view: true,
@@ -19,10 +22,10 @@ const userActions = {
     logInUser: (userLogin) => {
         //console.log(userLogin)
         return async (dispatch, getState) => {
-            const res = await axios.post('https://mytinerary-borraz.herokuapp.com/api/auth/logIn', {userLogin})
+            const res = await axios.post(urlMyTin+'api/auth/logIn', {userLogin})
             //console.log(res)
-            if(res.data.success) { //si tiene exito
-                localStorage.setItem('token',res.data.response.token) //en el almacenamiento local guardamos el token para que no se cierre sesion cuando salgamos
+            if(res.data.success) {
+                localStorage.setItem('token',res.data.response.token)
                 dispatch({
                     type: 'user',
                     payload: res.data.response.userData
@@ -42,7 +45,7 @@ const userActions = {
     signOutUser: (closeData) => {
         //console.log(closeData)
         return async (dispatch, getState) => {
-            const res = axios.post('https://mytinerary-borraz.herokuapp.com/api/auth/signOut',{closeData}) //envio a la api los datos del usuario que cierra sesion
+            const res = axios.post(urlMyTin+'api/auth/signOut',{closeData})
             //console.log(res)
             localStorage.removeItem('token')
             dispatch({
@@ -54,7 +57,7 @@ const userActions = {
     verifyToken: (token) => {
         return async (dispatch, getState) => {
             //console.log(token)
-            const user = await axios.get('https://mytinerary-borraz.herokuapp.com/api/auth/loginToken', {headers: {'Authorization': 'Bearer '+token}} )
+            const user = await axios.get(urlMyTin+'api/auth/loginToken', {headers: {'Authorization': 'Bearer '+token}} )
             //console.log(user)
             if (user.data.success) {
                 dispatch({
@@ -76,5 +79,4 @@ const userActions = {
     }
 }
 
-export default userActions;
-//la accion despacha al reductor
+export default userActions

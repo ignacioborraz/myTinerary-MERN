@@ -13,7 +13,7 @@ import userActions from '../redux/actions/userActions'
 
 function GoogleSignIn(props) {
     const responseGoogle = async (res) => {
-        //console.log(res);
+        console.log(res);
         const userLogin = {
             email: res.profileObj.email,
             password: res.profileObj.googleId,
@@ -26,7 +26,7 @@ function GoogleSignIn(props) {
     return (
         <GoogleLogin
             /*fields = "name,email,id,picture"*/
-            clientId="518590523317-2quk5u9mpu31em2iau97v263i7dad01a.apps.googleusercontent.com"
+            clientId="176379756284-u8qru9aq48o2lq5k9u9ubrnt3cm2c7o7.apps.googleusercontent.com"
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
             cookiePolicy={'single_host_origin'}
